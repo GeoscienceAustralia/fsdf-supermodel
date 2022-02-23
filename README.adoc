@@ -1,0 +1,37 @@
+= Loc-I Supermodel
+
+WARNING: in early development, not officially released yet
+
+This Model - the Loc-I Supermodel - is the link:http://www.ga.gov.au/locationindex[Location Index (Loc-I) Projects]'s overarching data model that provides integration logic for all Loc-I elements.
+
+This work is part of a project to operationalise Loc-I for https://www.ga.gov.au[Geoscience Australia] by https://surroundaustralia.com[SURROUND Australia Pty Ltd].
+
+[[NOTE]]
+====
+this work is currently in early development with a complete first release expected in Jun, 2022.
+
+This work builds on previous work defining overarching mdoels and specialised dataset models for Loc-I datasets developed by https://www.csiro.au[CSIRO] and https://www.ga.gov.au[Geoscience Australia]. All previously developed Loc-I models are incorporated here, albethey with some updates.
+====
+
+This model's document is auto-built from the source file `supermodel.adoc` and viewable online at:
+
+* https://surroundaustralia.github.io/loci-supermodel/supermodel.html
+
+The repository is at:
+
+* https://github.com/surroundaustralia/loci-supermodel
+
+The online and repostory location will certainly change once this model is taken over by Geoscience Australia itself for continued use.
+
+== License & Rights
+
+The contents of this repository is licensed under Creative Commons 4.0 International. See the LICENSE file in the repository for details.
+
+== Contacts
+
+Initial development of this work is being undertaken by the following, for Geoscience Australia:
+
+**Nicholas J. Car** +
+*Data Systems Architect* +
+SURROUND Australia Pty Ltd. +  
+<nicholas.car@surroundaustralia.com>  

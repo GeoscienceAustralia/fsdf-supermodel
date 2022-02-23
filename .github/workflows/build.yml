@@ -1,0 +1,34 @@
+name: Auto-build HTML
+
+on: 
+  push: 
+      branches:
+          - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2.3.1
+
+    - name: Build
+      working-directory: ./
+      run: |
+        echo "installing asciidoctor"
+        sudo apt-get install asciidoctor ruby -y
+        echo "Making deployment dir - docs/"
+        mkdir docs
+        echo "Add README to docs/"
+        asciidoctor README.adoc -o docs/index.html
+        echo "Add supermodel to docs/"
+        asciidoctor 01-supermodel.adoc -o docs/supermodel.html
+        sed -i 's#img src="#img src="https://surroundaustralia.github.io/loci-supermodel/#' docs/supermodel.html        
+        echo "Add supermodel RDF to docs/"
+        cp rdf/*.ttl docs/
+        echo "Add images to docs/"
+        cp -r img docs/
+    - name: Deploy 🚀
+      uses: JamesIves/github-pages-deploy-action@releases/v3
+      with:
+         BRANCH: gh-pages
+         FOLDER: docs
