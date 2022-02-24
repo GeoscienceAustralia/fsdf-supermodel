@@ -111,9 +111,21 @@ All code snippets in this document, used to show formal and machine-readable ver
 
 == Introduction
 
-_coming_
+=== Loc-I Project
 
-=== Uses
+The Location Index (LOC-I) project, established in 2018, created a framework to provide a consistent way to seamlessly integrate spatial data from distributed sources. The target was Australian spatial data "of national significance", meaning most - initially all - of the data considered was Australian federal government data. Going forward, Loc-I is not limited to this sort of data, so other government data (states) may be included as well as non-government data.
+
+See the project website, http://www.ga.gov.au/locationindex, for more project information.
+
+=== Loc-I Technical Implementation 
+
+The technical implementation of Loc-I was based on Semantic Web <<semantic-web>> principles allowing for datasets to be published as Linked Data <<linked-data>> independently by data holders - different government departments, companies etc. - and consumed with minimal effort required for integration.
+
+The technical implementation relied on a _Loc-I Ontology_, the main Loc-I model, multiple _Background Models_, fundamental, standards, data models that the Loc-I Ontology depended on, and, for some datasets, _Dataset Models_ of their content that spefialise the Loc-I Ontology.
+
+=== Supermodel Specification role
+
+This Loc-I Supermodel Specification formally defines the technical model implementation of Loc-I including all previously created models and relations as well as new models that have been added since the original Loc-I project, for example to allow Loc-I information to be exported in forms expected by industry.
 
 == Model
 

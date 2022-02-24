@@ -8,16 +8,20 @@ This work is part of a project to operationalise Loc-I for https://www.ga.gov.au
 
 [[NOTE]]
 ====
-This work is currently in early development with a complete first release expected in Jun, 2022.
+This work is currently in early development with a complete first release expected in June, 2022.
 
 This work builds on previous work defining overarching mdoels and specialised dataset models for Loc-I datasets developed by https://www.csiro.au[CSIRO] and https://www.ga.gov.au[Geoscience Australia]. All previously developed Loc-I models are incorporated here, albethey with some updates.
 ====
 
-This model's document is auto-built from the source file `supermodel.adoc` and viewable online at:
+== Specification document
+
+This model's document is auto-built from source files within the Loc-I Supermodel repository. Both the document and source files are viewable online.
+
+The Specification document:
 
 * https://surroundaustralia.github.io/loci-supermodel/supermodel.html
 
-The repository is at:
+The repository:
 
 * https://github.com/surroundaustralia/loci-supermodel
 
