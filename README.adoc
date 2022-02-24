@@ -8,7 +8,7 @@ This work is part of a project to operationalise Loc-I for https://www.ga.gov.au
 
 [[NOTE]]
 ====
-this work is currently in early development with a complete first release expected in Jun, 2022.
+This work is currently in early development with a complete first release expected in Jun, 2022.
 
 This work builds on previous work defining overarching mdoels and specialised dataset models for Loc-I datasets developed by https://www.csiro.au[CSIRO] and https://www.ga.gov.au[Geoscience Australia]. All previously developed Loc-I models are incorporated here, albethey with some updates.
 ====
