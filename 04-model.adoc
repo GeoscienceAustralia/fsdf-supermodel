@@ -1,0 +1,169 @@
+== Model
+
+=== Level 0: Model Background
+
+This view of the model is a backgrounding one which describes the underpinning model mecahnics that it uses. The object modelling used is based on the _Web Ontology Language_ <<OWL>> and its own underlying use of RDF & RDFS footnote:[RDF: https://www.w3.org/RDF/, RDFS: https://www.w3.org/TR/rdf-schema/. These references generally need not be followed as descriptions of the use of OWL will cover their relevant concepts.]. The _Provenance Ontology_ <<PROV>> is used to model real-world causal dependencies - provenance.
+
+==== Diagram Key
+
+The figure below is a key for the elements in all of the model diagrams in this document.
+
+[id=fig-level0-key]
+.Diagram elements key
+image::img/key.png[]
+
+==== Object Modelling
+
+The elements from the above subsection are shown in relation to one another in the figure below.
+
+[id=fig-level0-owl]
+.OWL objects and their relations
+image::img/level0-owl.png[]
+
+The elements shown above are identified with prefixed IRIs that correspond to entries in the <<#tbl-prefixes, Namespace Table>>. A short explanation of the diagram key elements is:
+
+* `owl:Class` - represents any conceptual class of objects. Classes are expected to contain individuals - instances of the class - and the class, as a whole, may have realtions to other classes
+* `owl:NamedIndividual` - an individual of an `owl:class`. For example, for the class _ships_, an individual might be _Titanic_
+* `rdf:property` - a relationship between classes, individuals, or any objects and Literals
+* `rdfs:subClassOf` -  an `rdf:property` indicating that the domain (from object) is a subclass of the range (to objects). An example is the class _student_ which is a subclass of _person_: all _students_ are clearly _persons_ but not _vice versa_
+* `rdf:type` - the property that related an `owl:NamedIndividual` to the `owl:Class` that it's a member of
+* `Literal` - a simple literal data property, e.g. the string "Nicholas", or the number 42. Specific literal types are usually indicated when used
+
+The remaining diagrams in this document use extensions to this basic model, for example <<#fig-level0-prov, Figure 3>> uses colour-coded specialised forms of `owl:Class` (subclasses of it) and the relations in <<#fig-central-classes, Figure 5>> are specialised forms of `rdf:property`.
+
+==== Provenance
+
+General provenance/lineage information about anything - a rock sample, a dataset, a term in a vocabulary etc. - is described using the _Provenance Ontology_ <<PROV>> which views _everything_ in the world as being of one or more types in <<#fig-level0-prov, Figure 3>>.
+
+[id=fig-level0-prov]
+.PROV main classes and main relations
+image::img/level0-prov.png[]
+
+According to PROV, all things are either a:
+
+* `prov:Entity` - a physical, digital, conceptual, or other kind of thing with some fixed aspects
+* `prov:Agent` - something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity
+* `prov:Activity` - something that occurs over a period of time and acts upon or with entities
+
+While not often in front of mind for objects in any Data Domain, provenance relations always apply, for example: a `sosa:Sample` within the _Sampling_ domain is a `prov:Entity` and will necissarily have been created via a `sosa:Sampling` which is a `prov:Activity`. Another example: an `sdo:Person` related to a `dcat:Dataset` via the property `dcterms:creator` in the _DataCataloging_ domain is a specialised form of a `prov:Agent` related to a `prov:Entity` via `prov:wasAttributedTo`.
+
+=== Level 1: Data Domains
+
+The top-level view of the supermodel that assumes Level 0 background mechanics shows a set of 5 <<#data-domain, Data Domains>> which are:
+
+1. http://pid.geoscience.gov.au/def/sm/data-domains/data-cataloguing:[Data Cataloguing]
+2. http://pid.geoscience.gov.au/def/sm/data-domains/organisations-people:[Organisations & People]
+3. http://pid.geoscience.gov.au/def/sm/data-domains/spatiality:[Spatiality]
+4. http://pid.geoscience.gov.au/def/sm/data-domains/theming:[Theming]
+
+These are shown in <<fig-top-level, Figure 1>> below.
+
+[id=fig-top-level]
+.Top-level view of the Supermodel showing Data Domains
+image::img/data-domains.png[]
+
+These Data Domains are defined formally in a simple SKOS vocabulary within this model's set of machine-readable resources. The vocabulary may be access ddirectly at http://pid.geoscience.gov.au/def/sm/data-domains.
+
+Elements at all other levels of detail in this model are classified according to these Data Domains by use of the `dcat:theme` property, for example, the class `sosa:Sample` is within the _Sampling_ Data Domain, so it is defined as follows:
+
+```turtle
+sosa:Sample
+    a owl:Class ;
+    dcat:theme super:sampling ;
+    ...
+.
+```
+
+=== Level 2: Central Classes
+
+The next level of detail after the Data Domains introduces the Central Classes. Here the most significant, general, class per Data Domain is indicated, along with the main relationships between each of them. <<fig-central-classes, Figure 2>> shows this.
+
+[id=fig-central-classes]
+.Next level view of the Supermodel showing Central Classes
+image::img/central-classes.png[]
+
+The Central Classes of each of the Data Domains are well-used classes from well-known models. For example, the Central Class of _Organisation & People_ is <<PROV>>'s `Agent` class which is one of the three main classes of thing in PROV and used every time PROV is used to represent causal agents. PROV is used extensively to indicate how things - data, resources, systems - come to be.
+
+A list of the Data Domains' Central Classes, their definitions, as given by their defining systems, and their defining system are given in <<tbl-central-classes, Table 2>> below.
+
+[#tbl-central-classes, width=75%, frame=none, grid=none]
+.Data Domains their Central Classes and those Classes' definitions and origins
+|===
+| Data Domain | Central Class | Definition | Defined By
+
+| Data Cataloguing | `dcat:Dataset` | A collection of data that is listed in the catalog. | Data Catalog Vocabulary <<DCAT>>
+| Sampling | `sosa:Sample` | A Sample is the result from an act of Sampling.
+
+Feature which is intended to be representative of a FeatureOfInterest on which Observations may be made.
+
+Physical samples are sometimes known as 'specimens'. | Sensor, Observation, Sample, and Actuator Ontology, within <<SSN>>
+| Spatiality | `geo:Feature` | A discrete spatial phenomenon in a universe of discourse | GeoSPARQL Ontology <<GEO>>
+| Theming | `skos:Concept` | An idea or notion; a unit of thought | Simple Knowledge Organization System ontology <<SKOS>>
+| Organisations & People | `prov:Agent` | An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity | PROV-O: The PROV Ontology <<PROV>>
+|===
+
+The definitions of the main relations between Central Classes are given in 
+
+[#tbl-cc-relations, width=75%, frame=none, grid=none]
+.Central Class main relations their definitions and origins
+|===
+| Central Class | Definition | Defined By
+
+| `dcat:Dataset` | A collection of data that is listed in the catalog. | Data Catalog Vocabulary <<DCAT>>
+| Sampling | `sosa:Sample` | A Sample is the result from an act of Sampling.
+
+Feature which is intended to be representative of a FeatureOfInterest on which Observations may be made.
+
+Physical samples are sometimes known as 'specimens'. | Sensor, Observation, Sample, and Actuator Ontology, within <<SSN>>
+| `geo:Feature` | A discrete spatial phenomenon in a universe of discourse | GeoSPARQL Ontology <<GEO>>
+| `skos:Concept` | An idea or notion; a unit of thought | Simple Knowledge Organization System ontology <<SKOS>>
+| `prov:Agent` | An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity | PROV-O: The PROV Ontology <<PROV>>
+|===
+
+=== Level 3: Domain Main Classes
+
+At this level, the main classes within each Data Domain are identified and related to one another. In each Data Domain there is a well-known model used for the majority of the classes and relations. These well-known models are indicated to ensure that they can be followed if extensions to this level's modelling need to be made.
+
+==== Data Cataloguing
+
+This subsection details the main elements of the Data Cataloguing Data Domain.
+
+[id=fig-domain-classes-data-cataloguing]
+.Domain Main Classes for Data Cataloguing
+image::img/domain-classes-data-cataloguing.png[]
+
+This Data Domain's main classes are essentially the DCAT2 data model <<DCAT>> with a slight profiling: `dcterms:hasPart` should be used to indicate elements within catalogues (e.g. `dcat:Dataset` and other things within a `dcat:Catalog`) rather than the specialised properties of `dcat:dataset` because generic catalogue can be expected to catalogue many types of things and the type of the thing should be given by the thing, not the catalogue property used to indicate it.
+
+==== Organisations & People
+
+This subsection details the main elements of the Organisations & People Data Domain.
+
+[id=fig-domain-classes-organisations-people]
+.Domain Main Classes for Organisations & People
+image::img/domain-classes-organisations-people.png[]
+
+This Data Domain's main classes are centered on <<PROV>>'s `prof:Agent` class but specific types of agent - _person_ & _organisation_ are defined using schema.org <<SDO>>, the general-purpose ontology provisioned by Google, Microsoft & Yahoo for the description of web page data. 
+
+schema.org objects and properties are also used to define agents in the VocPub profile <<VOCPUB>> and are understood by ontology documentation tools such as pyLODE footnote:[https://pypi.org/project/pyLODE/].
+
+==== Spatiality
+
+This subsection details the main elements of the Spatiality Data Domain.
+
+[id=fig-domain-classes-spatiality]
+.Domain Main Classes for Spatiality
+image::img/domain-classes-spatiality.png[]
+
+This Data Domain's main classes are taken directly from GeoSPARQL 1.1 <<GEO>> which is used extensively for Semantic Web spatial data already. GeoSPARQL's main purposes are to relate things (`geo:Feature`) to their spatial projections - their geometries - and to relate things to one another - topological relations between features, such as _within_, _touches_, _disjoint_ etc.
+
+Particular datasets tend to implement specialised types of things (usually referred to as _Feature Types_) and sometimes specialised relations between things, e.g. special _hydrological catchment_ feature type might relate to another by being _upstream_ of it. This is as per modelling in the Geofabric footnot:[https://linked.data.gov.au/dataset/geofabric].
+
+==== Theming
+
+This subsection details the main elements of the Theming Data Domain.
+
+[id=fig-domain-classes-theming]
+.Domain Main Classes for Theming
+image::img/domain-classes-theming.png[]
+
+This Data Domain's main classes are taken from <<SKOS>> and their expected/required properties and relations are formally defined in _VocPub_, a "vocabulary publication profile of SKOS" <<VOCPUB>>. VocPub just mandates certain vocabulary metadata and relations between elements in vocabularies. Conformance of vocabularies to VocPub is also easily testable using the profile's validator and online tooling that support it footnote:[The validator itself is online at https://w3id.org/profile/vocpub/validator and is pre-loaded into several online validation tools, for example Geoscience Australia's vocabulary servers e.g. https://vocabs.ga.gov.au. It can also be selected for online validation use at https://rdftools.surroundaustralia.com].

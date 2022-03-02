@@ -1,0 +1,23 @@
+== Introduction
+
+=== Loc-I Project
+
+The Location Index (LOC-I) project, established in 2018, created a framework to provide a consistent way to seamlessly integrate spatial data from distributed sources. The target was Australian spatial data "of national significance", meaning most - initially all - of the data considered was Australian federal government data. Going forward, Loc-I is not limited to this sort of data, so other government data (states) may be included as well as non-government data.
+
+See the project website, http://www.ga.gov.au/locationindex, for more project information.
+
+=== Loc-I Technical Implementation 
+
+The technical implementation of Loc-I was based on Semantic Web <<semantic-web>> principles allowing for datasets to be published as Linked Data <<linked-data>> independently by data holders - different government departments, companies etc. - and consumed with minimal effort required for integration.
+
+The technical implementation relied on a _Loc-I Ontology_, the main Loc-I model, multiple _Background Models_, fundamental, standards, data models that the Loc-I Ontology depended on, and, for some datasets, _Dataset Models_ of their content that spefialise the Loc-I Ontology.
+
+<<#orig-arch, Figure 1>> below shows the original detailed architecture diagram used to explain Loc-I's parts from 2018 - 2021. This supermodel document does not detail the technical implementation of Loc-I elements but does provide a formal, integrated, model for all the elements in that figure. The OWL ontology elements represented on the left are all included in this supermodel unchanged, however several additional background ontologies and profiles have been added to better integrate Loc-I datasets' models. These include the _OGC LD API profile_ <<OGCLDAPI>> wich is used to ensure data meets, or to build out data to meet, requirements of the Open Geospatail Consortium's _OGC API - Features_ <<OGCAPI>> which is now used as the standard API for Loc-I datasets. That standard was not available when the original Loc-I project was started in 2018. 
+
+[[orig-arch]]
+.Original Loc-I Detailed Architecture (from https://www.csiro.au[CSIRO])
+image::/img/original-loci-detailed-architecture.png[Original Loc-I Detailed Architecture]
+
+=== Supermodel Specification role
+
+This Loc-I Supermodel Specification formally defines the technical model implementation of Loc-I including all previously created models and relations as well as new models that have been added since the original Loc-I project, for example to allow Loc-I information to be exported in forms expected by industry.
