@@ -1,4 +1,4 @@
-= Loc-I Supermodel
+= Loc-I Supermodel Specification
 :toc: left
 :table-stripes: even
 :sectnums:
@@ -9,11 +9,11 @@
 |===
 |**IRI** | https://linked.data.gov.au/def/loci-supermodel
 |**Title** | Loc-I Supermodel Specifciation
-|**Description** | This Model - the Loc-I Supermodel - is the link:http://www.ga.gov.au/locationindex[Location Index (Loc-I) Projects]'s overarching data model that provides integration logic for all Loc-I elements.
+|**Description** | This Model - the Loc-I Supermodel - is the link:http://www.ga.gov.au/locationindex[Location Index (Loc-I) Projects]'s overarching data model that provides integration logic for all Loc-I elements. It is based on the general-purpose https://linked.data.gov.au/def/supermodel[Supermodel Model].
 |**Created** | 2022-02-24
-|**Modified** | 2022-02-24
+|**Modified** | 2022-03-30
 |**Issued** | 0000-00-00
-|**Creator** | https://linked.data.gov.au/org/icsm[Intergovernmental Committee on Surveying & Mapping]
+|**Creator** | https://linked.data.gov.au/org/ga[Geoscience Australia] & https://surroundaustralia.com[SURROUND Austraia Pty Ltd]
 |**Publisher** | https://linked.data.gov.au/org/icsm[Intergovernmental Committee on Surveying & Mapping]
 |**License** | https://creativecommons.org/licenses/by/4.0/[Creative Commons Attribution 4.0 International (CC BY 4.0)]
 |**Machine-readable form** | https://surroundaustralia.github.io/loci-supermodel/supermodel.ttl[supermodel.ttl]
@@ -21,11 +21,15 @@
 
 include::02-preamble.adoc[]
 
-include::03-introduction.adoc[]
+include::02b-termsdefs.adoc[]
 
-include::04-model.adoc[]
+include::02c-conventions.adoc[]
 
-include::05-domain-details.adoc[]
+include::04-introduction.adoc[]
+
+include::05-model.adoc[]
+
+include::06-domain-details.adoc[]
 
 :sectnums!:
 

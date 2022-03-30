@@ -2,22 +2,24 @@
 
 === Abstract
 
-This Model - the Loc-I Supermodel - is the link:http://www.ga.gov.au/locationindex[Location Index (Loc-I) Projects]'s overarching data model that provides integration logic for all Loc-I elements.
+This Model - the Loc-I Supermodel - is the link:http://www.ga.gov.au/locationindex[Location Index (Loc-I) Project]'s overarching data model that provides integration logic for all Loc-I elements. It is based on the general-purpose https://linked.data.gov.au/def/supermodel[Supermodel Model].
 
 === Namespaces
 
-This model is built on a "baseline" of Semantic Web models which use a variatey of namespaces. Prefixes for thess namespaces, used througout this document, are listed below.
+This model is built on a "baseline" of Semantic Web models which use a variatey of namespaces. Prefixes for these namespaces, used througout this document, are listed below.
 
-[id=tbl-prefixes, width=75%, frame=none, grid=none]
+[id=tbl-prefixes, width=100%, frame=none, grid=none, cols="1,4,4"]
 .Namespaces
 |===
 |Prefix | Namespace | Description
 
-| **`super`** | **`https://linked.data.gov.au/def/loci-supermodel/`** | **this model**
+| **`super:`** | **`https://linked.data.gov.au/def/supermodel/`** | **the Supermodel meta-model**
 |`dcterms:` | `http://purl.org/dc/terms/` | Dublin Core Terms vocabulary namespace
 |`ex:` | `http://example.com/` | Generic examples namespace
+|`loci:` | `https://linked.data.gov.au/def/loci` | LocI Ontology - original LocI Project 2018 ontology
 |`owl:` | `http://www.w3.org/2002/07/owl#` | Web Ontology Language ontology namespace
 |`rdfs:` | `http://www.w3.org/2000/01/rdf-schema#` | RDF Schema ontology namespace
+|`smtd:` | `https://linked.data.gov.au/def/supermodel-td/` | Supermodel Terms & Definitions Vocabulary
 |`sosa:` | `http://www.w3.org/ns/sosa/` | Sensor, Observation, Sample, and Actuator ontology namespace
 |`skos:` | `http://www.w3.org/2004/02/skos/core#` | Simple Knowledge Organization System (SKOS) ontology namespace
 |`time:` | `http://www.w3.org/2006/time#` | Time Ontology in OWL namespace
@@ -25,74 +27,3 @@ This model is built on a "baseline" of Semantic Web models which use a variatey 
 |`xsd:` | `http://www.w3.org/2001/XMLSchema#` | XML Schema Definitions ontology namespace
 |===
 
-=== Terms & Definitions
-
-The following terms appear in this document and, when they do, the definitions in this section apply to them.
-
-[id=central-class]
-Central Class::
-
-`http://pid.geoscience.gov.au/def/sm/terms-definitions/central-class`
-+
-Central Classes are the generic data classes at the centre of Data Domains with high-level relationships between them defined in this supermodel. 
-+
-These classes are taken from general standards - usually well-known international stadnards - and specialised and extended within implementation scenarios to cater for specific needs.
-
-[id=data-domain]
-Data Domain::
-
-`http://pid.geoscience.gov.au/def/sm/terms-definitions/data-domain`
-+
-High-level conceptual areas within which Geosicence Australia has data. 
-+
-These Data Domains are not themed scientificly - 'geology', 'hydrogeology', etc. - but instead based on parts of the _Observations & Measurement_ <<ISO19156>> standard, realised in Semantic Web form in the SOSA Ontology, part of the _Semantic Sensor Network Ontology_ <<SSN>>.
-+
-Current Data Domain are shown in <<fig-top-level, Figure 1>>.
-
-[id=knowledge-graph]
-Knowledge Graph::
-
-`http://pid.geoscience.gov.au/def/sm/terms-definitions/knowledge-graph`
-+
-A Knowledge Graph is a dataset that uses a graph data tructure - nodes and edges - with strongly-defined elements.
-
-[id=linked-data]
-Linked Data::
-
-`http://pid.geoscience.gov.au/def/sm/terms-definitions/linked-data`
-+
-A set of technologies and conventions defined by the https://www.w3.org[World Wide Web Consortium] that aim to present data in both human- and machine-readable form over the Internet. 
-+
-Linked Data is strongly-defined with each element having either a local definition or a link to an available definition on the Internet.
-+
-Linked Data is graph-based in nature, that is it consistes of nodes and edges that can forever be linked to further conceps with defined relationships.
-+
--- https://www.w3.org/standards/semanticweb/data
-
-[id=location-index]
-Location Index::
-
-`http://pid.geoscience.gov.au/def/sm/terms-definitions/location-index`
-+
-A project aiming to provide a consistent way to seamlessly integrate spatial data from distributed sources.
-+
--- http://www.ga.gov.au/locationindex[Location Index Project Website]
-
-[id=semantic-web]
-Semantic Web::
-
-`http://pid.geoscience.gov.au/def/sm/terms-definitions/semantic-web`
-+
-The https://www.w3.org[World Wide Web Consortium]'s vision of an Internet-based web of Linked Data. 
-+
-Semantic Web is used to refer to something more than just the technologies and conventions of Linked Data; the term also encompases a specific set of interoperable data models - often called ontologies - published by the W3C, other standards bodies and some well-known companies.
-+
-The 'semantic' refers to the strongly-defined nature of the elements in the Semantic Web: the meaning of Semantic Web data is as precicely defined as any data can be.
-+
--- https://www.w3.org/standards/semanticweb/
-
-=== Conventions
-
-All model diagrams use elements introduced in <<#fig-level0-key, Figure 1>>. These elements are defined in the RDF, RDFS and OWL ontologies, see <<OWL>> for mode details.
-
-All code snippets in this document, used to show formal and machine-readable versions of concepts, are expressed using the Turtle RDF syntax <<TTL>>.

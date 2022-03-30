@@ -1,5 +1,9 @@
 == Model
 
+The model that this Supermodel is based on is a small <<semantic-web, Semantic Web>> <<ontology, Ontology>> that defines the major model elements and other terminology used.
+
+In this Specification, this implementation of the Supermodel model is presented via a series of "Levels" which are progressively more detailed, domain-specific, views of the model.
+
 === Level 0: Model Background
 
 This view of the model is a backgrounding one which describes the underpinning model mecahnics that it uses. The object modelling used is based on the _Web Ontology Language_ <<OWL>> and its own underlying use of RDF & RDFS footnote:[RDF: https://www.w3.org/RDF/, RDFS: https://www.w3.org/TR/rdf-schema/. These references generally need not be followed as descriptions of the use of OWL will cover their relevant concepts.]. The _Provenance Ontology_ <<PROV>> is used to model real-world causal dependencies - provenance.
@@ -49,12 +53,14 @@ While not often in front of mind for objects in any Data Domain, provenance rela
 
 === Level 1: Data Domains
 
-The top-level view of the supermodel that assumes Level 0 background mechanics shows a set of 5 <<#data-domain, Data Domains>> which are:
+The top-level view of the GA supermodel that assumes Level 0 background mechanics shows a set of 5 <<#data-domain, Data Domains>> which are:
 
-1. http://pid.geoscience.gov.au/def/sm/data-domains/data-cataloguing:[Data Cataloguing]
-2. http://pid.geoscience.gov.au/def/sm/data-domains/organisations-people:[Organisations & People]
-3. http://pid.geoscience.gov.au/def/sm/data-domains/spatiality:[Spatiality]
-4. http://pid.geoscience.gov.au/def/sm/data-domains/theming:[Theming]
+1. <<Data Cataloguing Domain, Data Cataloguing>>
+2. <<Organisations & People Domain, Organisations & People>>
+3. <<Theming Domain, Theming>>
+4. <<Sampling & Observations Domain, Sampling & Observations>>
+5. <<Spatial Domain, Spatial>>
+
 
 These are shown in <<fig-top-level, Figure 1>> below.
 
@@ -62,7 +68,7 @@ These are shown in <<fig-top-level, Figure 1>> below.
 .Top-level view of the Supermodel showing Data Domains
 image::img/data-domains.png[]
 
-These Data Domains are defined formally in a simple SKOS vocabulary within this model's set of machine-readable resources. The vocabulary may be access ddirectly at http://pid.geoscience.gov.au/def/sm/data-domains.
+These Data Domains are defined formally in a simple SKOS vocabulary within this model's set of machine-readable resources. The vocabulary may be access ddirectly at https://linked.data.gov.au/def/supermodel/data-domains.
 
 Elements at all other levels of detail in this model are classified according to these Data Domains by use of the `dcat:theme` property, for example, the class `sosa:Sample` is within the _Sampling_ Data Domain, so it is defined as follows:
 
@@ -92,14 +98,14 @@ A list of the Data Domains' Central Classes, their definitions, as given by thei
 | Data Domain | Central Class | Definition | Defined By
 
 | Data Cataloguing | `dcat:Dataset` | A collection of data that is listed in the catalog. | Data Catalog Vocabulary <<DCAT>>
-| Sampling | `sosa:Sample` | A Sample is the result from an act of Sampling.
+| Organisations & People | `prov:Agent` | An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity | PROV-O: The PROV Ontology <<PROV>>
+| Theming | `skos:Concept` | An idea or notion; a unit of thought | Simple Knowledge Organization System ontology <<SKOS>>
+| Observation & Sampling | `sosa:Sample` | A Sample is the result from an act of Sampling.
 
 Feature which is intended to be representative of a FeatureOfInterest on which Observations may be made.
 
 Physical samples are sometimes known as 'specimens'. | Sensor, Observation, Sample, and Actuator Ontology, within <<SSN>>
-| Spatiality | `geo:Feature` | A discrete spatial phenomenon in a universe of discourse | GeoSPARQL Ontology <<GEO>>
-| Theming | `skos:Concept` | An idea or notion; a unit of thought | Simple Knowledge Organization System ontology <<SKOS>>
-| Organisations & People | `prov:Agent` | An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity | PROV-O: The PROV Ontology <<PROV>>
+| Spatial | `geo:Feature` | A discrete spatial phenomenon in a universe of discourse | GeoSPARQL Ontology <<GEO>>
 |===
 
 The definitions of the main relations between Central Classes are given in 
@@ -110,7 +116,7 @@ The definitions of the main relations between Central Classes are given in
 | Central Class | Definition | Defined By
 
 | `dcat:Dataset` | A collection of data that is listed in the catalog. | Data Catalog Vocabulary <<DCAT>>
-| Sampling | `sosa:Sample` | A Sample is the result from an act of Sampling.
+| `sosa:Sample` | A Sample is the result from an act of Sampling.
 
 Feature which is intended to be representative of a FeatureOfInterest on which Observations may be made.
 
@@ -146,18 +152,6 @@ This Data Domain's main classes are centered on <<PROV>>'s `prof:Agent` class bu
 
 schema.org objects and properties are also used to define agents in the VocPub profile <<VOCPUB>> and are understood by ontology documentation tools such as pyLODE footnote:[https://pypi.org/project/pyLODE/].
 
-==== Spatiality
-
-This subsection details the main elements of the Spatiality Data Domain.
-
-[id=fig-domain-classes-spatiality]
-.Domain Main Classes for Spatiality
-image::img/domain-classes-spatiality.png[]
-
-This Data Domain's main classes are taken directly from GeoSPARQL 1.1 <<GEO>> which is used extensively for Semantic Web spatial data already. GeoSPARQL's main purposes are to relate things (`geo:Feature`) to their spatial projections - their geometries - and to relate things to one another - topological relations between features, such as _within_, _touches_, _disjoint_ etc.
-
-Particular datasets tend to implement specialised types of things (usually referred to as _Feature Types_) and sometimes specialised relations between things, e.g. special _hydrological catchment_ feature type might relate to another by being _upstream_ of it. This is as per modelling in the Geofabric footnot:[https://linked.data.gov.au/dataset/geofabric].
-
 ==== Theming
 
 This subsection details the main elements of the Theming Data Domain.
@@ -167,3 +161,19 @@ This subsection details the main elements of the Theming Data Domain.
 image::img/domain-classes-theming.png[]
 
 This Data Domain's main classes are taken from <<SKOS>> and their expected/required properties and relations are formally defined in _VocPub_, a "vocabulary publication profile of SKOS" <<VOCPUB>>. VocPub just mandates certain vocabulary metadata and relations between elements in vocabularies. Conformance of vocabularies to VocPub is also easily testable using the profile's validator and online tooling that support it footnote:[The validator itself is online at https://w3id.org/profile/vocpub/validator and is pre-loaded into several online validation tools, for example Geoscience Australia's vocabulary servers e.g. https://vocabs.ga.gov.au. It can also be selected for online validation use at https://rdftools.surroundaustralia.com].
+
+==== Sampling & Observation
+
+
+
+==== Spatial
+
+This subsection details the main elements of the Spatial Data Domain.
+
+[id=fig-domain-classes-spatial]
+.Domain Main Classes for Spatial
+image::img/domain-classes-spatial.png[]
+
+This Data Domain's main classes are taken directly from GeoSPARQL 1.1 <<GEO>> which is used extensively for Semantic Web spatial data already. GeoSPARQL's main purposes are to relate things (`geo:Feature`) to their spatial projections - their geometries - and to relate things to one another - topological relations between features, such as _within_, _touches_, _disjoint_ etc.
+
+Particular datasets tend to implement specialised types of things (usually referred to as _Feature Types_) and sometimes specialised relations between things, e.g. special _hydrological catchment_ feature type might relate to another by being _upstream_ of it. This is as per modelling in the Geofabric footnote:[https://linked.data.gov.au/dataset/geofabric].
