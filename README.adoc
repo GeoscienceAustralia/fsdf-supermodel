@@ -19,11 +19,11 @@ This model's document is auto-built from source files within the Loc-I Supermode
 
 The Specification document:
 
-* https://surroundaustralia.github.io/loci-supermodel/supermodel.html
+* https://geoscienceaustralia.github.io/loci-supermodel/supermodel.html
 
 The repository:
 
-* https://github.com/surroundaustralia/loci-supermodel
+* https://github.com/geoscienceaustralia/loci-supermodel
 
 The online and repostory location will certainly change once this model is taken over by Geoscience Australia itself for continued use.
 
