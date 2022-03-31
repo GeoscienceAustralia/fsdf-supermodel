@@ -164,7 +164,9 @@ This Data Domain's main classes are taken from <<SKOS>> and their expected/requi
 
 ==== Sampling & Observation
 
-
+[id=fig-domain-observations-sampling]
+.Domain Main Classes for Observations & Sampling
+image::img/domain-classes-observations-sampling.png[]
 
 ==== Spatial
 
