@@ -32,7 +32,7 @@ image::img/details-observations-sampling.png[]
 
 === Spatiality Domain
 
-The Spatiality domain is the promary concern of the Loc-I Project since the project aims to provide an integration mthdology, models and an integrated and estensible "spine" of major national spatial datasets.
+The Spatiality domain is the promary concern of the FSDF Project since the project aims to provide an integration mthdology, models and an integrated and estensible "spine" of major national spatial datasets.
 
 
 

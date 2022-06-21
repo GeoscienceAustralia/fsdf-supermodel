@@ -1,4 +1,4 @@
-== Model
+== Supermodel
 
 The model that this Supermodel is based on is a small <<semantic-web, Semantic Web>> <<ontology, Ontology>> that defines the major model elements and other terminology used.
 

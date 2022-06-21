@@ -1,8 +1,8 @@
-= Loc-I Supermodel
+= FSDF Supermodel
 
 WARNING: in early development, not officially released yet
 
-This Model - the Loc-I Supermodel - is the link:http://www.ga.gov.au/locationindex[Location Index (Loc-I) Projects]'s overarching data model that provides integration logic for all Loc-I elements.
+This Model - the FSDF Supermodel - is the link:http://www.ga.gov.au/locationindex[Location Index (Loc-I) Projects]'s overarching data model that provides integration logic for all FSDF elements.
 
 This work is part of a project to operationalise Loc-I for https://www.ga.gov.au[Geoscience Australia] by https://surroundaustralia.com[SURROUND Australia Pty Ltd].
 
@@ -15,7 +15,7 @@ This work builds on previous work defining overarching mdoels and specialised da
 
 == Specification document
 
-This model's document is auto-built from source files within the Loc-I Supermodel repository. Both the document and source files are viewable online.
+This model's document is auto-built from source files within the FSDF Supermodel repository. Both the document and source files are viewable online.
 
 The Specification document:
 

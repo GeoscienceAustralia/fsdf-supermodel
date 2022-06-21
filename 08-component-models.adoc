@@ -1,0 +1,14 @@
+== Component Models
+
+This section contains the details of the various Component Models used for the individual datasets within the FSDF Data Platform. 
+
+Several of these Component Models are plain implementations of the Backbone Model, as in they implement no additional classes properties or other model elements beyond what the Backbone Model already contains. It is expected that many spatial dataset may be able to be created as plain Backbone Model-only datasets in this way if the only contain collections of names Features without special relationships or properties.
+
+=== ASGS
+
+=== Geofabric
+
+=== G-NAF
+
+=== FSDF Datasets
+

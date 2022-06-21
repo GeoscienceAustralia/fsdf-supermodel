@@ -1,23 +1,65 @@
 == Introduction
 
+This Supermodel is based on previous work from the Location Index project so first that project is described and then how this Supermodel inherits from it.
+
 === Loc-I Project
 
-The Location Index (LOC-I) project, established in 2018, created a methodology and data models framework providing for a consistent way to seamlessly integrate spatial data from distributed sources. The target was Australian spatial data "of national significance", meaning most - initially all - of the data considered was Australian Federal government data. Going forward, Loc-I is not limited to this sort of data, so other government data (States, Local) as well as non-government data may be included.
+The Location Index (LOC-I) project, established in 2018, created a methodology and data models framework providing for a consistent way to seamlessly integrate spatial data from distributed sources. The target was Australian spatial data "of national significance", meaning most - initially all - of the data considered was Australian Federal government data.
 
 See the project website, http://www.ga.gov.au/locationindex, for more project information.
 
 === Loc-I Technical Implementation 
 
-The technical implementation of Loc-I was based on <<semantic-web, Semantic Web>> principles allowing for datasets to be published as <<linked-data, Linked Data>> independently by data holders - different government departments, companies etc. - and consumed with minimal effort required for integration.
+The technical implementation of Loc-I was based on <<semantic-web, Semantic Web>> principles allowing datasets to be published as <<linked-data, Linked Data>> independently by data holders - different government departments, companies etc. - and consumed with minimal effort required for integration.
 
 The technical implementation relied on a _Loc-I Ontology_, the main Loc-I model, multiple _Background Models_, fundamental, standards, data models that the Loc-I Ontology depended on, and, for some datasets, _Dataset Models_ of their content that spefialise the Loc-I Ontology.
 
-<<#orig-arch, Figure 1>> below shows the original detailed architecture diagram used to explain Loc-I's parts from 2018 - 2021. This supermodel document does not detail the technical implementation of Loc-I elements but does provide a formal, integrated, model for all the elements in that figure. The OWL ontology elements represented on the left are all included in this supermodel unchanged, however several additional background ontologies and profiles have been added to better integrate Loc-I datasets' models. These include the _OGC LD API profile_ <<OGCLDAPI>> wich is used to ensure data meets, or to build out data to meet, requirements of the Open Geospatail Consortium's _OGC API - Features_ <<OGCAPI>> which is now used as the standard API for Loc-I datasets. That standard was not available when the original Loc-I project was started in 2018. 
+<<#orig-arch, Figure 2>> below shows the original detailed architecture diagram used to explain Loc-I's parts from 2018 - 2021. 
 
 [[orig-arch]]
 .Original Loc-I Detailed Architecture (from https://www.csiro.au[CSIRO])
 image::/img/original-loci-detailed-architecture.png[Original Loc-I Detailed Architecture]
 
-=== Supermodel Specification role
+=== Loc-I to Supermodel
 
-This Loc-I Supermodel Specification document formally defines the technical model implementation of Loc-I including all previously created models and relations as well as new models that have been added since the original Loc-I project, for example data models for new Loc-I datasets.
+The FSDF Project has adopted a more rigourously defined _Supermodel_ concept to allow multiple datasets to work together. The ideas are very similar to those used in the Loc-I project however new terminology of a _Backbone Model_, _Component Models_ and the _Supermodel_ has been adopted, as have new forms of model presentation, documentation and so on. The Supermodel concept has been implemented in several other scenarios as well as this one and lessons learned from those implementations have informed this work. 
+
+Additionally, this Supermodel covers more domains than the Loc-I modelling: where Loc-I was restricted to just spatial data, this Supermodel indicated how relate non-spatial data to spatial data. This is important to allow observations - of populations, natural features etc. - to be positioned using FSDF Data Platform objects and allows the creation of data cubes with an FSDF spatial backing.
+
+This Supermodel contains the parts show in <<#models, Figure 3>>.
+
+[[models]]
+.The various models of this Supermodel
+image::/img/models.png[]
+
+This Supermodel's integrative, _Backbone Model_, used to integrate objects from the variaous, the dataset-specific, _Component Models_ follows the pattern of use of the 'Loc-I  Ontology' and 'Dataset Model' in the Loc-I project however the _Backbone Model_ now used is just reuse of now standard international models and not a custom model itself. This is possible because international standard models such as GeoSPARSL <<GEO>> now contain elements necissary for project like this that were not incuded when the Loc-I Project started, for example representations of colelctions of geospatial features. This Supermodel's _Observations Models_ are also expressly catered for in the _Backbone Model_ whereas the Loc-I project didn't formalise the integrtion of spatial and observations data.
+
+Some other Loc-I/FSDF Project model differences:
+
+* the Loc-I project specified _Linksets_ to join spatial datasets and this is now done automatically via spatial indexing, rather than static Linkset creation
+* Loc-I relied on non-graph-based integrative databases to allow for searching across Loc-I datasets. Wile not part of the Loc-I model _per se_, these elements are show in Loc-I diagrams, suc as <<#orig-arch, Figure 2>>, and documentation. This FSDF Project relies on complete RDF graphs for each dataset included in it and caches the various datasets' graphs into a single graph cache for integration purposes so no non-graph datasets are mentioned in this Supermodel.
+
+=== How to use this Supermodel
+
+This Supermodel provides a general structure for datasets that want to itegrate within the FSDF Data Platform. The common tasks you might perform with the Supermodel are:
+
+1. Model a new dataset as an FSDF Supermodel generic dataset
+2. Validate new dataset data according to the FSDF Supermodel
+3. Create an extended/specialised Component Model for a dataset
+4. Validate extended/specialised new dataset data according to the extended/specialised FSDF Supermodel Component Model
+5. Create a dataset of observations - population/statistical or natural world - linked to Component Models
+
+==== 1. Model a new dataset
+
+The most basic dataset model that conforms to this Supermodel includes just the elements of the Backbone Model. These are spelled out in <<Backbone Model>>.
+
+==== 2. Validate new dataset
+
+Data validators are available, for all elements of this Supermodel too, so you can use them to validate your data.
+
+==== 3. Create an extended/specialised 'Component Model'
+
+==== 4. Validate extended/specialised new dataset data
+
+==== 5. Create a dataset of observations
+

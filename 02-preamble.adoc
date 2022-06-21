@@ -2,7 +2,9 @@
 
 === Abstract
 
-This Model - the Loc-I Supermodel - is the link:http://www.ga.gov.au/locationindex[Location Index (Loc-I) Project]'s overarching data model that provides integration logic for all Loc-I elements. It is based on the general-purpose https://linked.data.gov.au/def/supermodel[Supermodel Model].
+This Model - the FSDF Supermodel - is the overarching data model that provides integration logic for all https://link.fsdf.org.au/[FSDF elements]. It is based on the general-purpose https://linked.data.gov.au/def/supermodel[Supermodel Model]. 
+
+This model is effectively a second version of the link:http://www.ga.gov.au/locationindex[Location Index (Loc-I) Project]'s overarching model since the FSDF Project is now the inheritor of Loc-I data and methods.
 
 === Namespaces
 
@@ -13,7 +15,8 @@ This model is built on a "baseline" of Semantic Web models which use a variatey 
 |===
 |Prefix | Namespace | Description
 
-| **`super:`** | **`https://linked.data.gov.au/def/supermodel/`** | **the Supermodel meta-model**
+| **`fsdf:`** | **`https://linked.data.gov.au/def/fsdf-supermodel`** | This Supermodel
+| `super:` | `https://linked.data.gov.au/def/supermodel/` | The Supermodel meta-model
 |`dcterms:` | `http://purl.org/dc/terms/` | Dublin Core Terms vocabulary namespace
 |`ex:` | `http://example.com/` | Generic examples namespace
 |`loci:` | `https://linked.data.gov.au/def/loci` | LocI Ontology - original LocI Project 2018 ontology

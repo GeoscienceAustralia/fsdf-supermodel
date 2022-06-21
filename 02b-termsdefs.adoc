@@ -24,6 +24,13 @@ These Data Domains are not themed scientificly - 'geology', 'hydrogeology', etc.
 +
 Current Data Domain are shown in <<fig-top-level, Figure 1>>.
 
+[id=fsdf]
+FSDF::
+
+`https://linked.data.gov.au/def/supermodel-td/fsdf[smtd:fsdf]`
++
+The Foundation Spatial Data Framework (FSDF): a project to deliver national coverages of the best available, most current, authoritative foundation data which is standardised and quality controlled. See https://link.fsdf.org.au.
+
 [id=knowledge-graph]
 Knowledge Graph::
 
