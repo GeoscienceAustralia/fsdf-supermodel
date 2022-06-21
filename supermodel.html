@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
-<title>Loc-I Supermodel Specification</title>
+<title>FSDF Supermodel Specification</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -438,7 +438,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>Loc-I Supermodel Specification</h1>
+<h1>FSDF Supermodel Specification</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
@@ -455,10 +455,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel2">
 <li><a href="#_loc_i_project">3.1. Loc-I Project</a></li>
 <li><a href="#_loc_i_technical_implementation">3.2. Loc-I Technical Implementation</a></li>
-<li><a href="#_supermodel_specification_role">3.3. Supermodel Specification role</a></li>
+<li><a href="#_loc_i_to_supermodel">3.3. Loc-I to Supermodel</a></li>
+<li><a href="#_how_to_use_this_supermodel">3.4. How to use this Supermodel</a></li>
 </ul>
 </li>
-<li><a href="#_model">4. Model</a>
+<li><a href="#_supermodel">4. Supermodel</a>
 <ul class="sectlevel2">
 <li><a href="#_level_0_model_background">4.1. Level 0: Model Background</a></li>
 <li><a href="#_level_1_data_domains">4.2. Level 1: Data Domains</a></li>
@@ -475,11 +476,30 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_spatiality_domain">5.5. Spatiality Domain</a></li>
 </ul>
 </li>
+<li><a href="#_backbone_model">6. Backbone Model</a></li>
+<li><a href="#_component_models">7. Component Models</a>
+<ul class="sectlevel2">
+<li><a href="#_asgs">7.1. ASGS</a></li>
+<li><a href="#_geofabric">7.2. Geofabric</a></li>
+<li><a href="#_g_naf">7.3. G-NAF</a></li>
+<li><a href="#_fsdf_datasets">7.4. FSDF Datasets</a></li>
+</ul>
+</li>
 <li><a href="#_references">References</a></li>
 </ul>
 </div>
 </div>
 <div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div id="overview" class="imageblock">
+<div class="content">
+<img src="https://geoscienceaustralia.github.io/loci-supermodel//img/overview.png" alt="overview">
+</div>
+<div class="title">Figure 1. Overview of this Supermodel</div>
+</div>
+</div>
+</div>
 <div class="sect1">
 <h2 id="_metadata">1. Metadata</h2>
 <div class="sectionbody">
@@ -491,15 +511,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>IRI</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://linked.data.gov.au/def/loci-supermodel" class="bare">https://linked.data.gov.au/def/loci-supermodel</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://linked.data.gov.au/def/fsdf-supermodel" class="bare">https://linked.data.gov.au/def/fsdf-supermodel</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Title</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Loc-I Supermodel Specifciation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FSDF Supermodel Specifciation</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">This Model - the Loc-I Supermodel - is the <a href="http://www.ga.gov.au/locationindex">Location Index (Loc-I) Projects</a>'s overarching data model that provides integration logic for all Loc-I elements. It is based on the general-purpose <a href="https://linked.data.gov.au/def/supermodel">Supermodel Model</a>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This Model - the FSDF Supermodel - is the overarching data model that provides integration logic for all <a href="https://link.fsdf.org.au/">FSDF elements</a>. It is based on the general-purpose <a href="https://linked.data.gov.au/def/supermodel">Supermodel Model</a>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Created</strong></p></td>
@@ -507,7 +527,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Modified</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2022-03-30</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2022-06-21</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Issued</strong></p></td>
@@ -525,10 +545,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>License</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International (CC BY 4.0)</a></p></td>
 </tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Machine-readable form</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://surroundaustralia.github.io/loci-supermodel/supermodel.ttl">supermodel.ttl</a></p></td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -539,7 +555,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_abstract">2.1. Abstract</h3>
 <div class="paragraph">
-<p>This Model - the Loc-I Supermodel - is the <a href="http://www.ga.gov.au/locationindex">Location Index (Loc-I) Project</a>'s overarching data model that provides integration logic for all Loc-I elements. It is based on the general-purpose <a href="https://linked.data.gov.au/def/supermodel">Supermodel Model</a>.</p>
+<p>This Model - the FSDF Supermodel - is the overarching data model that provides integration logic for all <a href="https://link.fsdf.org.au/">FSDF elements</a>. It is based on the general-purpose <a href="https://linked.data.gov.au/def/supermodel">Supermodel Model</a>.</p>
+</div>
+<div class="paragraph">
+<p>This model is effectively a second version of the <a href="http://www.ga.gov.au/locationindex">Location Index (Loc-I) Project</a>'s overarching model since the FSDF Project is now the inheritor of Loc-I data and methods.</p>
 </div>
 </div>
 <div class="sect2">
@@ -563,9 +582,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>super:</code></strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code><a href="https://linked.data.gov.au/def/supermodel/" class="bare">https://linked.data.gov.au/def/supermodel/</a></code></strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>the Supermodel meta-model</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>fsdf:</code></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code><a href="https://linked.data.gov.au/def/fsdf-supermodel" class="bare">https://linked.data.gov.au/def/fsdf-supermodel</a></code></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This Supermodel</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>super:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="https://linked.data.gov.au/def/supermodel/" class="bare">https://linked.data.gov.au/def/supermodel/</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Supermodel meta-model</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>dcterms:</code></p></td>
@@ -664,6 +688,17 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </dd>
 </dl>
 </div>
+<div id="fsdf" class="dlist">
+<dl>
+<dt class="hdlist1">FSDF</dt>
+<dd>
+<p><code><a href="https://linked.data.gov.au/def/supermodel-td/fsdf">smtd:fsdf</a></code></p>
+<div class="paragraph">
+<p>The Foundation Spatial Data Framework (FSDF): a project to deliver national coverages of the best available, most current, authoritative foundation data which is standardised and quality controlled. See <a href="https://link.fsdf.org.au" class="bare">https://link.fsdf.org.au</a>.</p>
+</div>
+</dd>
+</dl>
+</div>
 <div id="knowledge-graph" class="dlist">
 <dl>
 <dt class="hdlist1">Knowledge Graph</dt>
@@ -747,7 +782,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_conventions">2.4. Conventions</h3>
 <div class="paragraph">
-<p>All model diagrams use elements introduced in <a href="#fig-level0-key">Figure 1</a>. These elements are defined in the RDF, RDFS and OWL ontologies, see <a href="#OWL">[OWL]</a> for mode details.</p>
+<p>All model diagrams use elements introduced in <a href="#fig-level0-key">Figure 4</a>. These elements are defined in the RDF, RDFS and OWL ontologies, see <a href="#OWL">[OWL]</a> for mode details.</p>
 </div>
 <div class="paragraph">
 <p>All code snippets in this document, used to show formal and machine-readable versions of concepts, are expressed using the Turtle RDF syntax <a href="#TTL">[TTL]</a>.</p>
@@ -758,10 +793,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect1">
 <h2 id="_introduction">3. Introduction</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>This Supermodel is based on previous work from the Location Index project so first that project is described and then how this Supermodel inherits from it.</p>
+</div>
 <div class="sect2">
 <h3 id="_loc_i_project">3.1. Loc-I Project</h3>
 <div class="paragraph">
-<p>The Location Index (LOC-I) project, established in 2018, created a methodology and data models framework providing for a consistent way to seamlessly integrate spatial data from distributed sources. The target was Australian spatial data "of national significance", meaning most - initially all - of the data considered was Australian Federal government data. Going forward, Loc-I is not limited to this sort of data, so other government data (States, Local) as well as non-government data may be included.</p>
+<p>The Location Index (LOC-I) project, established in 2018, created a methodology and data models framework providing for a consistent way to seamlessly integrate spatial data from distributed sources. The target was Australian spatial data "of national significance", meaning most - initially all - of the data considered was Australian Federal government data.</p>
 </div>
 <div class="paragraph">
 <p>See the project website, <a href="http://www.ga.gov.au/locationindex" class="bare">http://www.ga.gov.au/locationindex</a>, for more project information.</p>
@@ -770,31 +808,108 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_loc_i_technical_implementation">3.2. Loc-I Technical Implementation</h3>
 <div class="paragraph">
-<p>The technical implementation of Loc-I was based on <a href="#semantic-web">Semantic Web</a> principles allowing for datasets to be published as <a href="#linked-data">Linked Data</a> independently by data holders - different government departments, companies etc. - and consumed with minimal effort required for integration.</p>
+<p>The technical implementation of Loc-I was based on <a href="#semantic-web">Semantic Web</a> principles allowing datasets to be published as <a href="#linked-data">Linked Data</a> independently by data holders - different government departments, companies etc. - and consumed with minimal effort required for integration.</p>
 </div>
 <div class="paragraph">
 <p>The technical implementation relied on a <em>Loc-I Ontology</em>, the main Loc-I model, multiple <em>Background Models</em>, fundamental, standards, data models that the Loc-I Ontology depended on, and, for some datasets, <em>Dataset Models</em> of their content that spefialise the Loc-I Ontology.</p>
 </div>
 <div class="paragraph">
-<p><a href="#orig-arch">Figure 1</a> below shows the original detailed architecture diagram used to explain Loc-I&#8217;s parts from 2018 - 2021. This supermodel document does not detail the technical implementation of Loc-I elements but does provide a formal, integrated, model for all the elements in that figure. The OWL ontology elements represented on the left are all included in this supermodel unchanged, however several additional background ontologies and profiles have been added to better integrate Loc-I datasets' models. These include the <em>OGC LD API profile</em> <a href="#OGCLDAPI">[OGCLDAPI]</a> wich is used to ensure data meets, or to build out data to meet, requirements of the Open Geospatail Consortium&#8217;s <em>OGC API - Features</em> <a href="#OGCAPI">[OGCAPI]</a> which is now used as the standard API for Loc-I datasets. That standard was not available when the original Loc-I project was started in 2018.</p>
+<p><a href="#orig-arch">Figure 2</a> below shows the original detailed architecture diagram used to explain Loc-I&#8217;s parts from 2018 - 2021.</p>
 </div>
 <div id="orig-arch" class="imageblock">
 <div class="content">
 <img src="https://geoscienceaustralia.github.io/loci-supermodel//img/original-loci-detailed-architecture.png" alt="Original Loc-I Detailed Architecture">
 </div>
-<div class="title">Figure 1. Original Loc-I Detailed Architecture (from <a href="https://www.csiro.au">CSIRO</a>)</div>
+<div class="title">Figure 2. Original Loc-I Detailed Architecture (from <a href="https://www.csiro.au">CSIRO</a>)</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_supermodel_specification_role">3.3. Supermodel Specification role</h3>
+<h3 id="_loc_i_to_supermodel">3.3. Loc-I to Supermodel</h3>
 <div class="paragraph">
-<p>This Loc-I Supermodel Specification document formally defines the technical model implementation of Loc-I including all previously created models and relations as well as new models that have been added since the original Loc-I project, for example data models for new Loc-I datasets.</p>
+<p>The FSDF Project has adopted a more rigourously defined <em>Supermodel</em> concept to allow multiple datasets to work together. The ideas are very similar to those used in the Loc-I project however new terminology of a <em>Backbone Model</em>, <em>Component Models</em> and the <em>Supermodel</em> has been adopted, as have new forms of model presentation, documentation and so on. The Supermodel concept has been implemented in several other scenarios as well as this one and lessons learned from those implementations have informed this work.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, this Supermodel covers more domains than the Loc-I modelling: where Loc-I was restricted to just spatial data, this Supermodel indicated how relate non-spatial data to spatial data. This is important to allow observations - of populations, natural features etc. - to be positioned using FSDF Data Platform objects and allows the creation of data cubes with an FSDF spatial backing.</p>
+</div>
+<div class="paragraph">
+<p>This Supermodel contains the parts show in <a href="#models">Figure 3</a>.</p>
+</div>
+<div id="models" class="imageblock">
+<div class="content">
+<img src="https://geoscienceaustralia.github.io/loci-supermodel//img/models.png" alt="models">
+</div>
+<div class="title">Figure 3. The various models of this Supermodel</div>
+</div>
+<div class="paragraph">
+<p>This Supermodel&#8217;s integrative, <em>Backbone Model</em>, used to integrate objects from the variaous, the dataset-specific, <em>Component Models</em> follows the pattern of use of the 'Loc-I  Ontology' and 'Dataset Model' in the Loc-I project however the <em>Backbone Model</em> now used is just reuse of now standard international models and not a custom model itself. This is possible because international standard models such as GeoSPARSL <a href="#GEO">[GEO]</a> now contain elements necissary for project like this that were not incuded when the Loc-I Project started, for example representations of colelctions of geospatial features. This Supermodel&#8217;s <em>Observations Models</em> are also expressly catered for in the <em>Backbone Model</em> whereas the Loc-I project didn&#8217;t formalise the integrtion of spatial and observations data.</p>
+</div>
+<div class="paragraph">
+<p>Some other Loc-I/FSDF Project model differences:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the Loc-I project specified <em>Linksets</em> to join spatial datasets and this is now done automatically via spatial indexing, rather than static Linkset creation</p>
+</li>
+<li>
+<p>Loc-I relied on non-graph-based integrative databases to allow for searching across Loc-I datasets. Wile not part of the Loc-I model <em>per se</em>, these elements are show in Loc-I diagrams, suc as <a href="#orig-arch">Figure 2</a>, and documentation. This FSDF Project relies on complete RDF graphs for each dataset included in it and caches the various datasets' graphs into a single graph cache for integration purposes so no non-graph datasets are mentioned in this Supermodel.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_how_to_use_this_supermodel">3.4. How to use this Supermodel</h3>
+<div class="paragraph">
+<p>This Supermodel provides a general structure for datasets that want to itegrate within the FSDF Data Platform. The common tasks you might perform with the Supermodel are:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Model a new dataset as an FSDF Supermodel generic dataset</p>
+</li>
+<li>
+<p>Validate new dataset data according to the FSDF Supermodel</p>
+</li>
+<li>
+<p>Create an extended/specialised Component Model for a dataset</p>
+</li>
+<li>
+<p>Validate extended/specialised new dataset data according to the extended/specialised FSDF Supermodel Component Model</p>
+</li>
+<li>
+<p>Create a dataset of observations - population/statistical or natural world - linked to Component Models</p>
+</li>
+</ol>
+</div>
+<div class="sect3">
+<h4 id="_1_model_a_new_dataset">3.4.1. 1. Model a new dataset</h4>
+<div class="paragraph">
+<p>The most basic dataset model that conforms to this Supermodel includes just the elements of the Backbone Model. These are spelled out in <a href="#_backbone_model">Backbone Model</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_2_validate_new_dataset">3.4.2. 2. Validate new dataset</h4>
+<div class="paragraph">
+<p>Data validators are available, for all elements of this Supermodel too, so you can use them to validate your data.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_3_create_an_extendedspecialised_component_model">3.4.3. 3. Create an extended/specialised 'Component Model'</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_4_validate_extendedspecialised_new_dataset_data">3.4.4. 4. Validate extended/specialised new dataset data</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_5_create_a_dataset_of_observations">3.4.5. 5. Create a dataset of observations</h4>
+
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_model">4. Model</h2>
+<h2 id="_supermodel">4. Supermodel</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The model that this Supermodel is based on is a small <a href="#semantic-web">Semantic Web</a> <a href="#ontology">Ontology</a> that defines the major model elements and other terminology used.</p>
@@ -816,7 +931,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <img src="https://geoscienceaustralia.github.io/loci-supermodel/img/key.png" alt="key">
 </div>
-<div class="title">Figure 2. Diagram elements key</div>
+<div class="title">Figure 4. Diagram elements key</div>
 </div>
 </div>
 <div class="sect3">
@@ -828,7 +943,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <img src="https://geoscienceaustralia.github.io/loci-supermodel/img/level0-owl.png" alt="level0 owl">
 </div>
-<div class="title">Figure 3. OWL objects and their relations</div>
+<div class="title">Figure 5. OWL objects and their relations</div>
 </div>
 <div class="paragraph">
 <p>The elements shown above are identified with prefixed IRIs that correspond to entries in the <a href="#tbl-prefixes">Namespace Table</a>. A short explanation of the diagram key elements is:</p>
@@ -868,7 +983,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <img src="https://geoscienceaustralia.github.io/loci-supermodel/img/level0-prov.png" alt="level0 prov">
 </div>
-<div class="title">Figure 4. PROV main classes and main relations</div>
+<div class="title">Figure 6. PROV main classes and main relations</div>
 </div>
 <div class="paragraph">
 <p>According to PROV, all things are either a:</p>
@@ -922,7 +1037,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <img src="https://geoscienceaustralia.github.io/loci-supermodel/img/data-domains.png" alt="data domains">
 </div>
-<div class="title">Figure 5. Top-level view of the Supermodel showing Data Domains</div>
+<div class="title">Figure 7. Top-level view of the Supermodel showing Data Domains</div>
 </div>
 <div class="paragraph">
 <p>These Data Domains are defined formally in a simple SKOS vocabulary within this model&#8217;s set of machine-readable resources. The vocabulary may be access ddirectly at <a href="https://linked.data.gov.au/def/supermodel/data-domains" class="bare">https://linked.data.gov.au/def/supermodel/data-domains</a>.</p>
@@ -949,7 +1064,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <img src="https://geoscienceaustralia.github.io/loci-supermodel/img/central-classes.png" alt="central classes">
 </div>
-<div class="title">Figure 6. Next level view of the Supermodel showing Central Classes</div>
+<div class="title">Figure 8. Next level view of the Supermodel showing Central Classes</div>
 </div>
 <div class="paragraph">
 <p>The Central Classes of each of the Data Domains are well-used classes from well-known models. For example, the Central Class of <em>Organisation &amp; People</em> is <a href="#PROV">[PROV]</a>'s <code>Agent</code> class which is one of the three main classes of thing in PROV and used every time PROV is used to represent causal agents. PROV is used extensively to indicate how things - data, resources, systems - come to be.</p>
@@ -1070,7 +1185,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <img src="https://geoscienceaustralia.github.io/loci-supermodel/img/domain-classes-data-cataloguing.png" alt="domain classes data cataloguing">
 </div>
-<div class="title">Figure 7. Domain Main Classes for Data Cataloguing</div>
+<div class="title">Figure 9. Domain Main Classes for Data Cataloguing</div>
 </div>
 <div class="paragraph">
 <p>This Data Domain&#8217;s main classes are essentially the DCAT2 data model <a href="#DCAT">[DCAT]</a> with a slight profiling: <code>dcterms:hasPart</code> should be used to indicate elements within catalogues (e.g. <code>dcat:Dataset</code> and other things within a <code>dcat:Catalog</code>) rather than the specialised properties of <code>dcat:dataset</code> because generic catalogue can be expected to catalogue many types of things and the type of the thing should be given by the thing, not the catalogue property used to indicate it.</p>
@@ -1085,7 +1200,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <img src="https://geoscienceaustralia.github.io/loci-supermodel/img/domain-classes-organisations-people.png" alt="domain classes organisations people">
 </div>
-<div class="title">Figure 8. Domain Main Classes for Organisations &amp; People</div>
+<div class="title">Figure 10. Domain Main Classes for Organisations &amp; People</div>
 </div>
 <div class="paragraph">
 <p>This Data Domain&#8217;s main classes are centered on <a href="#PROV">[PROV]</a>'s <code>prof:Agent</code> class but specific types of agent - <em>person</em> &amp; <em>organisation</em> are defined using schema.org <a href="#SDO">[SDO]</a>, the general-purpose ontology provisioned by Google, Microsoft &amp; Yahoo for the description of web page data.</p>
@@ -1103,7 +1218,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <img src="https://geoscienceaustralia.github.io/loci-supermodel/img/domain-classes-theming.png" alt="domain classes theming">
 </div>
-<div class="title">Figure 9. Domain Main Classes for Theming</div>
+<div class="title">Figure 11. Domain Main Classes for Theming</div>
 </div>
 <div class="paragraph">
 <p>This Data Domain&#8217;s main classes are taken from <a href="#SKOS">[SKOS]</a> and their expected/required properties and relations are formally defined in <em>VocPub</em>, a "vocabulary publication profile of SKOS" <a href="#VOCPUB">[VOCPUB]</a>. VocPub just mandates certain vocabulary metadata and relations between elements in vocabularies. Conformance of vocabularies to VocPub is also easily testable using the profile&#8217;s validator and online tooling that support it <sup class="footnote">[<a id="_footnoteref_3" class="footnote" href="#_footnotedef_3" title="View footnote.">3</a>]</sup>.</p>
@@ -1115,7 +1230,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <img src="https://geoscienceaustralia.github.io/loci-supermodel/img/domain-classes-observations-sampling.png" alt="domain classes observations sampling">
 </div>
-<div class="title">Figure 10. Domain Main Classes for Observations &amp; Sampling</div>
+<div class="title">Figure 12. Domain Main Classes for Observations &amp; Sampling</div>
 </div>
 </div>
 <div class="sect3">
@@ -1127,7 +1242,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <img src="https://geoscienceaustralia.github.io/loci-supermodel/img/domain-classes-spatial.png" alt="domain classes spatial">
 </div>
-<div class="title">Figure 11. Domain Main Classes for Spatial</div>
+<div class="title">Figure 13. Domain Main Classes for Spatial</div>
 </div>
 <div class="paragraph">
 <p>This Data Domain&#8217;s main classes are taken directly from GeoSPARQL 1.1 <a href="#GEO">[GEO]</a> which is used extensively for Semantic Web spatial data already. GeoSPARQL&#8217;s main purposes are to relate things (<code>geo:Feature</code>) to their spatial projections - their geometries - and to relate things to one another - topological relations between features, such as <em>within</em>, <em>touches</em>, <em>disjoint</em> etc.</p>
@@ -1154,7 +1269,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <img src="https://geoscienceaustralia.github.io/loci-supermodel/img/details-data-cataloguing.png" alt="details data cataloguing">
 </div>
-<div class="title">Figure 12. Data Cataloguing Model, based on DCAT &amp; PROV</div>
+<div class="title">Figure 14. Data Cataloguing Model, based on DCAT &amp; PROV</div>
 </div>
 </div>
 <div class="sect2">
@@ -1166,7 +1281,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <img src="https://geoscienceaustralia.github.io/loci-supermodel/img/details-organisations-people.png" alt="details organisations people">
 </div>
-<div class="title">Figure 13. Organisation Model, based on schema.org</div>
+<div class="title">Figure 15. Organisation Model, based on schema.org</div>
 </div>
 </div>
 <div class="sect2">
@@ -1184,14 +1299,47 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <img src="https://geoscienceaustralia.github.io/loci-supermodel/img/details-observations-sampling.png" alt="details observations sampling">
 </div>
-<div class="title">Figure 14. Observations Model, based on <a href="https://www.w3.org/TR/vocab-data-cube/#fig-pictorial-summary-of-key-terms-and-their-relationship">Data Cube Vocabulary overview</a></div>
+<div class="title">Figure 16. Observations Model, based on <a href="https://www.w3.org/TR/vocab-data-cube/#fig-pictorial-summary-of-key-terms-and-their-relationship">Data Cube Vocabulary overview</a></div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_spatiality_domain">5.5. Spatiality Domain</h3>
 <div class="paragraph">
-<p>The Spatiality domain is the promary concern of the Loc-I Project since the project aims to provide an integration mthdology, models and an integrated and estensible "spine" of major national spatial datasets.</p>
+<p>The Spatiality domain is the promary concern of the FSDF Project since the project aims to provide an integration mthdology, models and an integrated and estensible "spine" of major national spatial datasets.</p>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_backbone_model">6. Backbone Model</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_component_models">7. Component Models</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section contains the details of the various Component Models used for the individual datasets within the FSDF Data Platform.</p>
+</div>
+<div class="paragraph">
+<p>Several of these Component Models are plain implementations of the Backbone Model, as in they implement no additional classes properties or other model elements beyond what the Backbone Model already contains. It is expected that many spatial dataset may be able to be created as plain Backbone Model-only datasets in this way if the only contain collections of names Features without special relationships or properties.</p>
+</div>
+<div class="sect2">
+<h3 id="_asgs">7.1. ASGS</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_geofabric">7.2. Geofabric</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_g_naf">7.3. G-NAF</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_fsdf_datasets">7.4. FSDF Datasets</h3>
+
 </div>
 </div>
 </div>
@@ -1267,7 +1415,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-03-31 00:09:10 UTC
+Last updated 2022-06-21 05:03:04 UTC
 </div>
 </div>
 </body>
