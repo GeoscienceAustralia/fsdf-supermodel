@@ -485,6 +485,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_fsdf_datasets">7.4. FSDF Datasets</a></li>
 </ul>
 </li>
+<li><a href="#_validators">8. Validators</a></li>
+<li><a href="#_annex_a_observations_data">Annex A: Observations Data</a></li>
 <li><a href="#_references">References</a></li>
 </ul>
 </div>
@@ -934,39 +936,81 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect3">
 <h4 id="_1_model_a_new_dataset">3.4.1. 1. Model a new dataset</h4>
 <div class="paragraph">
-<p>Individual datasets are modelled with <a href="#component-model-defn">Component Models</a>. The most basic of Component Models would contain just elements of the <a href="#backbone-model-defn">Backbone Model</a> for this Supermodel and implement no specialised modelling of its own, thus the simplest way to implement a new model for a dataset is to just implement a minimal set of the Backbone Model&#8217;s components.</p>
+<p>Individual datasets are modelled as <a href="#component-model-defn">Component Models</a>. The most basic of Component Models contain <code>Dataset</code>, <code>FeatureCollection</code> &amp; <code>Feature</code> classes modelled using the DCAT &amp; GeoSPARQL Background Models with certain relations. The details of this modelling are given in the first part of the <a href="#_component_models">Component Models</a> section.</p>
 </div>
 <div class="paragraph">
-<p>Several of the existing Component Models within this Supermodel are, or are very close to, minimal Backbone Model implementations. In particular:</p>
+<p>To model a highly specialised dataset, you will need to be able to implement both the most basic Component Model elements but also model the specialised elements relevant to your dataset. No specific guidance about your dataset can be given here however the <a href="#_component_models">Component Models</a> section does indicate existing datasets that contain a large amount of specialisation that you may draw inspiration from.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>ASGS Component Model</p>
-</li>
-<li>
-<p>Geofabric Component Model</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>In all cases, you can use the tools listed in the <a href="#_validators">Validators</a> section to test any data you&#8217;ve created to see if it really is valid according to this Supermodel.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_2_validate_new_dataset">3.4.2. 2. Validate new dataset</h4>
 <div class="paragraph">
-<p>Data validators are available, for all elements of this Supermodel too, so you can use them to validate your data.</p>
+<p>Data validators are available, for all elements of this Supermodel, so you can use them to validate your data. See the <a href="#_validators">Validators</a> section.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_3_create_an_extendedspecialised_component_model">3.4.3. 3. Create an extended/specialised 'Component Model'</h4>
-
+<div class="paragraph">
+<p>As per subsection 1. above, we can&#8217;t give specific details about specialised modelling here since we don&#8217;t know about your particular dataset however we can both indicate existing specialised datasets (see the start of the <a href="#_component_models">Component Models</a> section) and we can make a few general points:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>this Supermodel is concerned with the modelling of spatial datasets as Component Models with <code>Dataset</code>, <code>FeatureCollection</code> &amp; <code>Feature</code> with certain relations between them</p>
+</li>
+<li>
+<p>most specialisation is likely to occur by adding special properties to <code>Feature</code> instances</p>
+<div class="ulist">
+<ul>
+<li>
+<p>for example, the <code>Feature</code> instances within the FSDF&#8217;s <a href="https://linked.fsdf.org.au/dataset/electrical-infrastructure/collections/PS">Power Stations</a> <code>FeatureCollection</code> contain properties relevant to power generation, such as <code>primaryfuelType</code> indicating coal, biogas etc., and these are important for knowledge of Power Stations but don&#8217;t affect the general spatial feature modelling of this Supermodel in any way</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>spatial relations - between <code>Feature</code> instances within one <code>FeatureCollection</code> or even across <code>Dataset</code> instances - are expected and can be modelled using GeoSPARQL&#8217;s <a href="https://opengeospatial.github.io/ogc-geosparql/geosparql11/spec.html#_simple_features_relation_family">Simple Features Topological Relations Family</a>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>No custom modelling is likely required for standard spatial relations</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The geometries of <code>Feature</code> instances can be represented in several ways and <code>Feature</code> instances can have multiple geometries</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Boundaries at different levels of resolution may be given or geometries with different roles, e.g. high and low tide boundaries</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 <div class="sect3">
 <h4 id="_4_validate_extendedspecialised_new_dataset_data">3.4.4. 4. Validate extended/specialised new dataset data</h4>
-
+<div class="paragraph">
+<p>As per section 2. above, see the <a href="#_validators">Validators</a> section. Of course, your specialised modelling won&#8217;t have a validator for it, however you can certainly ensure that your new data is valid according to this Supermodel.</p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="_5_create_a_dataset_of_observations">3.4.5. 5. Create a dataset of observations</h4>
-
+<div class="paragraph">
+<p>The spatial datasets within this Supermodel are intended to just present a spatial reference later that observations data can be referenced against. For example, Australian census data is keyed to the Mesh Blocks and other spatial areas of the <a href="#_asgs">ASGS dataset</a>, water data in the Bureau of Meteorology&#8217;s AWRIS system are keyed to catchments within the <a href="#_geofabric">Geofabric dataset</a>.</p>
+</div>
+<div class="paragraph">
+<p>You can create your own observations data and key them to any datasets that exist within this Supermodel or to datasets that you make that are compatible with this Supermodel&#8217;s elements.</p>
+</div>
+<div class="paragraph">
+<p>To know how to do this, see <a href="#_annex_a_observations_data">Annex A: Observations Data</a>.</p>
+</div>
 </div>
 </div>
 </div>
@@ -974,6 +1018,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect1">
 <h2 id="_supermodel">4. Supermodel</h2>
 <div class="sectionbody">
+<div id="models" class="imageblock">
+<div class="content">
+<img src="https://geoscienceaustralia.github.io/loci-supermodel/img/models.png" alt="models">
+</div>
+<div class="title">Figure 4. The various models of this Supermodel</div>
+</div>
 <div class="paragraph">
 <p>The model that this Supermodel is based on is a small <a href="#semantic-web">Semantic Web</a> <a href="#ontology">Ontology</a> that defines the major model elements and other terminology used.</p>
 </div>
@@ -994,7 +1044,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <img src="https://geoscienceaustralia.github.io/loci-supermodel/img/key.png" alt="key">
 </div>
-<div class="title">Figure 4. Diagram elements key</div>
+<div class="title">Figure 5. Diagram elements key</div>
 </div>
 </div>
 <div class="sect3">
@@ -1006,7 +1056,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <img src="https://geoscienceaustralia.github.io/loci-supermodel/img/level0-owl.png" alt="level0 owl">
 </div>
-<div class="title">Figure 5. OWL objects and their relations</div>
+<div class="title">Figure 6. OWL objects and their relations</div>
 </div>
 <div class="paragraph">
 <p>The elements shown above are identified with prefixed IRIs that correspond to entries in the <a href="#tbl-prefixes">Namespace Table</a>. A short explanation of the diagram key elements is:</p>
@@ -1046,7 +1096,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <img src="https://geoscienceaustralia.github.io/loci-supermodel/img/level0-prov.png" alt="level0 prov">
 </div>
-<div class="title">Figure 6. PROV main classes and main relations</div>
+<div class="title">Figure 7. PROV main classes and main relations</div>
 </div>
 <div class="paragraph">
 <p>According to PROV, all things are either a:</p>
@@ -1100,7 +1150,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <img src="https://geoscienceaustralia.github.io/loci-supermodel/img/data-domains.png" alt="data domains">
 </div>
-<div class="title">Figure 7. Top-level view of the Supermodel showing Data Domains</div>
+<div class="title">Figure 8. Top-level view of the Supermodel showing Data Domains</div>
 </div>
 <div class="paragraph">
 <p>These Data Domains are defined formally in a simple SKOS vocabulary within this model&#8217;s set of machine-readable resources. The vocabulary may be access ddirectly at <a href="https://linked.data.gov.au/def/supermodel/data-domains" class="bare">https://linked.data.gov.au/def/supermodel/data-domains</a>.</p>
@@ -1127,7 +1177,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <img src="https://geoscienceaustralia.github.io/loci-supermodel/img/central-classes.png" alt="central classes">
 </div>
-<div class="title">Figure 8. Next level view of the Supermodel showing Central Classes</div>
+<div class="title">Figure 9. Next level view of the Supermodel showing Central Classes</div>
 </div>
 <div class="paragraph">
 <p>The Central Classes of each of the Data Domains are well-used classes from well-known models. For example, the Central Class of <em>Organisation &amp; People</em> is <a href="#PROV">[PROV]</a>'s <code>Agent</code> class which is one of the three main classes of thing in PROV and used every time PROV is used to represent causal agents. PROV is used extensively to indicate how things - data, resources, systems - come to be.</p>
@@ -1248,7 +1298,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <img src="https://geoscienceaustralia.github.io/loci-supermodel/img/domain-classes-data-cataloguing.png" alt="domain classes data cataloguing">
 </div>
-<div class="title">Figure 9. Domain Main Classes for Data Cataloguing</div>
+<div class="title">Figure 10. Domain Main Classes for Data Cataloguing</div>
 </div>
 <div class="paragraph">
 <p>This Data Domain&#8217;s main classes are essentially the DCAT2 data model <a href="#DCAT">[DCAT]</a> with a slight profiling: <code>dcterms:hasPart</code> should be used to indicate elements within catalogues (e.g. <code>dcat:Dataset</code> and other things within a <code>dcat:Catalog</code>) rather than the specialised properties of <code>dcat:dataset</code> because generic catalogue can be expected to catalogue many types of things and the type of the thing should be given by the thing, not the catalogue property used to indicate it.</p>
@@ -1263,7 +1313,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <img src="https://geoscienceaustralia.github.io/loci-supermodel/img/domain-classes-organisations-people.png" alt="domain classes organisations people">
 </div>
-<div class="title">Figure 10. Domain Main Classes for Organisations &amp; People</div>
+<div class="title">Figure 11. Domain Main Classes for Organisations &amp; People</div>
 </div>
 <div class="paragraph">
 <p>This Data Domain&#8217;s main classes are centered on <a href="#PROV">[PROV]</a>'s <code>prof:Agent</code> class but specific types of agent - <em>person</em> &amp; <em>organisation</em> are defined using schema.org <a href="#SDO">[SDO]</a>, the general-purpose ontology provisioned by Google, Microsoft &amp; Yahoo for the description of web page data.</p>
@@ -1281,7 +1331,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <img src="https://geoscienceaustralia.github.io/loci-supermodel/img/domain-classes-theming.png" alt="domain classes theming">
 </div>
-<div class="title">Figure 11. Domain Main Classes for Theming</div>
+<div class="title">Figure 12. Domain Main Classes for Theming</div>
 </div>
 <div class="paragraph">
 <p>This Data Domain&#8217;s main classes are taken from <a href="#SKOS">[SKOS]</a> and their expected/required properties and relations are formally defined in <em>VocPub</em>, a "vocabulary publication profile of SKOS" <a href="#VOCPUB">[VOCPUB]</a>. VocPub just mandates certain vocabulary metadata and relations between elements in vocabularies. Conformance of vocabularies to VocPub is also easily testable using the profile&#8217;s validator and online tooling that support it <sup class="footnote">[<a id="_footnoteref_3" class="footnote" href="#_footnotedef_3" title="View footnote.">3</a>]</sup>.</p>
@@ -1293,7 +1343,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <img src="https://geoscienceaustralia.github.io/loci-supermodel/img/domain-classes-observations-sampling.png" alt="domain classes observations sampling">
 </div>
-<div class="title">Figure 12. Domain Main Classes for Observations &amp; Sampling</div>
+<div class="title">Figure 13. Domain Main Classes for Observations &amp; Sampling</div>
 </div>
 </div>
 <div class="sect3">
@@ -1305,7 +1355,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <img src="https://geoscienceaustralia.github.io/loci-supermodel/img/domain-classes-spatial.png" alt="domain classes spatial">
 </div>
-<div class="title">Figure 13. Domain Main Classes for Spatial</div>
+<div class="title">Figure 14. Domain Main Classes for Spatial</div>
 </div>
 <div class="paragraph">
 <p>This Data Domain&#8217;s main classes are taken directly from GeoSPARQL 1.1 <a href="#GEO">[GEO]</a> which is used extensively for Semantic Web spatial data already. GeoSPARQL&#8217;s main purposes are to relate things (<code>geo:Feature</code>) to their spatial projections - their geometries - and to relate things to one another - topological relations between features, such as <em>within</em>, <em>touches</em>, <em>disjoint</em> etc.</p>
@@ -1332,7 +1382,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <img src="https://geoscienceaustralia.github.io/loci-supermodel/img/details-data-cataloguing.png" alt="details data cataloguing">
 </div>
-<div class="title">Figure 14. Data Cataloguing Model, based on DCAT &amp; PROV</div>
+<div class="title">Figure 15. Data Cataloguing Model, based on DCAT &amp; PROV</div>
 </div>
 </div>
 <div class="sect2">
@@ -1344,7 +1394,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <img src="https://geoscienceaustralia.github.io/loci-supermodel/img/details-organisations-people.png" alt="details organisations people">
 </div>
-<div class="title">Figure 15. Organisation Model, based on schema.org</div>
+<div class="title">Figure 16. Organisation Model, based on schema.org</div>
 </div>
 </div>
 <div class="sect2">
@@ -1362,7 +1412,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <img src="https://geoscienceaustralia.github.io/loci-supermodel/img/details-observations-sampling.png" alt="details observations sampling">
 </div>
-<div class="title">Figure 16. Observations Model, based on <a href="https://www.w3.org/TR/vocab-data-cube/#fig-pictorial-summary-of-key-terms-and-their-relationship">Data Cube Vocabulary overview</a></div>
+<div class="title">Figure 17. Observations Model, based on <a href="https://www.w3.org/TR/vocab-data-cube/#fig-pictorial-summary-of-key-terms-and-their-relationship">Data Cube Vocabulary overview</a></div>
 </div>
 </div>
 <div class="sect2">
@@ -1388,6 +1438,28 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph">
 <p>Several of these Component Models are plain implementations of the Backbone Model, as in they implement no additional classes properties or other model elements beyond what the Backbone Model already contains. It is expected that many spatial dataset may be able to be created as plain Backbone Model-only datasets in this way if the only contain collections of names Features without special relationships or properties.</p>
 </div>
+<div class="paragraph">
+<p>Several of the existing Component Models within this Supermodel are, or are very close to, minimal Backbone Model implementations. In particular:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#_asgs">ASGS Component Model</a></p>
+</li>
+<li>
+<p><a href="#_geofabric">Geofabric Component Model</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The ASGS Component Model is one <code>Dataset</code> with multiple <code>Feature Collections</code> containing multiple <code>Features</code> which have basic topological and spatial properties but nothing custom other than their identifiers and names. The Geofabric similarly has a <code>Dataset</code> with 3 <code>Feature Collections</code> containing <code>Features</code> that have only one custom property: <code>Catchment</code> <code>Features</code> sometimes indicate a <em>downstream catchment</em>.</p>
+</div>
+<div class="paragraph">
+<p>So, to model a new dataset in a minimalist fashion, you can copy one or other of these Component Model&#8217;s structure and details.</p>
+</div>
+<div class="paragraph">
+<p>The <a href="#_backbone_model">Backbone Model</a> section contains the detailed notes about requirements that need to be met to conform to it and tools described in the <a href="#_validators">Validators</a> section are provided to check your implementation really is conformant.</p>
+</div>
 <div class="sect2">
 <h3 id="_asgs">7.1. ASGS</h3>
 
@@ -1407,54 +1479,66 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
+<h2 id="_validators">8. Validators</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_annex_a_observations_data">Annex A: Observations Data</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
 <h2 id="_references">References</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><a id="ABIS"></a> Department of Agriculture, Water and the Enviroment, <em>Australia Biodiversity Information Standard (ABIS)</em>, Australian government Semantic Web Standard (2022-01-14). <a href="https://linked.data.gov.au/def/abis" class="bare">https://linked.data.gov.au/def/abis</a></p>
+<p><a id="ABIS"></a> [ABIS] Department of Agriculture, Water and the Enviroment, <em>Australia Biodiversity Information Standard (ABIS)</em>, Australian government Semantic Web Standard (2022-01-14). <a href="https://linked.data.gov.au/def/abis" class="bare">https://linked.data.gov.au/def/abis</a></p>
 </li>
 <li>
-<p><a id="DCTERMS"></a> DCMI Usage Board, <em>DCMI Metadata Terms</em>, A DCMI Recommendation (2020-01-20). <a href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/" class="bare">https://www.dublincore.org/specifications/dublin-core/dcmi-terms/</a></p>
+<p><a id="DCTERMS"></a> [DCTERMS] DCMI Usage Board, <em>DCMI Metadata Terms</em>, A DCMI Recommendation (2020-01-20). <a href="https://www.dublincore.org/specifications/dublin-core/dcmi-terms/" class="bare">https://www.dublincore.org/specifications/dublin-core/dcmi-terms/</a></p>
 </li>
 <li>
-<p><a id="DCAT"></a> World Wide Web Consortium, <em>Data Catalog Vocabulary (DCAT) - Version 2</em>, W3C Working Group Note (04 February 2020). <a href="https://www.w3.org/TR/vocab-dcat/" class="bare">https://www.w3.org/TR/vocab-dcat/</a></p>
+<p><a id="DCAT"></a> [DCAT] World Wide Web Consortium, <em>Data Catalog Vocabulary (DCAT) - Version 2</em>, W3C Working Group Note (04 February 2020). <a href="https://www.w3.org/TR/vocab-dcat/" class="bare">https://www.w3.org/TR/vocab-dcat/</a></p>
 </li>
 <li>
-<p><a id="GEO"></a> Open Geospatial Consortium, <em>OGC GeoSPARQL - A Geographic Query Language for RDF Data, Version 1.1</em> (2021). OGC Implementation Specification. <a href="http://www.opengis.net/doc/IS/geosparql/1.1" class="bare">http://www.opengis.net/doc/IS/geosparql/1.1</a></p>
+<p><a id="GEO"></a> [GEO] Open Geospatial Consortium, <em>OGC GeoSPARQL - A Geographic Query Language for RDF Data, Version 1.1</em> (2021). OGC Implementation Specification. <a href="http://www.opengis.net/doc/IS/geosparql/1.1" class="bare">http://www.opengis.net/doc/IS/geosparql/1.1</a></p>
 </li>
 <li>
-<p><a id="ISO19156"></a> International Organization for Standardization, <em>ISO 19156: Geographic information — Observations and measurements</em> (2011)</p>
+<p><a id="ISO19156"></a> [ISO19156] International Organization for Standardization, <em>ISO 19156: Geographic information — Observations and measurements</em> (2011)</p>
 </li>
 <li>
-<p><a id="OGCAPI"></a> Open Geospatial Consortium, _OGC API - Features, overview website (2022). OGC Implementation Specification. <a href="https://ogcapi.ogc.org/features/" class="bare">https://ogcapi.ogc.org/features/</a>. Accessed 2022-03-03</p>
+<p><a id="OGCAPI"></a> [OGCAPI] Open Geospatial Consortium, _OGC API - Features, overview website (2022). OGC Implementation Specification. <a href="https://ogcapi.ogc.org/features/" class="bare">https://ogcapi.ogc.org/features/</a>. Accessed 2022-03-03</p>
 </li>
 <li>
-<p><a id="OGCLDAPI"></a> SURROUND Australia Pty Ltd, <em>OGC LDA PI Profile</em>, Profiles Vocabulary Profile (2021). <a href="https://w3id.org/profile/ogcldapi" class="bare">https://w3id.org/profile/ogcldapi</a></p>
+<p><a id="OGCLDAPI"></a> [OGCLDAPI] SURROUND Australia Pty Ltd, <em>OGC LDA PI Profile</em>, Profiles Vocabulary Profile (2021). <a href="https://w3id.org/profile/ogcldapi" class="bare">https://w3id.org/profile/ogcldapi</a></p>
 </li>
 <li>
-<p><a id="OWL"></a> World Wide Web Consortium, <em>OWL 2 Web Ontology Language Document Overview (Second Edition)</em>, W3C Recommendation (11 December 2012). <a href="https://www.w3.org/TR/owl2-overview/" class="bare">https://www.w3.org/TR/owl2-overview/</a></p>
+<p><a id="OWL"></a> [OWL] World Wide Web Consortium, <em>OWL 2 Web Ontology Language Document Overview (Second Edition)</em>, W3C Recommendation (11 December 2012). <a href="https://www.w3.org/TR/owl2-overview/" class="bare">https://www.w3.org/TR/owl2-overview/</a></p>
 </li>
 <li>
-<p><a id="PROF"></a> World Wide Web Consortium, <em>The Profiles Vocabulary</em>, W3C Working Group Note (18 December 2019). <a href="https://www.w3.org/TR/dx-prof/" class="bare">https://www.w3.org/TR/dx-prof/</a></p>
+<p><a id="PROF"></a> [PROF] World Wide Web Consortium, <em>The Profiles Vocabulary</em>, W3C Working Group Note (18 December 2019). <a href="https://www.w3.org/TR/dx-prof/" class="bare">https://www.w3.org/TR/dx-prof/</a></p>
 </li>
 <li>
-<p><a id="PROV"></a> World Wide Web Consortium, <em>PROV-O: The PROV Ontology</em>, W3C Working Group Note (18 December 2019). <a href="https://www.w3.org/TR/prov-o/" class="bare">https://www.w3.org/TR/prov-o/</a></p>
+<p><a id="PROV"></a> [PROV] World Wide Web Consortium, <em>PROV-O: The PROV Ontology</em>, W3C Working Group Note (18 December 2019). <a href="https://www.w3.org/TR/prov-o/" class="bare">https://www.w3.org/TR/prov-o/</a></p>
 </li>
 <li>
-<p><a id="SDO"></a> W3C Schema.org Community Group, <em>schema.org</em>. Community ontology (2015). <a href="https://schema.org" class="bare">https://schema.org</a></p>
+<p><a id="SDO"></a> [SDO] W3C Schema.org Community Group, <em>schema.org</em>. Community ontology (2015). <a href="https://schema.org" class="bare">https://schema.org</a></p>
 </li>
 <li>
-<p><a id="SSN"></a> World Wide Web Consortium, <em>Semantic Sensor Network Ontology</em>, W3C Recommendation (19 October 2017). <a href="https://www.w3.org/TR/vocab-ssn/" class="bare">https://www.w3.org/TR/vocab-ssn/</a></p>
+<p><a id="SSN"></a> [SSN] World Wide Web Consortium, <em>Semantic Sensor Network Ontology</em>, W3C Recommendation (19 October 2017). <a href="https://www.w3.org/TR/vocab-ssn/" class="bare">https://www.w3.org/TR/vocab-ssn/</a></p>
 </li>
 <li>
-<p><a id="SKOS"></a> World Wide Web Consortium, <em>SKOS Simple Knowledge Organization System Reference</em>, W3C Recommendation (18 August 2009). <a href="https://www.w3.org/TR/skos-reference/" class="bare">https://www.w3.org/TR/skos-reference/</a></p>
+<p><a id="SKOS"></a> [SKOS] World Wide Web Consortium, <em>SKOS Simple Knowledge Organization System Reference</em>, W3C Recommendation (18 August 2009). <a href="https://www.w3.org/TR/skos-reference/" class="bare">https://www.w3.org/TR/skos-reference/</a></p>
 </li>
 <li>
-<p><a id="TTL"></a> World Wide Web Consortium, <em>RDF 1.1 Turtle Terse RDF Triple Language</em>, W3C Recommendation (25 February 2014). <a href="https://www.w3.org/TR/turtle/" class="bare">https://www.w3.org/TR/turtle/</a></p>
+<p><a id="TTL"></a> [TTL] World Wide Web Consortium, <em>RDF 1.1 Turtle Terse RDF Triple Language</em>, W3C Recommendation (25 February 2014). <a href="https://www.w3.org/TR/turtle/" class="bare">https://www.w3.org/TR/turtle/</a></p>
 </li>
 <li>
-<p><a id="VOCPUB"></a> SURROUND Australia Pty Ltd, <em>VocPub</em>, Profile of SKOS (14 June 2020). <a href="https://w3id.org/profile/vocpub" class="bare">https://w3id.org/profile/vocpub</a></p>
+<p><a id="VOCPUB"></a> [VOCPUB] SURROUND Australia Pty Ltd, <em>VocPub</em>, Profile of SKOS (14 June 2020). <a href="https://w3id.org/profile/vocpub" class="bare">https://w3id.org/profile/vocpub</a></p>
 </li>
 </ul>
 </div>
@@ -1478,7 +1562,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-06-29 05:16:00 UTC
+Last updated 2022-06-29 12:46:18 UTC
 </div>
 </div>
 </body>
