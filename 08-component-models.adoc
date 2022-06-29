@@ -4,6 +4,19 @@ This section contains the details of the various Component Models used for the i
 
 Several of these Component Models are plain implementations of the Backbone Model, as in they implement no additional classes properties or other model elements beyond what the Backbone Model already contains. It is expected that many spatial dataset may be able to be created as plain Backbone Model-only datasets in this way if the only contain collections of names Features without special relationships or properties.
 
+
+Several of the existing Component Models within this Supermodel are, or are very close to, minimal Backbone Model implementations. In particular:
+
+* <<ASGS, ASGS Component Model>>
+* <<Geofabric, Geofabric Component Model>>
+
+The ASGS Component Model is one `Dataset` with multiple `Feature Collections` containing multiple `Features` which have basic topological and spatial properties but nothing custom other than their identifiers and names. The Geofabric similarly has a `Dataset` with 3 `Feature Collections` containing `Features` that have only one custom property: `Catchment` `Features` sometimes indicate a _downstream catchment_.
+
+So, to model a new dataset in a minimalist fashion, you can copy one or other of these Component Model's structure and details.
+
+The <<Backbone Model>> section contains the detailed notes about requirements that need to be met to conform to it and tools described in the <<Validators>> section are provided to check your implementation really is conformant.
+
+
 === ASGS
 
 === Geofabric

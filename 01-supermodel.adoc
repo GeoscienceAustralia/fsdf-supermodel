@@ -40,6 +40,10 @@ include::07-backbone-model.adoc[]
 
 include::08-component-models.adoc[]
 
+include::09-validators.adoc[]
+
 :sectnums!:
+
+include::50-annex-a-observations.adoc[]
 
 include::99-references.adoc[]

@@ -53,21 +53,36 @@ Detailed suggestions as to how to achieve these tasks are given below.
 
 ==== 1. Model a new dataset
 
-Individual datasets are modelled with <<component-model-defn, Component Models>>. The most basic of Component Models would contain just elements of the <<backbone-model-defn, Backbone Model>> for this Supermodel and implement no specialised modelling of its own, thus the simplest way to implement a new model for a dataset is to just implement a minimal set of the Backbone Model's components.
+Individual datasets are modelled as <<component-model-defn, Component Models>>. The most basic of Component Models contain `Dataset`, `FeatureCollection` & `Feature` classes modelled using the DCAT & GeoSPARQL Background Models with certain relations. The details of this modelling are given in the first part of the <<Component Models>> section.
 
-Several of the existing Component Models within this Supermodel are, or are very close to, minimal Backbone Model implementations. In particular:
+To model a highly specialised dataset, you will need to be able to implement both the most basic Component Model elements but also model the specialised elements relevant to your dataset. No specific guidance about your dataset can be given here however the <<Component Models>> section does indicate existing datasets that contain a large amount of specialisation that you may draw inspiration from.
 
-* ASGS Component Model
-* Geofabric Component Model
-
+In all cases, you can use the tools listed in the <<Validators>> section to test any data you've created to see if it really is valid according to this Supermodel.
 
 ==== 2. Validate new dataset
 
-Data validators are available, for all elements of this Supermodel too, so you can use them to validate your data.
+Data validators are available, for all elements of this Supermodel, so you can use them to validate your data. See the <<Validators>> section.
 
 ==== 3. Create an extended/specialised 'Component Model'
 
+As per subsection 1. above, we can't give specific details about specialised modelling here since we don't know about your particular dataset however we can both indicate existing specialised datasets (see the start of the <<Component Models>> section) and we can make a few general points:
+
+* this Supermodel is concerned with the modelling of spatial datasets as Component Models with `Dataset`, `FeatureCollection` & `Feature` with certain relations between them
+* most specialisation is likely to occur by adding special properties to `Feature` instances
+** for example, the `Feature` instances within the FSDF's https://linked.fsdf.org.au/dataset/electrical-infrastructure/collections/PS[Power Stations] `FeatureCollection` contain properties relevant to power generation, such as `primaryfuelType` indicating coal, biogas etc., and these are important for knowledge of Power Stations but don't affect the general spatial feature modelling of this Supermodel in any way
+* spatial relations - between `Feature` instances within one `FeatureCollection` or even across `Dataset` instances - are expected and can be modelled using GeoSPARQL's https://opengeospatial.github.io/ogc-geosparql/geosparql11/spec.html#_simple_features_relation_family[Simple Features Topological Relations Family].
+** No custom modelling is likely required for standard spatial relations
+* The geometries of `Feature` instances can be represented in several ways and `Feature` instances can have multiple geometries
+** Boundaries at different levels of resolution may be given or geometries with different roles, e.g. high and low tide boundaries
+
 ==== 4. Validate extended/specialised new dataset data
+
+As per section 2. above, see the <<Validators>> section. Of course, your specialised modelling won't have a validator for it, however you can certainly ensure that your new data is valid according to this Supermodel.
 
 ==== 5. Create a dataset of observations
 
+The spatial datasets within this Supermodel are intended to just present a spatial reference later that observations data can be referenced against. For example, Australian census data is keyed to the Mesh Blocks and other spatial areas of the <<ASGS, ASGS dataset>>, water data in the Bureau of Meteorology's AWRIS system are keyed to catchments within the <<Geofabric, Geofabric dataset>>.
+
+You can create your own observations data and key them to any datasets that exist within this Supermodel or to datasets that you make that are compatible with this Supermodel's elements.
+
+To know how to do this, see <<Annex A: Observations Data>>.

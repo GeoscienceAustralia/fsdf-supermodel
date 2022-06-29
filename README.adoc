@@ -1,17 +1,8 @@
 = FSDF Supermodel
 
-WARNING: in early development, not officially released yet
+This Model - the FSDF Supermodel - is the http://www.ga.gov.au/locationindex[Location Index (Loc-I) Projects]'s overarching data model that provides integration logic for all FSDF elements.
 
-This Model - the FSDF Supermodel - is the link:http://www.ga.gov.au/locationindex[Location Index (Loc-I) Projects]'s overarching data model that provides integration logic for all FSDF elements.
-
-This work is part of a project to operationalise Loc-I for https://www.ga.gov.au[Geoscience Australia] by https://surroundaustralia.com[SURROUND Australia Pty Ltd].
-
-[[NOTE]]
-====
-This work is currently in early development with a complete first release expected in June, 2022.
-
-This work builds on previous work defining overarching mdoels and specialised dataset models for Loc-I datasets developed by https://www.csiro.au[CSIRO] and https://www.ga.gov.au[Geoscience Australia]. All previously developed Loc-I models are incorporated here, albethey with some updates.
-====
+This work is part of a project to operationalise Loc-I for https://www.ga.gov.au[Geoscience Australia] initially undertaken by https://surroundaustralia.com[SURROUND Australia Pty Ltd].
 
 == Specification document
 
@@ -25,7 +16,7 @@ The repository:
 
 * https://github.com/geoscienceaustralia/loci-supermodel
 
-The online and repostory location will certainly change once this model is taken over by Geoscience Australia itself for continued use.
+The online and repository location will certainly change once this model is taken over by Geoscience Australia itself for continued use.
 
 == License & Rights
 
@@ -33,9 +24,19 @@ The contents of this repository is licensed under Creative Commons 4.0 Internati
 
 == Contacts
 
-Initial development of this work is being undertaken by the following, for Geoscience Australia:
+Official enquiries should be directed to:
+
+**Geoscience Australia** +
+GPO Box 378, Canberra ACT 2601 Australia +
+<fsdf@ga.gov.au> +
+General Enquiries: 1800 800 173, +
+Switchboard: +61 2 6249 9111
+
+Technical development of this work was undertaken by the following, for Geoscience Australia, so technical enquiries may be directed here:
 
 **Nicholas J. Car** +
-*Data Systems Architect* +
-SURROUND Australia Pty Ltd. +  
-<nicholas.car@surroundaustralia.com>  
+*Data Architect* +
+initially of https://surroundaustralia.com[SURROUND Australia Pty Ltd.], +
+currently of https://kurrawong.net[Kurrawong AI] +
+<nick@kurrawong.net> +
++61477 560 177

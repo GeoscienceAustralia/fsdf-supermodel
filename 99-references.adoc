@@ -1,31 +1,31 @@
 == References
 
-* [[ABIS]] Department of Agriculture, Water and the Enviroment, _Australia Biodiversity Information Standard (ABIS)_, Australian government Semantic Web Standard (2022-01-14). https://linked.data.gov.au/def/abis
+* [[ABIS]] [ABIS] Department of Agriculture, Water and the Enviroment, _Australia Biodiversity Information Standard (ABIS)_, Australian government Semantic Web Standard (2022-01-14). https://linked.data.gov.au/def/abis
 
-* [[DCTERMS]] DCMI Usage Board, _DCMI Metadata Terms_, A DCMI Recommendation (2020-01-20). https://www.dublincore.org/specifications/dublin-core/dcmi-terms/
+* [[DCTERMS]] [DCTERMS] DCMI Usage Board, _DCMI Metadata Terms_, A DCMI Recommendation (2020-01-20). https://www.dublincore.org/specifications/dublin-core/dcmi-terms/
 
-* [[DCAT]] World Wide Web Consortium, _Data Catalog Vocabulary (DCAT) - Version 2_, W3C Working Group Note (04 February 2020). https://www.w3.org/TR/vocab-dcat/
+* [[DCAT]] [DCAT] World Wide Web Consortium, _Data Catalog Vocabulary (DCAT) - Version 2_, W3C Working Group Note (04 February 2020). https://www.w3.org/TR/vocab-dcat/
 
-* [[GEO]] Open Geospatial Consortium, _OGC GeoSPARQL - A Geographic Query Language for RDF Data, Version 1.1_ (2021). OGC Implementation Specification. http://www.opengis.net/doc/IS/geosparql/1.1
+* [[GEO]] [GEO] Open Geospatial Consortium, _OGC GeoSPARQL - A Geographic Query Language for RDF Data, Version 1.1_ (2021). OGC Implementation Specification. http://www.opengis.net/doc/IS/geosparql/1.1
 
-* [[ISO19156]] International Organization for Standardization, _ISO 19156: Geographic information — Observations and measurements_ (2011)
+* [[ISO19156]] [ISO19156] International Organization for Standardization, _ISO 19156: Geographic information — Observations and measurements_ (2011)
 
-* [[OGCAPI]] Open Geospatial Consortium, _OGC API - Features, overview website (2022). OGC Implementation Specification. https://ogcapi.ogc.org/features/. Accessed 2022-03-03
+* [[OGCAPI]] [OGCAPI] Open Geospatial Consortium, _OGC API - Features, overview website (2022). OGC Implementation Specification. https://ogcapi.ogc.org/features/. Accessed 2022-03-03
 
-* [[OGCLDAPI]] SURROUND Australia Pty Ltd, _OGC LDA PI Profile_, Profiles Vocabulary Profile (2021). https://w3id.org/profile/ogcldapi
+* [[OGCLDAPI]] [OGCLDAPI] SURROUND Australia Pty Ltd, _OGC LDA PI Profile_, Profiles Vocabulary Profile (2021). https://w3id.org/profile/ogcldapi
 
-* [[OWL]] World Wide Web Consortium, _OWL 2 Web Ontology Language Document Overview (Second Edition)_, W3C Recommendation (11 December 2012). https://www.w3.org/TR/owl2-overview/
+* [[OWL]] [OWL] World Wide Web Consortium, _OWL 2 Web Ontology Language Document Overview (Second Edition)_, W3C Recommendation (11 December 2012). https://www.w3.org/TR/owl2-overview/
 
-* [[PROF]] World Wide Web Consortium, _The Profiles Vocabulary_, W3C Working Group Note (18 December 2019). https://www.w3.org/TR/dx-prof/
+* [[PROF]] [PROF] World Wide Web Consortium, _The Profiles Vocabulary_, W3C Working Group Note (18 December 2019). https://www.w3.org/TR/dx-prof/
 
-* [[PROV]] World Wide Web Consortium, _PROV-O: The PROV Ontology_, W3C Working Group Note (18 December 2019). https://www.w3.org/TR/prov-o/
+* [[PROV]] [PROV] World Wide Web Consortium, _PROV-O: The PROV Ontology_, W3C Working Group Note (18 December 2019). https://www.w3.org/TR/prov-o/
 
-* [[SDO]] W3C Schema.org Community Group, _schema.org_. Community ontology (2015). https://schema.org
+* [[SDO]] [SDO] W3C Schema.org Community Group, _schema.org_. Community ontology (2015). https://schema.org
 
-* [[SSN]] World Wide Web Consortium, _Semantic Sensor Network Ontology_, W3C Recommendation (19 October 2017). https://www.w3.org/TR/vocab-ssn/
+* [[SSN]] [SSN] World Wide Web Consortium, _Semantic Sensor Network Ontology_, W3C Recommendation (19 October 2017). https://www.w3.org/TR/vocab-ssn/
 
-* [[SKOS]] World Wide Web Consortium, _SKOS Simple Knowledge Organization System Reference_, W3C Recommendation (18 August 2009). https://www.w3.org/TR/skos-reference/
+* [[SKOS]] [SKOS] World Wide Web Consortium, _SKOS Simple Knowledge Organization System Reference_, W3C Recommendation (18 August 2009). https://www.w3.org/TR/skos-reference/
 
-* [[TTL]] World Wide Web Consortium, _RDF 1.1 Turtle Terse RDF Triple Language_, W3C Recommendation (25 February 2014). https://www.w3.org/TR/turtle/
+* [[TTL]] [TTL] World Wide Web Consortium, _RDF 1.1 Turtle Terse RDF Triple Language_, W3C Recommendation (25 February 2014). https://www.w3.org/TR/turtle/
 
-* [[VOCPUB]] SURROUND Australia Pty Ltd, _VocPub_, Profile of SKOS (14 June 2020). https://w3id.org/profile/vocpub
+* [[VOCPUB]] [VOCPUB] SURROUND Australia Pty Ltd, _VocPub_, Profile of SKOS (14 June 2020). https://w3id.org/profile/vocpub

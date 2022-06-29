@@ -1,5 +1,9 @@
 == Supermodel
 
+[[models]]
+.The various models of this Supermodel
+image::img/models.png[]
+
 The model that this Supermodel is based on is a small <<semantic-web, Semantic Web>> <<ontology, Ontology>> that defines the major model elements and other terminology used.
 
 In this Specification, this implementation of the Supermodel model is presented via a series of "Levels" which are progressively more detailed, domain-specific, views of the model.
