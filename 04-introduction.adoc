@@ -1,6 +1,6 @@
 == Introduction
 
-This Supermodel is based on previous work from the Location Index project so first that project is described and then how this Supermodel inherits from it.
+This Supermodel is based on previous work from the Location Index project. For clarity, that project is described, followed by how this Supermodel inherits from it.
 
 === Loc-I Project
 
@@ -10,7 +10,7 @@ See the project website, http://www.ga.gov.au/locationindex, for more project in
 
 === Loc-I Technical Implementation 
 
-The technical implementation of Loc-I was based on <<semantic-web, Semantic Web>> principles allowing datasets to be published as <<linked-data, Linked Data>> independently by data holders - different government departments, companies etc. - and consumed with minimal effort required for integration.
+The technical implementation of Loc-I was based on <<semantic-web-defn, Semantic Web>> principles allowing datasets to be published as <<linked-data-defn, Linked Data>> independently by data holders - different government departments, companies etc. - and consumed with minimal effort required for integration.
 
 The technical implementation relied on a _Loc-I Ontology_, the main Loc-I model, multiple _Background Models_, fundamental, standards, data models that the Loc-I Ontology depended on, and, for some datasets, _Dataset Models_ of their content that spefialise the Loc-I Ontology.
 
@@ -18,7 +18,7 @@ The technical implementation relied on a _Loc-I Ontology_, the main Loc-I model,
 
 [[orig-arch]]
 .Original Loc-I Detailed Architecture (from https://www.csiro.au[CSIRO])
-image::/img/original-loci-detailed-architecture.png[Original Loc-I Detailed Architecture]
+image::img/original-loci-detailed-architecture.png[Original Loc-I Detailed Architecture]
 
 === Loc-I to Supermodel
 
@@ -30,7 +30,7 @@ This Supermodel contains the parts show in <<#models, Figure 3>>.
 
 [[models]]
 .The various models of this Supermodel
-image::/img/models.png[]
+image::img/models.png[]
 
 This Supermodel's integrative, _Backbone Model_, used to integrate objects from the variaous, the dataset-specific, _Component Models_ follows the pattern of use of the 'Loc-I  Ontology' and 'Dataset Model' in the Loc-I project however the _Backbone Model_ now used is just reuse of now standard international models and not a custom model itself. This is possible because international standard models such as GeoSPARSL <<GEO>> now contain elements necissary for project like this that were not incuded when the Loc-I Project started, for example representations of colelctions of geospatial features. This Supermodel's _Observations Models_ are also expressly catered for in the _Backbone Model_ whereas the Loc-I project didn't formalise the integrtion of spatial and observations data.
 
@@ -41,7 +41,7 @@ Some other Loc-I/FSDF Project model differences:
 
 === How to use this Supermodel
 
-This Supermodel provides a general structure for datasets that want to itegrate within the FSDF Data Platform. The common tasks you might perform with the Supermodel are:
+This Supermodel provides a general structure for datasets that want to integrate within the FSDF Data Platform. The common tasks you might perform with the Supermodel are:
 
 1. Model a new dataset as an FSDF Supermodel generic dataset
 2. Validate new dataset data according to the FSDF Supermodel
@@ -49,9 +49,17 @@ This Supermodel provides a general structure for datasets that want to itegrate 
 4. Validate extended/specialised new dataset data according to the extended/specialised FSDF Supermodel Component Model
 5. Create a dataset of observations - population/statistical or natural world - linked to Component Models
 
+Detailed suggestions as to how to achieve these tasks are given below.
+
 ==== 1. Model a new dataset
 
-The most basic dataset model that conforms to this Supermodel includes just the elements of the Backbone Model. These are spelled out in <<Backbone Model>>.
+Individual datasets are modelled with <<component-model-defn, Component Models>>. The most basic of Component Models would contain just elements of the <<backbone-model-defn, Backbone Model>> for this Supermodel and implement no specialised modelling of its own, thus the simplest way to implement a new model for a dataset is to just implement a minimal set of the Backbone Model's components.
+
+Several of the existing Component Models within this Supermodel are, or are very close to, minimal Backbone Model implementations. In particular:
+
+* ASGS Component Model
+* Geofabric Component Model
+
 
 ==== 2. Validate new dataset
 

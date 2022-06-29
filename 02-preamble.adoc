@@ -22,9 +22,9 @@ This model is built on a "baseline" of Semantic Web models which use a variatey 
 |`loci:` | `https://linked.data.gov.au/def/loci` | LocI Ontology - original LocI Project 2018 ontology
 |`owl:` | `http://www.w3.org/2002/07/owl#` | Web Ontology Language ontology namespace
 |`rdfs:` | `http://www.w3.org/2000/01/rdf-schema#` | RDF Schema ontology namespace
-|`smtd:` | `https://linked.data.gov.au/def/supermodel-td/` | Supermodel Terms & Definitions Vocabulary
 |`sosa:` | `http://www.w3.org/ns/sosa/` | Sensor, Observation, Sample, and Actuator ontology namespace
 |`skos:` | `http://www.w3.org/2004/02/skos/core#` | Simple Knowledge Organization System (SKOS) ontology namespace
+|`suterms:` | `https://linked.data.gov.au/def/supermodel/terms` | Supermodel Terms & Definitions Vocabulary
 |`time:` | `http://www.w3.org/2006/time#` | Time Ontology in OWL namespace
 |`void:` | `http://rdfs.org/ns/void#` | Vocabulary of Interlinked Data (VoID) ontology namespace
 |`xsd:` | `http://www.w3.org/2001/XMLSchema#` | XML Schema Definitions ontology namespace

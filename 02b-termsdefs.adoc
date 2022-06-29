@@ -4,19 +4,40 @@ The following terms appear in this document and, when they do, the definitions i
 
 These terms are presented as a formal Semantic Web vocabulary at 
 
-[id=central-class]
+[id=backbone-model-defn]
+Backbone Model::
+
+`https://linked.data.gov.au/def/supermodel-td/backbone-model[suterms:backbone-model]`
++
+An integrative, summary model, that allows for crosswalking of elements within the Component Models of a Supermodel.
+
+[id=background-models-defn]
+Background Models::
+
+`https://linked.data.gov.au/def/supermodel-td/background-model[suterms:background-model]`
++
+A standard and common Semantic Web model used as "upper" or higher order/abstract model for all other Supermodel models to conform to when modelling something within the Background Model's purview.
+
+[id=central-class-defn]
 Central Class::
 
-`https://linked.data.gov.au/def/supermodel-td/central-class[smtd:central-class]`
+`https://linked.data.gov.au/def/supermodel-td/central-class[suterms:central-class]`
 +
 Central Classes are the generic data classes at the centre of Data Domains with high-level relationships between them defined in this supermodel. 
 +
 These classes are taken from general standards - usually well-known international standards - and specialised and extended within implementation scenarios to cater for specific needs.
 
-[id=data-domain]
+[id=component-model-defn]
+Component Model::
+
+`https://linked.data.gov.au/def/supermodel-td/component-model[suterms:component-model]`
++
+An individual models of something of importance within a Supermodel scenario.
+
+[id=data-domain-defn]
 Data Domain::
 
-`https://linked.data.gov.au/def/supermodel-td/data-domain[smtd:data-domain]`
+`https://linked.data.gov.au/def/supermodel-td/data-domain[suterms:data-domain]`
 +
 High-level conceptual areas within which Geosicence Australia has data. 
 +
@@ -24,24 +45,24 @@ These Data Domains are not themed scientificly - 'geology', 'hydrogeology', etc.
 +
 Current Data Domain are shown in <<fig-top-level, Figure 1>>.
 
-[id=fsdf]
+[id=fsdf-defn]
 FSDF::
 
-`https://linked.data.gov.au/def/supermodel-td/fsdf[smtd:fsdf]`
+`https://linked.data.gov.au/def/supermodel-td/fsdf[suterms:fsdf]`
 +
 The Foundation Spatial Data Framework (FSDF): a project to deliver national coverages of the best available, most current, authoritative foundation data which is standardised and quality controlled. See https://link.fsdf.org.au.
 
-[id=knowledge-graph]
+[id=knowledge-graph-defn]
 Knowledge Graph::
 
-`https://linked.data.gov.au/def/supermodel-td/knowledge-graph[smtd:knowledge-graph]`
+`https://linked.data.gov.au/def/supermodel-td/knowledge-graph[suterms:knowledge-graph]`
 +
 A Knowledge Graph is a dataset that uses a graph data tructure - nodes and edges - with strongly-defined elements.
 
-[id=linked-data]
+[id=linked-data-defn]
 Linked Data::
 
-`https://linked.data.gov.au/def/supermodel-td/linked-data[smtd:linked-data]`
+`https://linked.data.gov.au/def/supermodel-td/linked-data[suterms:linked-data]`
 +
 A set of technologies and conventions defined by the https://www.w3.org[World Wide Web Consortium] that aim to present data in both human- and machine-readable form over the Internet. 
 +
@@ -51,28 +72,28 @@ Linked Data is graph-based in nature, that is it consistes of nodes and edges th
 +
 -- https://www.w3.org/standards/semanticweb/data
 
-[id=location-index]
+[id=location-index-defn]
 Location Index::
 
-`https://linked.data.gov.au/def/supermodel-td/location-index[smtd:location-index]`
+`https://linked.data.gov.au/def/supermodel-td/location-index[suterms:location-index]`
 +
 A project aiming to provide a consistent way to seamlessly integrate spatial data from distributed sources.
 +
 -- http://www.ga.gov.au/locationindex[Location Index Project Website]
 
-[id=ontology]
+[id=ontology-defn]
 Ontology::
 
-`https://linked.data.gov.au/def/supermodel-td/ontology[smtd:ontology]`
+`https://linked.data.gov.au/def/supermodel-td/ontology[suterms:ontology]`
 +
 In computer science and information science, an ontology encompasses a representation, formal naming, and definition of the categories, properties, and relations between the concepts, data, and entities that substantiate one, many, or all domains of discourse.
 +
 The word ontology was originally defined as "the branch of philosophy that studies concepts such as existence, being, becoming, and reality". and the computer science term is derived from that definition.
 
-[id=semantic-web]
+[id=semantic-web-defn]
 Semantic Web::
 
-`https://linked.data.gov.au/def/supermodel-td/semantic-web[smtd:semantic-web]`
+`https://linked.data.gov.au/def/supermodel-td/semantic-web[suterms:semantic-web]`
 +
 The https://www.w3.org[World Wide Web Consortium]'s vision of an Internet-based web of Linked Data. 
 +
@@ -81,3 +102,10 @@ Semantic Web is used to refer to something more than just the technologies and c
 The 'semantic' refers to the strongly-defined nature of the elements in the Semantic Web: the meaning of Semantic Web data is as precicely defined as any data can be.
 +
 -- https://www.w3.org/standards/semanticweb/
+
+[id=vocabulary-models-defn]
+Vocabulary Models::
+
+`https://linked.data.gov.au/def/supermodel-td/backbone-model[suterms:backbone-model]`
++
+A codelist or taxonomy model of concepts referenced by other Supermodel models.
