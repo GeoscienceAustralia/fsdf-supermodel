@@ -7,7 +7,7 @@ A model for the integration of the multiple models within the Australian, nation
 
 [[overview]]
 .Overview of this Supermodel
-image::/img/overview.png[]
+image::img/overview.png[]
 
 == Metadata
 

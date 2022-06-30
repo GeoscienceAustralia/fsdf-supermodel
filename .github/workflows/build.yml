@@ -22,7 +22,7 @@ jobs:
         asciidoctor README.adoc -o docs/index.html
         echo "Add supermodel to docs/"
         asciidoctor 01-supermodel.adoc -o docs/supermodel.html
-        sed -i 's#img src="#img src="https://geoscienceaustralia.github.io/loci-supermodel/#' docs/supermodel.html        
+        sed -i 's#img src="#img src="https://geoscienceaustralia.github.io/fsdf-supermodel/#' docs/supermodel.html
         echo "Add supermodel RDF to docs/"
         cp rdf/*.ttl docs/
         echo "Add images to docs/"
