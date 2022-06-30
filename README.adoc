@@ -8,13 +8,13 @@ This work is part of a project to operationalise Loc-I for https://www.ga.gov.au
 
 This model's document is auto-built from source files within the FSDF Supermodel repository. Both the document and source files are viewable online.
 
-The Specification document:
+The *Specification* document:
 
-* https://geoscienceaustralia.github.io/loci-supermodel/supermodel.html
+* https://geoscienceaustralia.github.io/fsdf-supermodel/supermodel.html
 
-The repository:
+The *Repository*:
 
-* https://github.com/geoscienceaustralia/loci-supermodel
+* https://github.com/geoscienceaustralia/fsdf-supermodel
 
 The online and repository location will certainly change once this model is taken over by Geoscience Australia itself for continued use.
 
