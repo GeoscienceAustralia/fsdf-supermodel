@@ -8,7 +8,7 @@ This model is based on the _Data Catalog Vocabulary_ <<DCAT>> and _The Provenanc
 
 [id=datacataloguing-model]
 .Data Cataloguing Model, based on DCAT & PROV
-image::img/details-data-cataloguing.png[]
+image::/img/details-data-cataloguing.png[]
 
 === Organisations & People Domain
 
@@ -16,7 +16,7 @@ This domain is essentially the organization modelling element of https://schema.
 
 [id=org-model]
 .Organisation Model, based on schema.org
-image::img/details-organisations-people.png[]
+image::/img/details-organisations-people.png[]
 
 === Theming Domain
 
@@ -28,7 +28,7 @@ This domain is essentially the Data Cube Vocabulary <<DQ>>'s core elements with 
 
 [id=obs-model]
 .Observations Model, based on https://www.w3.org/TR/vocab-data-cube/#fig-pictorial-summary-of-key-terms-and-their-relationship[Data Cube Vocabulary overview]
-image::img/details-observations-sampling.png[]
+image::/img/details-observations-sampling.png[]
 
 === Spatiality Domain
 

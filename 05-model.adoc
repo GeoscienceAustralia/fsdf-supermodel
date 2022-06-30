@@ -2,7 +2,7 @@
 
 [[models]]
 .The various models of this Supermodel
-image::img/models.png[]
+image::/img/models.png[]
 
 The model that this Supermodel is based on is a small <<semantic-web, Semantic Web>> <<ontology, Ontology>> that defines the major model elements and other terminology used.
 
@@ -18,7 +18,7 @@ The figure below is a key for the elements in all of the model diagrams in this 
 
 [id=fig-level0-key]
 .Diagram elements key
-image::img/key.png[]
+image::/img/key.png[]
 
 ==== Object Modelling
 
@@ -26,7 +26,7 @@ The elements from the above subsection are shown in relation to one another in t
 
 [id=fig-level0-owl]
 .OWL objects and their relations
-image::img/level0-owl.png[]
+image::/img/level0-owl.png[]
 
 The elements shown above are identified with prefixed IRIs that correspond to entries in the <<#tbl-prefixes, Namespace Table>>. A short explanation of the diagram key elements is:
 
@@ -45,7 +45,7 @@ General provenance/lineage information about anything - a rock sample, a dataset
 
 [id=fig-level0-prov]
 .PROV main classes and main relations
-image::img/level0-prov.png[]
+image::/img/level0-prov.png[]
 
 According to PROV, all things are either a:
 
@@ -70,7 +70,7 @@ These are shown in <<fig-top-level, Figure 1>> below.
 
 [id=fig-top-level]
 .Top-level view of the Supermodel showing Data Domains
-image::img/data-domains.png[]
+image::/img/data-domains.png[]
 
 These Data Domains are defined formally in a simple SKOS vocabulary within this model's set of machine-readable resources. The vocabulary may be access ddirectly at https://linked.data.gov.au/def/supermodel/data-domains.
 
@@ -90,7 +90,7 @@ The next level of detail after the Data Domains introduces the Central Classes. 
 
 [id=fig-central-classes]
 .Next level view of the Supermodel showing Central Classes
-image::img/central-classes.png[]
+image::/img/central-classes.png[]
 
 The Central Classes of each of the Data Domains are well-used classes from well-known models. For example, the Central Class of _Organisation & People_ is <<PROV>>'s `Agent` class which is one of the three main classes of thing in PROV and used every time PROV is used to represent causal agents. PROV is used extensively to indicate how things - data, resources, systems - come to be.
 
@@ -140,7 +140,7 @@ This subsection details the main elements of the Data Cataloguing Data Domain.
 
 [id=fig-domain-classes-data-cataloguing]
 .Domain Main Classes for Data Cataloguing
-image::img/domain-classes-data-cataloguing.png[]
+image::/img/domain-classes-data-cataloguing.png[]
 
 This Data Domain's main classes are essentially the DCAT2 data model <<DCAT>> with a slight profiling: `dcterms:hasPart` should be used to indicate elements within catalogues (e.g. `dcat:Dataset` and other things within a `dcat:Catalog`) rather than the specialised properties of `dcat:dataset` because generic catalogue can be expected to catalogue many types of things and the type of the thing should be given by the thing, not the catalogue property used to indicate it.
 
@@ -150,7 +150,7 @@ This subsection details the main elements of the Organisations & People Data Dom
 
 [id=fig-domain-classes-organisations-people]
 .Domain Main Classes for Organisations & People
-image::img/domain-classes-organisations-people.png[]
+image::/img/domain-classes-organisations-people.png[]
 
 This Data Domain's main classes are centered on <<PROV>>'s `prof:Agent` class but specific types of agent - _person_ & _organisation_ are defined using schema.org <<SDO>>, the general-purpose ontology provisioned by Google, Microsoft & Yahoo for the description of web page data. 
 
@@ -162,7 +162,7 @@ This subsection details the main elements of the Theming Data Domain.
 
 [id=fig-domain-classes-theming]
 .Domain Main Classes for Theming
-image::img/domain-classes-theming.png[]
+image::/img/domain-classes-theming.png[]
 
 This Data Domain's main classes are taken from <<SKOS>> and their expected/required properties and relations are formally defined in _VocPub_, a "vocabulary publication profile of SKOS" <<VOCPUB>>. VocPub just mandates certain vocabulary metadata and relations between elements in vocabularies. Conformance of vocabularies to VocPub is also easily testable using the profile's validator and online tooling that support it footnote:[The validator itself is online at https://w3id.org/profile/vocpub/validator and is pre-loaded into several online validation tools, for example Geoscience Australia's vocabulary servers e.g. https://vocabs.ga.gov.au. It can also be selected for online validation use at https://rdftools.surroundaustralia.com].
 
@@ -170,7 +170,7 @@ This Data Domain's main classes are taken from <<SKOS>> and their expected/requi
 
 [id=fig-domain-observations-sampling]
 .Domain Main Classes for Observations & Sampling
-image::img/domain-classes-observations-sampling.png[]
+image::/img/domain-classes-observations-sampling.png[]
 
 ==== Spatial
 
@@ -178,7 +178,7 @@ This subsection details the main elements of the Spatial Data Domain.
 
 [id=fig-domain-classes-spatial]
 .Domain Main Classes for Spatial
-image::img/domain-classes-spatial.png[]
+image::/img/domain-classes-spatial.png[]
 
 This Data Domain's main classes are taken directly from GeoSPARQL 1.1 <<GEO>> which is used extensively for Semantic Web spatial data already. GeoSPARQL's main purposes are to relate things (`geo:Feature`) to their spatial projections - their geometries - and to relate things to one another - topological relations between features, such as _within_, _touches_, _disjoint_ etc.
 

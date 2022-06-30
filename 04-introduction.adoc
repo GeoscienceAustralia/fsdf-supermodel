@@ -18,7 +18,7 @@ The technical implementation relied on a _Loc-I Ontology_, the main Loc-I model,
 
 [[orig-arch]]
 .Original Loc-I Detailed Architecture (from https://www.csiro.au[CSIRO])
-image::img/original-loci-detailed-architecture.png[Original Loc-I Detailed Architecture]
+image::/img/original-loci-detailed-architecture.png[Original Loc-I Detailed Architecture]
 
 === Loc-I to Supermodel
 
@@ -30,7 +30,7 @@ This Supermodel contains the parts show in <<#models, Figure 3>>.
 
 [[models]]
 .The various models of this Supermodel
-image::img/models.png[]
+image::/img/models.png[]
 
 This Supermodel's integrative, _Backbone Model_, used to integrate objects from the variaous, the dataset-specific, _Component Models_ follows the pattern of use of the 'Loc-I  Ontology' and 'Dataset Model' in the Loc-I project however the _Backbone Model_ now used is just reuse of now standard international models and not a custom model itself. This is possible because international standard models such as GeoSPARSL <<GEO>> now contain elements necissary for project like this that were not incuded when the Loc-I Project started, for example representations of colelctions of geospatial features. This Supermodel's _Observations Models_ are also expressly catered for in the _Backbone Model_ whereas the Loc-I project didn't formalise the integrtion of spatial and observations data.
 
