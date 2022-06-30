@@ -461,13 +461,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#_supermodel">4. Supermodel</a>
 <ul class="sectlevel2">
-<li><a href="#_level_0_model_background">4.1. Level 0: Model Background</a></li>
-<li><a href="#_level_1_data_domains">4.2. Level 1: Data Domains</a></li>
-<li><a href="#_level_2_central_classes">4.3. Level 2: Central Classes</a></li>
-<li><a href="#_level_3_domain_main_classes">4.4. Level 3: Domain Main Classes</a></li>
+<li><a href="#_overview">4.1. Overview</a></li>
+<li><a href="#_modelling_methods">4.2. Modelling Methods</a></li>
+<li><a href="#_level_1_data_domains">4.3. Level 1: Data Domains</a></li>
+<li><a href="#_level_2_central_classes">4.4. Level 2: Central Classes</a></li>
+<li><a href="#_level_3_domain_main_classes">4.5. Level 3: Domain Main Classes</a></li>
 </ul>
 </li>
-<li><a href="#_data_domain_details">5. Data Domain Details</a>
+<li><a href="#_background_models">5. Background Models</a>
 <ul class="sectlevel2">
 <li><a href="#_data_cataloguing_domain">5.1. Data Cataloguing Domain</a></li>
 <li><a href="#_organisations_people_domain">5.2. Organisations &amp; People Domain</a></li>
@@ -485,8 +486,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_fsdf_datasets">7.4. FSDF Datasets</a></li>
 </ul>
 </li>
-<li><a href="#_validators">8. Validators</a></li>
-<li><a href="#_annex_a_observations_data">Annex A: Observations Data</a></li>
+<li><a href="#_supporting_vocabularies">8. Supporting Vocabularies</a></li>
+<li><a href="#_annex_a_validators">Annex A: Validators</a></li>
+<li><a href="#_annex_b_observations_data">Annex B: Observations Data</a></li>
 <li><a href="#_references">References</a></li>
 </ul>
 </div>
@@ -942,13 +944,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>To model a highly specialised dataset, you will need to be able to implement both the most basic Component Model elements but also model the specialised elements relevant to your dataset. No specific guidance about your dataset can be given here however the <a href="#_component_models">Component Models</a> section does indicate existing datasets that contain a large amount of specialisation that you may draw inspiration from.</p>
 </div>
 <div class="paragraph">
-<p>In all cases, you can use the tools listed in the <a href="#_validators">Validators</a> section to test any data you&#8217;ve created to see if it really is valid according to this Supermodel.</p>
+<p>In all cases, you can use the tools listed in the <a href="#Validators">[Validators]</a> section to test any data you&#8217;ve created to see if it really is valid according to this Supermodel.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_2_validate_new_dataset">3.4.2. 2. Validate new dataset</h4>
 <div class="paragraph">
-<p>Data validators are available, for all elements of this Supermodel, so you can use them to validate your data. See the <a href="#_validators">Validators</a> section.</p>
+<p>Data validators are available, for all elements of this Supermodel, so you can use them to validate your data. See the <a href="#Validators">[Validators]</a> section.</p>
 </div>
 </div>
 <div class="sect3">
@@ -997,7 +999,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect3">
 <h4 id="_4_validate_extendedspecialised_new_dataset_data">3.4.4. 4. Validate extended/specialised new dataset data</h4>
 <div class="paragraph">
-<p>As per section 2. above, see the <a href="#_validators">Validators</a> section. Of course, your specialised modelling won&#8217;t have a validator for it, however you can certainly ensure that your new data is valid according to this Supermodel.</p>
+<p>As per section 2. above, see the <a href="#Validators">[Validators]</a> section. Of course, your specialised modelling won&#8217;t have a validator for it, however you can certainly ensure that your new data is valid according to this Supermodel.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1009,7 +1011,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>You can create your own observations data and key them to any datasets that exist within this Supermodel or to datasets that you make that are compatible with this Supermodel&#8217;s elements.</p>
 </div>
 <div class="paragraph">
-<p>To know how to do this, see <a href="#_annex_a_observations_data">Annex A: Observations Data</a>.</p>
+<p>To know how to do this, see <a href="#Annex A: Observations Data">[Annex A: Observations Data]</a>.</p>
 </div>
 </div>
 </div>
@@ -1024,13 +1026,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div class="title">Figure 4. The various models of this Supermodel</div>
 </div>
+<div class="sect2">
+<h3 id="_overview">4.1. Overview</h3>
 <div class="paragraph">
-<p>The high-leve structure of this Supermodel consists of:</p>
+<p>The high-level structure of this Supermodel consists of:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Background Models</strong></p>
+<p><a href="#_background_models">Background Models</a></p>
 <div class="ulist">
 <ul>
 <li>
@@ -1040,7 +1044,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Models such as the Provenance Ontology <a href="#PROV">[PROV]</a> model provenance and all Supermodel models follow it when doing provenance work</p>
 </li>
 <li>
-<p>GeoSPARQL <a href="#GEO">[GEO]</a> serves as the backgrouns model for spatial objects - features and their geometries</p>
+<p>GeoSPARQL <a href="#GEO">[GEO]</a> serves as the background model for spatial objects - features and their geometries</p>
 </li>
 </ul>
 </div>
@@ -1053,15 +1057,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph">
 <p>In this Specification, this implementation of the Supermodel model is presented via a series of "Levels" which are progressively more detailed, domain-specific, views of the model.</p>
 </div>
-<div class="sect2">
-<h3 id="_level_0_model_background">4.1. Level 0: Model Background</h3>
-<div class="paragraph">
-<p>This view of the model is a backgrounding one which describes the underpinning model mecahnics that it uses. The object modelling used is based on the <em>Web Ontology Language</em> <a href="#OWL">[OWL]</a> and its own underlying use of RDF &amp; RDFS <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>. The <em>Provenance Ontology</em> <a href="#PROV">[PROV]</a> is used to model real-world causal dependencies - provenance.</p>
 </div>
-<div class="sect3">
-<h4 id="_diagram_key">4.1.1. Diagram Key</h4>
+<div class="sect2">
+<h3 id="_modelling_methods">4.2. Modelling Methods</h3>
 <div class="paragraph">
-<p>The figure below is a key for the elements in all of the model diagrams in this document.</p>
+<p>The modelling language/system used for all Supermodel elements expressed formally is the <em>Web Ontology Language</em> <a href="#OWL">[OWL]</a>. OWL diagramming is used for formal model images and, when it is, this is noted in the figure description. The figure below is a key for all OWL diagramming elements.</p>
 </div>
 <div id="fig-level0-key" class="imageblock">
 <div class="content">
@@ -1069,9 +1069,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div class="title">Figure 5. Diagram elements key</div>
 </div>
-</div>
 <div class="sect3">
-<h4 id="_object_modelling">4.1.2. Object Modelling</h4>
+<h4 id="_object_modelling">4.2.1. Object Modelling</h4>
 <div class="paragraph">
 <p>The elements from the above subsection are shown in relation to one another in the figure below.</p>
 </div>
@@ -1111,7 +1110,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_provenance">4.1.3. Provenance</h4>
+<h4 id="_provenance">4.2.2. Provenance</h4>
 <div class="paragraph">
 <p>General provenance/lineage information about anything - a rock sample, a dataset, a term in a vocabulary etc. - is described using the <em>Provenance Ontology</em> <a href="#PROV">[PROV]</a> which views <em>everything</em> in the world as being of one or more types in <a href="#fig-level0-prov">Figure 3</a>.</p>
 </div>
@@ -1143,7 +1142,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_level_1_data_domains">4.2. Level 1: Data Domains</h3>
+<h3 id="_level_1_data_domains">4.3. Level 1: Data Domains</h3>
 <div class="paragraph">
 <p>The top-level view of the GA supermodel that assumes Level 0 background mechanics shows a set of 5 <a href="#data-domain">Data Domains</a> which are:</p>
 </div>
@@ -1192,7 +1191,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_level_2_central_classes">4.3. Level 2: Central Classes</h3>
+<h3 id="_level_2_central_classes">4.4. Level 2: Central Classes</h3>
 <div class="paragraph">
 <p>The next level of detail after the Data Domains introduces the Central Classes. Here the most significant, general, class per Data Domain is indicated, along with the main relationships between each of them. <a href="#fig-central-classes">Figure 2</a> shows this.</p>
 </div>
@@ -1308,12 +1307,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect2">
-<h3 id="_level_3_domain_main_classes">4.4. Level 3: Domain Main Classes</h3>
+<h3 id="_level_3_domain_main_classes">4.5. Level 3: Domain Main Classes</h3>
 <div class="paragraph">
 <p>At this level, the main classes within each Data Domain are identified and related to one another. In each Data Domain there is a well-known model used for the majority of the classes and relations. These well-known models are indicated to ensure that they can be followed if extensions to this level&#8217;s modelling need to be made.</p>
 </div>
 <div class="sect3">
-<h4 id="_data_cataloguing">4.4.1. Data Cataloguing</h4>
+<h4 id="_data_cataloguing">4.5.1. Data Cataloguing</h4>
 <div class="paragraph">
 <p>This subsection details the main elements of the Data Cataloguing Data Domain.</p>
 </div>
@@ -1328,7 +1327,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_organisations_people">4.4.2. Organisations &amp; People</h4>
+<h4 id="_organisations_people">4.5.2. Organisations &amp; People</h4>
 <div class="paragraph">
 <p>This subsection details the main elements of the Organisations &amp; People Data Domain.</p>
 </div>
@@ -1342,11 +1341,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>This Data Domain&#8217;s main classes are centered on <a href="#PROV">[PROV]</a>'s <code>prof:Agent</code> class but specific types of agent - <em>person</em> &amp; <em>organisation</em> are defined using schema.org <a href="#SDO">[SDO]</a>, the general-purpose ontology provisioned by Google, Microsoft &amp; Yahoo for the description of web page data.</p>
 </div>
 <div class="paragraph">
-<p>schema.org objects and properties are also used to define agents in the VocPub profile <a href="#VOCPUB">[VOCPUB]</a> and are understood by ontology documentation tools such as pyLODE <sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup>.</p>
+<p>schema.org objects and properties are also used to define agents in the VocPub profile <a href="#VOCPUB">[VOCPUB]</a> and are understood by ontology documentation tools such as pyLODE <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_theming">4.4.3. Theming</h4>
+<h4 id="_theming">4.5.3. Theming</h4>
 <div class="paragraph">
 <p>This subsection details the main elements of the Theming Data Domain.</p>
 </div>
@@ -1357,11 +1356,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="title">Figure 12. Domain Main Classes for Theming</div>
 </div>
 <div class="paragraph">
-<p>This Data Domain&#8217;s main classes are taken from <a href="#SKOS">[SKOS]</a> and their expected/required properties and relations are formally defined in <em>VocPub</em>, a "vocabulary publication profile of SKOS" <a href="#VOCPUB">[VOCPUB]</a>. VocPub just mandates certain vocabulary metadata and relations between elements in vocabularies. Conformance of vocabularies to VocPub is also easily testable using the profile&#8217;s validator and online tooling that support it <sup class="footnote">[<a id="_footnoteref_3" class="footnote" href="#_footnotedef_3" title="View footnote.">3</a>]</sup>.</p>
+<p>This Data Domain&#8217;s main classes are taken from <a href="#SKOS">[SKOS]</a> and their expected/required properties and relations are formally defined in <em>VocPub</em>, a "vocabulary publication profile of SKOS" <a href="#VOCPUB">[VOCPUB]</a>. VocPub just mandates certain vocabulary metadata and relations between elements in vocabularies. Conformance of vocabularies to VocPub is also easily testable using the profile&#8217;s validator and online tooling that support it <sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_sampling_observation">4.4.4. Sampling &amp; Observation</h4>
+<h4 id="_sampling_observation">4.5.4. Sampling &amp; Observation</h4>
 <div id="fig-domain-observations-sampling" class="imageblock">
 <div class="content">
 <img src="https://geoscienceaustralia.github.io/fsdf-supermodel/img/domain-classes-observations-sampling.png" alt="domain classes observations sampling">
@@ -1370,7 +1369,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_spatial">4.4.5. Spatial</h4>
+<h4 id="_spatial">4.5.5. Spatial</h4>
 <div class="paragraph">
 <p>This subsection details the main elements of the Spatial Data Domain.</p>
 </div>
@@ -1384,18 +1383,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>This Data Domain&#8217;s main classes are taken directly from GeoSPARQL 1.1 <a href="#GEO">[GEO]</a> which is used extensively for Semantic Web spatial data already. GeoSPARQL&#8217;s main purposes are to relate things (<code>geo:Feature</code>) to their spatial projections - their geometries - and to relate things to one another - topological relations between features, such as <em>within</em>, <em>touches</em>, <em>disjoint</em> etc.</p>
 </div>
 <div class="paragraph">
-<p>Particular datasets tend to implement specialised types of things (usually referred to as <em>Feature Types</em>) and sometimes specialised relations between things, e.g. special <em>hydrological catchment</em> feature type might relate to another by being <em>upstream</em> of it. This is as per modelling in the Geofabric <sup class="footnote">[<a id="_footnoteref_4" class="footnote" href="#_footnotedef_4" title="View footnote.">4</a>]</sup>.</p>
+<p>Particular datasets tend to implement specialised types of things (usually referred to as <em>Feature Types</em>) and sometimes specialised relations between things, e.g. special <em>hydrological catchment</em> feature type might relate to another by being <em>upstream</em> of it. This is as per modelling in the Geofabric <sup class="footnote">[<a id="_footnoteref_3" class="footnote" href="#_footnotedef_3" title="View footnote.">3</a>]</sup>.</p>
 </div>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_data_domain_details">5. Data Domain Details</h2>
+<h2 id="_background_models">5. Background Models</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>The Data Domains described above are implemented using multiple models and other resources. The following subsections describe the Domains' details and link to all their resources.</p>
-</div>
 <div class="sect2">
 <h3 id="_data_cataloguing_domain">5.1. Data Cataloguing Domain</h3>
 <div class="paragraph">
@@ -1481,7 +1477,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>So, to model a new dataset in a minimalist fashion, you can copy one or other of these Component Model&#8217;s structure and details.</p>
 </div>
 <div class="paragraph">
-<p>The <a href="#_backbone_model">Backbone Model</a> section contains the detailed notes about requirements that need to be met to conform to it and tools described in the <a href="#_validators">Validators</a> section are provided to check your implementation really is conformant.</p>
+<p>The <a href="#_backbone_model">Backbone Model</a> section contains the detailed notes about requirements that need to be met to conform to it and tools described in the <a href="#Validators">[Validators]</a> section are provided to check your implementation really is conformant.</p>
 </div>
 <div class="sect2">
 <h3 id="_asgs">7.1. ASGS</h3>
@@ -1502,13 +1498,19 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
-<h2 id="_validators">8. Validators</h2>
+<h2 id="_supporting_vocabularies">8. Supporting Vocabularies</h2>
 <div class="sectionbody">
 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_annex_a_observations_data">Annex A: Observations Data</h2>
+<h2 id="_annex_a_validators">Annex A: Validators</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_annex_b_observations_data">Annex B: Observations Data</h2>
 <div class="sectionbody">
 
 </div>
@@ -1571,21 +1573,18 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="footnotes">
 <hr>
 <div class="footnote" id="_footnotedef_1">
-<a href="#_footnoteref_1">1</a>. RDF: <a href="https://www.w3.org/RDF/" class="bare">https://www.w3.org/RDF/</a>, RDFS: <a href="https://www.w3.org/TR/rdf-schema/" class="bare">https://www.w3.org/TR/rdf-schema/</a>. These references generally need not be followed as descriptions of the use of OWL will cover their relevant concepts.
+<a href="#_footnoteref_1">1</a>. <a href="https://pypi.org/project/pyLODE/" class="bare">https://pypi.org/project/pyLODE/</a>
 </div>
 <div class="footnote" id="_footnotedef_2">
-<a href="#_footnoteref_2">2</a>. <a href="https://pypi.org/project/pyLODE/" class="bare">https://pypi.org/project/pyLODE/</a>
+<a href="#_footnoteref_2">2</a>. The validator itself is online at <a href="https://w3id.org/profile/vocpub/validator" class="bare">https://w3id.org/profile/vocpub/validator</a> and is pre-loaded into several online validation tools, for example Geoscience Australia&#8217;s vocabulary servers e.g. <a href="https://vocabs.ga.gov.au" class="bare">https://vocabs.ga.gov.au</a>. It can also be selected for online validation use at <a href="https://rdftools.surroundaustralia.com" class="bare">https://rdftools.surroundaustralia.com</a>
 </div>
 <div class="footnote" id="_footnotedef_3">
-<a href="#_footnoteref_3">3</a>. The validator itself is online at <a href="https://w3id.org/profile/vocpub/validator" class="bare">https://w3id.org/profile/vocpub/validator</a> and is pre-loaded into several online validation tools, for example Geoscience Australia&#8217;s vocabulary servers e.g. <a href="https://vocabs.ga.gov.au" class="bare">https://vocabs.ga.gov.au</a>. It can also be selected for online validation use at <a href="https://rdftools.surroundaustralia.com" class="bare">https://rdftools.surroundaustralia.com</a>
-</div>
-<div class="footnote" id="_footnotedef_4">
-<a href="#_footnoteref_4">4</a>. <a href="https://linked.data.gov.au/dataset/geofabric" class="bare">https://linked.data.gov.au/dataset/geofabric</a>
+<a href="#_footnoteref_3">3</a>. <a href="https://linked.data.gov.au/dataset/geofabric" class="bare">https://linked.data.gov.au/dataset/geofabric</a>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-06-30 05:47:57 UTC
+Last updated 2022-06-30 06:21:13 UTC
 </div>
 </div>
 </body>
