@@ -4,6 +4,14 @@
 .The various models of this Supermodel
 image::/img/models.png[]
 
+The high-leve structure of this Supermodel consists of:
+
+* *Background Models*
+** standard and common Semantic Web models used as "upper" or higher order/abstract model for all other Supermodel models to conform to when modelling something within the Background Model’s purview.
+** Models such as the Provenance Ontology <<PROV>> model provenance and all Supermodel models follow it when doing provenance work
+** GeoSPARQL <<GEO>> serves as the backgrouns model for spatial objects - features and their geometries
+
+
 The model that this Supermodel is based on is a small <<semantic-web, Semantic Web>> <<ontology, Ontology>> that defines the major model elements and other terminology used.
 
 In this Specification, this implementation of the Supermodel model is presented via a series of "Levels" which are progressively more detailed, domain-specific, views of the model.
