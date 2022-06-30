@@ -32,18 +32,20 @@ include::02c-conventions.adoc[]
 
 include::04-introduction.adoc[]
 
-include::05-model.adoc[]
+include::05-supermodel.adoc[]
 
-include::06-domain-details.adoc[]
+include::06-background-models.adoc[]
 
 include::07-backbone-model.adoc[]
 
 include::08-component-models.adoc[]
 
-include::09-validators.adoc[]
+include::09-supporting-vocabularies.adoc[]
 
 :sectnums!:
 
-include::50-annex-a-observations.adoc[]
+include::50-annex-a-validators.adoc[]
+
+include::51-annex-b-observations.adoc[]
 
 include::99-references.adoc[]

@@ -4,25 +4,23 @@
 .The various models of this Supermodel
 image::img/models.png[]
 
-The high-leve structure of this Supermodel consists of:
+=== Overview
 
-* *Background Models*
+The high-level structure of this Supermodel consists of:
+
+* <<Background Models>>
 ** standard and common Semantic Web models used as "upper" or higher order/abstract model for all other Supermodel models to conform to when modelling something within the Background Model’s purview.
 ** Models such as the Provenance Ontology <<PROV>> model provenance and all Supermodel models follow it when doing provenance work
-** GeoSPARQL <<GEO>> serves as the backgrouns model for spatial objects - features and their geometries
+** GeoSPARQL <<GEO>> serves as the background model for spatial objects - features and their geometries
 
 
 The model that this Supermodel is based on is a small <<semantic-web, Semantic Web>> <<ontology, Ontology>> that defines the major model elements and other terminology used.
 
 In this Specification, this implementation of the Supermodel model is presented via a series of "Levels" which are progressively more detailed, domain-specific, views of the model.
 
-=== Level 0: Model Background
+=== Modelling Methods
 
-This view of the model is a backgrounding one which describes the underpinning model mecahnics that it uses. The object modelling used is based on the _Web Ontology Language_ <<OWL>> and its own underlying use of RDF & RDFS footnote:[RDF: https://www.w3.org/RDF/, RDFS: https://www.w3.org/TR/rdf-schema/. These references generally need not be followed as descriptions of the use of OWL will cover their relevant concepts.]. The _Provenance Ontology_ <<PROV>> is used to model real-world causal dependencies - provenance.
-
-==== Diagram Key
-
-The figure below is a key for the elements in all of the model diagrams in this document.
+The modelling language/system used for all Supermodel elements expressed formally is the _Web Ontology Language_ <<OWL>>. OWL diagramming is used for formal model images and, when it is, this is noted in the figure description. The figure below is a key for all OWL diagramming elements.
 
 [id=fig-level0-key]
 .Diagram elements key

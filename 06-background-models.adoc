@@ -1,6 +1,4 @@
-== Data Domain Details
-
-The Data Domains described above are implemented using multiple models and other resources. The following subsections describe the Domains' details and link to all their resources.
+== Background Models
 
 === Data Cataloguing Domain
 
