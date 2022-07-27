@@ -20,6 +20,10 @@
 
 * [[PROV]] [PROV] World Wide Web Consortium, _PROV-O: The PROV Ontology_, W3C Working Group Note (18 December 2019). https://www.w3.org/TR/prov-o/
 
+* [[RDF]] [RDF] World Wide Web Consortium, _RDF 1.1 Concepts and Abstract Syntax_, W3C Recommendation (25 February 2014). http://www.w3.org/TR/rdf11-concepts/
+
+* [[RDFS]] [RDFS] World Wide Web Consortium, _RDF Schema 1.1_, W3C Recommendation (25 February 2014). https://www.w3.org/TR/rdf-schema/
+
 * [[SDO]] [SDO] W3C Schema.org Community Group, _schema.org_. Community ontology (2015). https://schema.org
 
 * [[SSN]] [SSN] World Wide Web Consortium, _Semantic Sensor Network Ontology_, W3C Recommendation (19 October 2017). https://www.w3.org/TR/vocab-ssn/

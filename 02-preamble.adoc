@@ -2,31 +2,25 @@
 
 === Abstract
 
-This Model - the FSDF Supermodel - is the overarching data model that provides integration logic for all https://link.fsdf.org.au/[FSDF elements]. It is based on the general-purpose https://linked.data.gov.au/def/supermodel[Supermodel Model]. 
+This Model - the FSDF Supermodel - is the overarching data model that provides integration logic for all https://link.fsdf.org.au/[FSDF datasets]. It is based on the general-purpose https://linked.data.gov.au/def/supermodel[Supermodel Model]. 
 
-This model is effectively a second version of the link:http://www.ga.gov.au/locationindex[Location Index (Loc-I) Project]'s overarching model since the FSDF Project is now the inheritor of Loc-I data and methods.
+This model is effectively an update to the methodology of the link:http://www.ga.gov.au/locationindex[Location Index (Loc-I) Project] which introduced a generic spatial dataset model, the https://linked.data.gov.au/def/loci[Loc-I Ontology], and a series of models for the specific FSDF datasets considered by the Loc-I Project. This Supermodel is a more formalised implementation of that Loc-I Project's vision and also one that relies on updated background models, particularly GeoSPARQL, and updated or new dataset models.
 
 === Namespaces
 
-This model is built on a "baseline" of Semantic Web models which use a variatey of namespaces. Prefixes for these namespaces, used througout this document, are listed below.
+This model is built on a "baseline" of Semantic Web models which use a variatey of namespaces. Prefixes for these namespaces, used throughout this document, are listed below. Additional namespaces and prefixes are listed in later sections of this document where they only apply to that section.
 
 [id=tbl-prefixes, width=100%, frame=none, grid=none, cols="1,4,4"]
 .Namespaces
 |===
 |Prefix | Namespace | Description
 
-| **`fsdf:`** | **`https://linked.data.gov.au/def/fsdf-supermodel`** | This Supermodel
-| `super:` | `https://linked.data.gov.au/def/supermodel/` | The Supermodel meta-model
 |`dcterms:` | `http://purl.org/dc/terms/` | Dublin Core Terms vocabulary namespace
 |`ex:` | `http://example.com/` | Generic examples namespace
-|`loci:` | `https://linked.data.gov.au/def/loci` | LocI Ontology - original LocI Project 2018 ontology
 |`owl:` | `http://www.w3.org/2002/07/owl#` | Web Ontology Language ontology namespace
 |`rdfs:` | `http://www.w3.org/2000/01/rdf-schema#` | RDF Schema ontology namespace
 |`sosa:` | `http://www.w3.org/ns/sosa/` | Sensor, Observation, Sample, and Actuator ontology namespace
 |`skos:` | `http://www.w3.org/2004/02/skos/core#` | Simple Knowledge Organization System (SKOS) ontology namespace
-|`suterms:` | `https://linked.data.gov.au/def/supermodel/terms` | Supermodel Terms & Definitions Vocabulary
-|`time:` | `http://www.w3.org/2006/time#` | Time Ontology in OWL namespace
-|`void:` | `http://rdfs.org/ns/void#` | Vocabulary of Interlinked Data (VoID) ontology namespace
-|`xsd:` | `http://www.w3.org/2001/XMLSchema#` | XML Schema Definitions ontology namespace
+|`suterms:` | `https://linked.data.gov.au/def/supermodel/terms/` | Supermodel Terms & Definitions Vocabulary
 |===
 

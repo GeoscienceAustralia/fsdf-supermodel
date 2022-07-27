@@ -85,7 +85,7 @@ Elements at all other levels of detail in this model are classified according to
 ```turtle
 sosa:Sample
     a owl:Class ;
-    dcat:theme super:sampling ;
+    dcat:theme ex:sampling ;
     ...
 .
 ```
