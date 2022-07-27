@@ -562,16 +562,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_abstract">2.1. Abstract</h3>
 <div class="paragraph">
-<p>This Model - the FSDF Supermodel - is the overarching data model that provides integration logic for all <a href="https://link.fsdf.org.au/">FSDF elements</a>. It is based on the general-purpose <a href="https://linked.data.gov.au/def/supermodel">Supermodel Model</a>.</p>
+<p>This Model - the FSDF Supermodel - is the overarching data model that provides integration logic for all <a href="https://link.fsdf.org.au/">FSDF datasets</a>. It is based on the general-purpose <a href="https://linked.data.gov.au/def/supermodel">Supermodel Model</a>.</p>
 </div>
 <div class="paragraph">
-<p>This model is effectively a second version of the <a href="http://www.ga.gov.au/locationindex">Location Index (Loc-I) Project</a>'s overarching model since the FSDF Project is now the inheritor of Loc-I data and methods.</p>
+<p>This model is effectively an update to the methodology of the <a href="http://www.ga.gov.au/locationindex">Location Index (Loc-I) Project</a> which introduced a generic spatial dataset model, the <a href="https://linked.data.gov.au/def/loci">Loc-I Ontology</a>, and a series of models for the specific FSDF datasets considered by the Loc-I Project. This Supermodel is a more formalised implementation of that Loc-I Project&#8217;s vision and also one that relies on updated background models, particularly GeoSPARQL, and updated or new dataset models.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_namespaces">2.2. Namespaces</h3>
 <div class="paragraph">
-<p>This model is built on a "baseline" of Semantic Web models which use a variatey of namespaces. Prefixes for these namespaces, used througout this document, are listed below.</p>
+<p>This model is built on a "baseline" of Semantic Web models which use a variatey of namespaces. Prefixes for these namespaces, used throughout this document, are listed below. Additional namespaces and prefixes are listed in later sections of this document where they only apply to that section.</p>
 </div>
 <table id="tbl-prefixes" class="tableblock frame-none grid-none stripes-even stretch">
 <caption class="title">Table 1. Namespaces</caption>
@@ -589,16 +589,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code>fsdf:</code></strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><code><a href="https://linked.data.gov.au/def/fsdf-supermodel" class="bare">https://linked.data.gov.au/def/fsdf-supermodel</a></code></strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">This Supermodel</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>super:</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="https://linked.data.gov.au/def/supermodel/" class="bare">https://linked.data.gov.au/def/supermodel/</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The Supermodel meta-model</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>dcterms:</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="http://purl.org/dc/terms/" class="bare">http://purl.org/dc/terms/</a></code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Dublin Core Terms vocabulary namespace</p></td>
@@ -607,11 +597,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>ex:</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="http://example.com/" class="bare">http://example.com/</a></code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Generic examples namespace</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>loci:</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="https://linked.data.gov.au/def/loci" class="bare">https://linked.data.gov.au/def/loci</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">LocI Ontology - original LocI Project 2018 ontology</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>owl:</code></p></td>
@@ -635,23 +620,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>suterms:</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="https://linked.data.gov.au/def/supermodel/terms" class="bare">https://linked.data.gov.au/def/supermodel/terms</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="https://linked.data.gov.au/def/supermodel/terms/" class="bare">https://linked.data.gov.au/def/supermodel/terms/</a></code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Supermodel Terms &amp; Definitions Vocabulary</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>time:</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="http://www.w3.org/2006/time#" class="bare">http://www.w3.org/2006/time#</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Time Ontology in OWL namespace</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>void:</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="http://rdfs.org/ns/void#" class="bare">http://rdfs.org/ns/void#</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Vocabulary of Interlinked Data (VoID) ontology namespace</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>xsd:</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="http://www.w3.org/2001/XMLSchema#" class="bare">http://www.w3.org/2001/XMLSchema#</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">XML Schema Definitions ontology namespace</p></td>
 </tr>
 </tbody>
 </table>
@@ -668,18 +638,18 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <dl>
 <dt class="hdlist1">Backbone Model</dt>
 <dd>
-<p><code><a href="https://linked.data.gov.au/def/supermodel-td/backbone-model">suterms:backbone-model</a></code></p>
+<p><code><a href="https://linked.data.gov.au/def/supermodel/terms/backbone-model">suterms:backbone-model</a></code></p>
 <div class="paragraph">
 <p>An integrative, summary model, that allows for crosswalking of elements within the Component Models of a Supermodel.</p>
 </div>
 </dd>
 </dl>
 </div>
-<div id="background-models-defn" class="dlist">
+<div id="background-model-defn" class="dlist">
 <dl>
-<dt class="hdlist1">Background Models</dt>
+<dt class="hdlist1">Background Model</dt>
 <dd>
-<p><code><a href="https://linked.data.gov.au/def/supermodel-td/background-model">suterms:background-model</a></code></p>
+<p><code><a href="https://linked.data.gov.au/def/supermodel/terms/background-model">suterms:background-model</a></code></p>
 <div class="paragraph">
 <p>A standard and common Semantic Web model used as "upper" or higher order/abstract model for all other Supermodel models to conform to when modelling something within the Background Model&#8217;s purview.</p>
 </div>
@@ -690,7 +660,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <dl>
 <dt class="hdlist1">Central Class</dt>
 <dd>
-<p><code><a href="https://linked.data.gov.au/def/supermodel-td/central-class">suterms:central-class</a></code></p>
+<p><code><a href="https://linked.data.gov.au/def/supermodel/terms/central-class">suterms:central-class</a></code></p>
 <div class="paragraph">
 <p>Central Classes are the generic data classes at the centre of Data Domains with high-level relationships between them defined in this supermodel.</p>
 </div>
@@ -704,7 +674,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <dl>
 <dt class="hdlist1">Component Model</dt>
 <dd>
-<p><code><a href="https://linked.data.gov.au/def/supermodel-td/component-model">suterms:component-model</a></code></p>
+<p><code><a href="https://linked.data.gov.au/def/supermodel/terms/component-model">suterms:component-model</a></code></p>
 <div class="paragraph">
 <p>An individual models of something of importance within a Supermodel scenario.</p>
 </div>
@@ -715,7 +685,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <dl>
 <dt class="hdlist1">Data Domain</dt>
 <dd>
-<p><code><a href="https://linked.data.gov.au/def/supermodel-td/data-domain">suterms:data-domain</a></code></p>
+<p><code><a href="https://linked.data.gov.au/def/supermodel/terms/data-domain">suterms:data-domain</a></code></p>
 <div class="paragraph">
 <p>High-level conceptual areas within which Geosicence Australia has data.</p>
 </div>
@@ -732,7 +702,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <dl>
 <dt class="hdlist1">FSDF</dt>
 <dd>
-<p><code><a href="https://linked.data.gov.au/def/supermodel-td/fsdf">suterms:fsdf</a></code></p>
+<p><a href="https://linked.data.gov.au/def/fsdf-supermodel#fsdf-defn">:fsdf-defn</a> - <em>defined here</em></p>
 <div class="paragraph">
 <p>The Foundation Spatial Data Framework (FSDF): a project to deliver national coverages of the best available, most current, authoritative foundation data which is standardised and quality controlled. See <a href="https://link.fsdf.org.au" class="bare">https://link.fsdf.org.au</a>.</p>
 </div>
@@ -743,7 +713,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <dl>
 <dt class="hdlist1">Knowledge Graph</dt>
 <dd>
-<p><code><a href="https://linked.data.gov.au/def/supermodel-td/knowledge-graph">suterms:knowledge-graph</a></code></p>
+<p><code><a href="https://linked.data.gov.au/def/supermodel/terms/knowledge-graph">suterms:knowledge-graph</a></code></p>
 <div class="paragraph">
 <p>A Knowledge Graph is a dataset that uses a graph data tructure - nodes and edges - with strongly-defined elements.</p>
 </div>
@@ -754,7 +724,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <dl>
 <dt class="hdlist1">Linked Data</dt>
 <dd>
-<p><code><a href="https://linked.data.gov.au/def/supermodel-td/linked-data">suterms:linked-data</a></code></p>
+<p><code><a href="https://linked.data.gov.au/def/supermodel/terms/linked-data">suterms:linked-data</a></code></p>
 <div class="paragraph">
 <p>A set of technologies and conventions defined by the <a href="https://www.w3.org">World Wide Web Consortium</a> that aim to present data in both human- and machine-readable form over the Internet.</p>
 </div>
@@ -774,7 +744,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <dl>
 <dt class="hdlist1">Location Index</dt>
 <dd>
-<p><code><a href="https://linked.data.gov.au/def/supermodel-td/location-index">suterms:location-index</a></code></p>
+<p><code><a href="https://linked.data.gov.au/def/supermodel/terms/location-index">suterms:location-index</a></code></p>
 <div class="paragraph">
 <p>A project aiming to provide a consistent way to seamlessly integrate spatial data from distributed sources.</p>
 </div>
@@ -788,7 +758,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <dl>
 <dt class="hdlist1">Ontology</dt>
 <dd>
-<p><code><a href="https://linked.data.gov.au/def/supermodel-td/ontology">suterms:ontology</a></code></p>
+<p><code><a href="https://linked.data.gov.au/def/supermodel/terms/ontology">suterms:ontology</a></code></p>
 <div class="paragraph">
 <p>In computer science and information science, an ontology encompasses a representation, formal naming, and definition of the categories, properties, and relations between the concepts, data, and entities that substantiate one, many, or all domains of discourse.</p>
 </div>
@@ -802,7 +772,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <dl>
 <dt class="hdlist1">Semantic Web</dt>
 <dd>
-<p><code><a href="https://linked.data.gov.au/def/supermodel-td/semantic-web">suterms:semantic-web</a></code></p>
+<p><code><a href="https://linked.data.gov.au/def/supermodel/terms/semantic-web">suterms:semantic-web</a></code></p>
 <div class="paragraph">
 <p>The <a href="https://www.w3.org">World Wide Web Consortium</a>'s vision of an Internet-based web of Linked Data.</p>
 </div>
@@ -818,13 +788,25 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </dd>
 </dl>
 </div>
-<div id="vocabulary-models-defn" class="dlist">
+<div id="vocabulary-defn" class="dlist">
 <dl>
-<dt class="hdlist1">Vocabulary Models</dt>
+<dt class="hdlist1">Vocabulary</dt>
 <dd>
-<p><code><a href="https://linked.data.gov.au/def/supermodel-td/backbone-model">suterms:backbone-model</a></code></p>
+<p><code><a href="https://linked.data.gov.au/def/supermodel/terms/vocabulary">suterms:vocabulary</a></code></p>
 <div class="paragraph">
-<p>A codelist or taxonomy model of concepts referenced by other Supermodel models.</p>
+<p>A managed codelist or taxonomy of concepts.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+Supermodels tend to use vocabularies formulated according to the <a href="#SKOS">[SKOS]</a> taxonomy model or lists of objects defined using basic <a href="#RDF">[RDF]</a>, <a href="#RDFS">[RDFS]</a> or <a href="#OWL">[OWL]</a> elements.
+</td>
+</tr>
+</table>
 </div>
 </dd>
 </dl>
@@ -1184,7 +1166,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <pre class="highlight"><code class="language-turtle" data-lang="turtle">sosa:Sample
     a owl:Class ;
-    dcat:theme super:sampling ;
+    dcat:theme ex:sampling ;
     ...
 .</code></pre>
 </div>
@@ -1551,6 +1533,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><a id="PROV"></a> [PROV] World Wide Web Consortium, <em>PROV-O: The PROV Ontology</em>, W3C Working Group Note (18 December 2019). <a href="https://www.w3.org/TR/prov-o/" class="bare">https://www.w3.org/TR/prov-o/</a></p>
 </li>
 <li>
+<p><a id="RDF"></a> [RDF] World Wide Web Consortium, <em>RDF 1.1 Concepts and Abstract Syntax</em>, W3C Recommendation (25 February 2014). <a href="http://www.w3.org/TR/rdf11-concepts/" class="bare">http://www.w3.org/TR/rdf11-concepts/</a></p>
+</li>
+<li>
+<p><a id="RDFS"></a> [RDFS] World Wide Web Consortium, <em>RDF Schema 1.1</em>, W3C Recommendation (25 February 2014). <a href="https://www.w3.org/TR/rdf-schema/" class="bare">https://www.w3.org/TR/rdf-schema/</a></p>
+</li>
+<li>
 <p><a id="SDO"></a> [SDO] W3C Schema.org Community Group, <em>schema.org</em>. Community ontology (2015). <a href="https://schema.org" class="bare">https://schema.org</a></p>
 </li>
 <li>
@@ -1584,7 +1572,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-06-30 06:21:13 UTC
+Last updated 2022-07-27 23:41:22 UTC
 </div>
 </div>
 </body>
