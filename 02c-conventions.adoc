@@ -1,5 +1,5 @@
 === Conventions
 
-All model diagrams use elements introduced in <<#fig-level0-key, Figure 4>>. These elements are defined in the RDF, RDFS and OWL ontologies, see <<OWL>> for mode details.
+All model diagrams use elements introduced in <<#fig-level0-key, Figure 5>>. These elements are defined in the <<RDF>>, <<RDFS>> and <<OWL>> ontologies.
 
 All code snippets in this document, used to show formal and machine-readable versions of concepts, are expressed using the Turtle RDF syntax <<TTL>>.

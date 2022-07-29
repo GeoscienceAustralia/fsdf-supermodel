@@ -1,18 +1,18 @@
 == Introduction
 
-This Supermodel is based on previous work from the Location Index project. For clarity, that project is described, followed by how this Supermodel inherits from it.
+This Supermodel is based on previous work from the Location Index (Loc-I) Project. For clarity, that the Loc-I Project is described, followed by how this Supermodel inherits from it.
 
 === Loc-I Project
 
-The Location Index (LOC-I) project, established in 2018, created a methodology and data models framework providing for a consistent way to seamlessly integrate spatial data from distributed sources. The target was Australian spatial data "of national significance", meaning most - initially all - of the data considered was Australian Federal government data.
+The Location Index (LOC-I) project, established in 2018, created a methodology, data models and an informal framework to allow for a consistent way to seamlessly integrate spatial data from distributed sources. The target was Australian spatial data "of national significance", meaning most - initially all - of the data considered was Australian Federal government data.
 
 See the project website, http://www.ga.gov.au/locationindex, for more project information.
 
 === Loc-I Technical Implementation 
 
-The technical implementation of Loc-I was based on <<semantic-web-defn, Semantic Web>> principles allowing datasets to be published as <<linked-data-defn, Linked Data>> independently by data holders - different government departments, companies etc. - and consumed with minimal effort required for integration.
+The technical implementation of Loc-I was based on <<semantic-web-defn, Semantic Web>> principles allowing datasets to be published as <<linked-data-defn, Linked Data>> independently, by data holders - different government departments, companies etc. - and consumed with minimal effort required for integration.
 
-The technical implementation relied on a _Loc-I Ontology_, the main Loc-I model, multiple _Background Models_, fundamental, standards, data models that the Loc-I Ontology depended on, and, for some datasets, _Dataset Models_ of their content that spefialise the Loc-I Ontology.
+The technical implementation relied on data from the various datasets sharing common patterns, principally, how the datasets packaged their content and how real-world objects, their spatiality and non-spatial properties were modelled.to this end, a number of <<background-model-defn, Background Models>> were used, to which all Loc-I dataset models - here called <<component-model-defn, Component Models>> - conformed. Additionally, a https://linked.data.gov.au/def/loci[Loc-I Ontology] was also created which both included modelling elements needed for the LocI Project that were not present in Background Models and which was to act as a conceptual, if not technical, conformance target for all Component Models.
 
 <<#orig-arch, Figure 2>> below shows the original detailed architecture diagram used to explain Loc-I's parts from 2018 - 2021. 
 
@@ -22,22 +22,69 @@ image::img/original-loci-detailed-architecture.png[Original Loc-I Detailed Archi
 
 === Loc-I to Supermodel
 
-The FSDF Project has adopted a more rigourously defined _Supermodel_ concept to allow multiple datasets to work together. The ideas are very similar to those used in the Loc-I project however new terminology of a _Backbone Model_, _Component Models_ and the _Supermodel_ has been adopted, as have new forms of model presentation, documentation and so on. The Supermodel concept has been implemented in several other scenarios as well as this one and lessons learned from those implementations have informed this work. 
+The FSDF Project has adopted a more rigourously defined _Supermodel_ concept to formalise things of importance to Loc-I-like work but which the Loc-I Project didn't define. For example, the categorisation of relevant models as <<background-model-defn, Background Models>>, <<component-model-defn, Component Models>> and so on. The major differences/additions are:
 
-Additionally, this Supermodel covers more domains than the Loc-I modelling: where Loc-I was restricted to just spatial data, this Supermodel indicated how relate non-spatial data to spatial data. This is important to allow observations - of populations, natural features etc. - to be positioned using FSDF Data Platform objects and allows the creation of data cubes with an FSDF spatial backing.
+* *Formalised terminology*
+** Of general relevance within the implementation scenario
+** See the <<Terms & Definitions>> section.
+* *Model categorisation*
+** For the different types of models within the scenario, for example, <<background-model-defn, Background Models>>, <<component-model-defn, Component Models>>
+* *Explicit integration*
+** By explicitly defining a <<backbone-model-defn, Backbone Model>> for each scenario deployment, the Supermodel conventions indicate precicely what minimum requirements for <<component-model-defn, Component Models>> are to be able to be integrated
+* *Validatable profiling instead of model specailisation*
+** Loc-I relied on defining an ontology to which datasets were expected to conform
+** Supermodel implements a Profile of Background Models to which Component Datasets mush conform
+** The Profile provides executable data validators
 
-This Supermodel contains the parts show in <<#models, Figure 3>>.
+In addition to these model/methodological changes, this particular Spuermodel deployment has updated scenario-specific things, in particular:
 
-[[models]]
-.The various models of this Supermodel
-image::img/models.png[]
+* *Use of GeoSPARQL 1.1*
+** The Loc-I Project motivated extensions to the GeoSPARQL 1.0 ontology which were captured in the https://linked.data.gov.au/def/geox[GeoSPARQL Extensions Ontology (GeoX)]. That ontology was then used by many Loc-I Project dataset models (Component Models)
+** The update to GeoSPARQL, https://opengeospatial.github.io/ogc-geosparql/geosparql11/spec.html[GeoSPARQL 1.1], absorbed many of these updates and so there is no longer a need to use GeoX
+* *Collection-based Feature organisation*
+** Several Loc-I dataset models (Component Models) used specialised properties to indicate aggregations of Feature, e.g. the http://linked.data.gov.au/def/asgs[ASGS Ontology's] `aggregatesTo` & `isAggregationOf`
+** The latest issue of the ASGS dataset within this Supermodel, online at https://linked.data.gov.au/dataset/asgsed3, uses only Collection membership (all Meshblock Features are members of the Meshblocks Feature Collection) and standard topological relations, e.g. each SA2 is `geo:sfWithin` an SA3
+** This takes advantage of GeoSPARQL 1.1's collections which match OGC API structures and removes non-standard spatial object relations
+** specialised Feature aggregations _may_ be re-added to objects within this Supermodel, if required
+* *Topological querying instead of Linksets*
+** Loc-I Linksets are datasets that declare topologicla relations between Features
+** GeoSPARQL allows topological relationships to be calculated using topologicla functions
+** Loc-I Project estableished only a limited set of Linksets, e.g. the https://github.com/CSIRO-enviro-informatics/addrmb16-linkset[Current Addresses to 2016 Mesh Blocks Linkset]
+** This Supermodel deployment includes a cache of all datasets, https://cache.linked.fsdf.org.au, on which topological queries across all datasets can be performed
 
-This Supermodel's integrative, _Backbone Model_, used to integrate objects from the variaous, the dataset-specific, _Component Models_ follows the pattern of use of the 'Loc-I  Ontology' and 'Dataset Model' in the Loc-I project however the _Backbone Model_ now used is just reuse of now standard international models and not a custom model itself. This is possible because international standard models such as GeoSPARSL <<GEO>> now contain elements necissary for project like this that were not incuded when the Loc-I Project started, for example representations of colelctions of geospatial features. This Supermodel's _Observations Models_ are also expressly catered for in the _Backbone Model_ whereas the Loc-I project didn't formalise the integrtion of spatial and observations data.
+To conclude this Loc-I/Supermodel relations, here is a table mapping elements and terminology.
 
-Some other Loc-I/FSDF Project model differences:
+[cols="1,1,2"]
+.Loc-I/FSDF Supermodel element comparison
+|===
+| Loc-I | FSDF Supermodel | Notes
 
-* the Loc-I project specified _Linksets_ to join spatial datasets and this is now done automatically via spatial indexing, rather than static Linkset creation
-* Loc-I relied on non-graph-based integrative databases to allow for searching across Loc-I datasets. Wile not part of the Loc-I model _per se_, these elements are show in Loc-I diagrams, suc as <<#orig-arch, Figure 2>>, and documentation. This FSDF Project relies on complete RDF graphs for each dataset included in it and caches the various datasets' graphs into a single graph cache for integration purposes so no non-graph datasets are mentioned in this Supermodel.
+| Upper ontologies +
+_https://opengeospatial.github.io/ogc-geosparql/geosparql10/11-052r4_OGC_GeoSPARQL.pdf[GeoSPARQL 1.0], https://www.w3.org/TR/vocab-dcat/[DCAT] etc._ | <<background-model-defn, Background Models>> | The Supermodel precisely lists Background Models in <<Background Models>> where Loc-I left their discovery to general documentation or dataset model imports
+
+| https://linked.data.gov.au/def/loci[Loc-I Ontology] & +
+https://linked.data.gov.au/def/geox[GeoX Ontology]
+| <<backbone-model-defn, Backbone Model>> | The Backbone Model profiles GeoSPARQL 1.1 and thus incorporates equivalent (updated) GeoX modelling. Loc-I Ontology Linksets are not used. Loc-I Ontology Datasets are replaced with Backbone Model profiling of DCAT
+
+| Dataset models +
+_https://linked.data.gov.au/def/gnaf[GNAF], https://linked.data.gov.au/def/asgs[ASGS], https://linked.data.gov.au/def/geofabric[Geofabric]_
+| <<component-model-defn, Component Models>>
+| The FSDF Supermodel lists the <<Component Models>> defined to be within it formally in this Supermodel document
+
+| https://linked.data.gov.au/def/gnaf[GNAF Ontology] | https://nicholascar.com/anz-nat-addr-model-candidate/model.html[ANZ National Address Model] | The new model is a more standards-based form of the previous one and all aspects of the original model are coverd by the new
+
+| https://linked.data.gov.au/def/asgs[ASGS Ontology] | <<Backbone Model>> | The current delivery of the ASGS at https://asgs.linked.fsdf.org.au uses no properties other than those already in the <<Backbone Model>> therefor no custom Component Model is needed
+
+| https://linked.data.gov.au/def/geofabric[Geofabric Ontology] | unchanged | The Geofabric data online at https://geofabric.linked.fsdf.org.au currently uses only one element of the Geofabric Ontology, the property `hasDownstreamCatchment` however more use of that ontology, or an extended version of it, may be used in the future
+
+| https://linked.data.gov.au/def/placenames[Placenames Ontology] | unchanged | While not an official original Loc-I dataset, Placenames was implemented in Loc-I style at https://fsdf.org.au/dataset/placenames/. It has been brought in to the Supermodel as a standard Component Model using the same ontology, albeit with updates
+
+| Geometry Data Service | https://cache.linked.fsdf.org.au[Graph Cache] | Loc-I build a non-Semantic geometry data service for some cross-dataset spatial queries. Supermodel implements a total cache of all Component Models' content in semanti form for GeoSPARQL spatial querying and other semantic querying
+|===
+
+The Loc-I project also implemented a series of custom clients of the Loc-I data:
+
+
 
 === How to use this Supermodel
 

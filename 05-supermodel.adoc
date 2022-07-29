@@ -9,14 +9,22 @@ image::img/models.png[]
 The high-level structure of this Supermodel consists of:
 
 * <<Background Models>>
-** standard and common Semantic Web models used as "upper" or higher order/abstract model for all other Supermodel models to conform to when modelling something within the Background Model’s purview.
+** Standard and common Semantic Web models used as "upper" or higher order/abstract model for all other Supermodel models to conform to when modelling something within the Background Model's purview.
 ** Models such as the Provenance Ontology <<PROV>> model provenance and all Supermodel models follow it when doing provenance work
 ** GeoSPARQL <<GEO>> serves as the background model for spatial objects - features and their geometries
+* <<Backbone Model>>
+** This is a profile of the Background Models and includes validators
+** Data must conform to this model in order to be considered within this Supermodel
+** This model is a bare minimu: Component Models can, and already do, extend beyond this model to cater for their specific needs
+* <<Component Models>>
+** These are individual models for datasets within this Supermodel
+** Not all dataset require a Component Model, for example, the ASGS is currently modelled using Backbone Model elements only
+* <<Supporting Vocabularies>>
+** Vocabularies that support the Backbone and Component models
+** They must conform to the https://w3id.org/profile/vocpub[VocPub Profile] of https://www.w3.org/TR/skos-reference/[SKOS]
+** They may contain specialised elements beyond VocPub/SKOS too
 
-
-The model that this Supermodel is based on is a small <<semantic-web, Semantic Web>> <<ontology, Ontology>> that defines the major model elements and other terminology used.
-
-In this Specification, this implementation of the Supermodel model is presented via a series of "Levels" which are progressively more detailed, domain-specific, views of the model.
+Further detials of and definitions for these elements are provided in the <<Terms & Definitions>> section, above, and in the https://linked.data.gov.au/def/supermodel[Supermodel Model].
 
 === Modelling Methods
 
