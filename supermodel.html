@@ -815,7 +815,7 @@ Supermodels tend to use vocabularies formulated according to the <a href="#SKOS"
 <div class="sect2">
 <h3 id="_conventions">2.4. Conventions</h3>
 <div class="paragraph">
-<p>All model diagrams use elements introduced in <a href="#fig-level0-key">Figure 4</a>. These elements are defined in the RDF, RDFS and OWL ontologies, see <a href="#OWL">[OWL]</a> for mode details.</p>
+<p>All model diagrams use elements introduced in <a href="#fig-level0-key">Figure 5</a>. These elements are defined in the <a href="#RDF">[RDF]</a>, <a href="#RDFS">[RDFS]</a> and <a href="#OWL">[OWL]</a> ontologies.</p>
 </div>
 <div class="paragraph">
 <p>All code snippets in this document, used to show formal and machine-readable versions of concepts, are expressed using the Turtle RDF syntax <a href="#TTL">[TTL]</a>.</p>
@@ -827,12 +827,12 @@ Supermodels tend to use vocabularies formulated according to the <a href="#SKOS"
 <h2 id="_introduction">3. Introduction</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This Supermodel is based on previous work from the Location Index project. For clarity, that project is described, followed by how this Supermodel inherits from it.</p>
+<p>This Supermodel is based on previous work from the Location Index (Loc-I) Project. For clarity, that the Loc-I Project is described, followed by how this Supermodel inherits from it.</p>
 </div>
 <div class="sect2">
 <h3 id="_loc_i_project">3.1. Loc-I Project</h3>
 <div class="paragraph">
-<p>The Location Index (LOC-I) project, established in 2018, created a methodology and data models framework providing for a consistent way to seamlessly integrate spatial data from distributed sources. The target was Australian spatial data "of national significance", meaning most - initially all - of the data considered was Australian Federal government data.</p>
+<p>The Location Index (LOC-I) project, established in 2018, created a methodology, data models and an informal framework to allow for a consistent way to seamlessly integrate spatial data from distributed sources. The target was Australian spatial data "of national significance", meaning most - initially all - of the data considered was Australian Federal government data.</p>
 </div>
 <div class="paragraph">
 <p>See the project website, <a href="http://www.ga.gov.au/locationindex" class="bare">http://www.ga.gov.au/locationindex</a>, for more project information.</p>
@@ -841,10 +841,10 @@ Supermodels tend to use vocabularies formulated according to the <a href="#SKOS"
 <div class="sect2">
 <h3 id="_loc_i_technical_implementation">3.2. Loc-I Technical Implementation</h3>
 <div class="paragraph">
-<p>The technical implementation of Loc-I was based on <a href="#semantic-web-defn">Semantic Web</a> principles allowing datasets to be published as <a href="#linked-data-defn">Linked Data</a> independently by data holders - different government departments, companies etc. - and consumed with minimal effort required for integration.</p>
+<p>The technical implementation of Loc-I was based on <a href="#semantic-web-defn">Semantic Web</a> principles allowing datasets to be published as <a href="#linked-data-defn">Linked Data</a> independently, by data holders - different government departments, companies etc. - and consumed with minimal effort required for integration.</p>
 </div>
 <div class="paragraph">
-<p>The technical implementation relied on a <em>Loc-I Ontology</em>, the main Loc-I model, multiple <em>Background Models</em>, fundamental, standards, data models that the Loc-I Ontology depended on, and, for some datasets, <em>Dataset Models</em> of their content that spefialise the Loc-I Ontology.</p>
+<p>The technical implementation relied on data from the various datasets sharing common patterns, principally, how the datasets packaged their content and how real-world objects, their spatiality and non-spatial properties were modelled.to this end, a number of <a href="#background-model-defn">Background Models</a> were used, to which all Loc-I dataset models - here called <a href="#component-model-defn">Component Models</a> - conformed. Additionally, a <a href="https://linked.data.gov.au/def/loci">Loc-I Ontology</a> was also created which both included modelling elements needed for the LocI Project that were not present in Background Models and which was to act as a conceptual, if not technical, conformance target for all Component Models.</p>
 </div>
 <div class="paragraph">
 <p><a href="#orig-arch">Figure 2</a> below shows the original detailed architecture diagram used to explain Loc-I&#8217;s parts from 2018 - 2021.</p>
@@ -859,35 +859,184 @@ Supermodels tend to use vocabularies formulated according to the <a href="#SKOS"
 <div class="sect2">
 <h3 id="_loc_i_to_supermodel">3.3. Loc-I to Supermodel</h3>
 <div class="paragraph">
-<p>The FSDF Project has adopted a more rigourously defined <em>Supermodel</em> concept to allow multiple datasets to work together. The ideas are very similar to those used in the Loc-I project however new terminology of a <em>Backbone Model</em>, <em>Component Models</em> and the <em>Supermodel</em> has been adopted, as have new forms of model presentation, documentation and so on. The Supermodel concept has been implemented in several other scenarios as well as this one and lessons learned from those implementations have informed this work.</p>
-</div>
-<div class="paragraph">
-<p>Additionally, this Supermodel covers more domains than the Loc-I modelling: where Loc-I was restricted to just spatial data, this Supermodel indicated how relate non-spatial data to spatial data. This is important to allow observations - of populations, natural features etc. - to be positioned using FSDF Data Platform objects and allows the creation of data cubes with an FSDF spatial backing.</p>
-</div>
-<div class="paragraph">
-<p>This Supermodel contains the parts show in <a href="#models">Figure 3</a>.</p>
-</div>
-<div id="models" class="imageblock">
-<div class="content">
-<img src="https://geoscienceaustralia.github.io/fsdf-supermodel/img/models.png" alt="models">
-</div>
-<div class="title">Figure 3. The various models of this Supermodel</div>
-</div>
-<div class="paragraph">
-<p>This Supermodel&#8217;s integrative, <em>Backbone Model</em>, used to integrate objects from the variaous, the dataset-specific, <em>Component Models</em> follows the pattern of use of the 'Loc-I  Ontology' and 'Dataset Model' in the Loc-I project however the <em>Backbone Model</em> now used is just reuse of now standard international models and not a custom model itself. This is possible because international standard models such as GeoSPARSL <a href="#GEO">[GEO]</a> now contain elements necissary for project like this that were not incuded when the Loc-I Project started, for example representations of colelctions of geospatial features. This Supermodel&#8217;s <em>Observations Models</em> are also expressly catered for in the <em>Backbone Model</em> whereas the Loc-I project didn&#8217;t formalise the integrtion of spatial and observations data.</p>
-</div>
-<div class="paragraph">
-<p>Some other Loc-I/FSDF Project model differences:</p>
+<p>The FSDF Project has adopted a more rigourously defined <em>Supermodel</em> concept to formalise things of importance to Loc-I-like work but which the Loc-I Project didn&#8217;t define. For example, the categorisation of relevant models as <a href="#background-model-defn">Background Models</a>, <a href="#component-model-defn">Component Models</a> and so on. The major differences/additions are:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>the Loc-I project specified <em>Linksets</em> to join spatial datasets and this is now done automatically via spatial indexing, rather than static Linkset creation</p>
+<p><strong>Formalised terminology</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Of general relevance within the implementation scenario</p>
 </li>
 <li>
-<p>Loc-I relied on non-graph-based integrative databases to allow for searching across Loc-I datasets. Wile not part of the Loc-I model <em>per se</em>, these elements are show in Loc-I diagrams, suc as <a href="#orig-arch">Figure 2</a>, and documentation. This FSDF Project relies on complete RDF graphs for each dataset included in it and caches the various datasets' graphs into a single graph cache for integration purposes so no non-graph datasets are mentioned in this Supermodel.</p>
+<p>See the <a href="#_terms_definitions">Terms &amp; Definitions</a> section.</p>
 </li>
 </ul>
+</div>
+</li>
+<li>
+<p><strong>Model categorisation</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>For the different types of models within the scenario, for example, <a href="#background-model-defn">Background Models</a>, <a href="#component-model-defn">Component Models</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Explicit integration</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>By explicitly defining a <a href="#backbone-model-defn">Backbone Model</a> for each scenario deployment, the Supermodel conventions indicate precicely what minimum requirements for <a href="#component-model-defn">Component Models</a> are to be able to be integrated</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Validatable profiling instead of model specailisation</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Loc-I relied on defining an ontology to which datasets were expected to conform</p>
+</li>
+<li>
+<p>Supermodel implements a Profile of Background Models to which Component Datasets mush conform</p>
+</li>
+<li>
+<p>The Profile provides executable data validators</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In addition to these model/methodological changes, this particular Spuermodel deployment has updated scenario-specific things, in particular:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Use of GeoSPARQL 1.1</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>The Loc-I Project motivated extensions to the GeoSPARQL 1.0 ontology which were captured in the <a href="https://linked.data.gov.au/def/geox">GeoSPARQL Extensions Ontology (GeoX)</a>. That ontology was then used by many Loc-I Project dataset models (Component Models)</p>
+</li>
+<li>
+<p>The update to GeoSPARQL, <a href="https://opengeospatial.github.io/ogc-geosparql/geosparql11/spec.html">GeoSPARQL 1.1</a>, absorbed many of these updates and so there is no longer a need to use GeoX</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Collection-based Feature organisation</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Several Loc-I dataset models (Component Models) used specialised properties to indicate aggregations of Feature, e.g. the <a href="http://linked.data.gov.au/def/asgs">ASGS Ontology&#8217;s</a> <code>aggregatesTo</code> &amp; <code>isAggregationOf</code></p>
+</li>
+<li>
+<p>The latest issue of the ASGS dataset within this Supermodel, online at <a href="https://linked.data.gov.au/dataset/asgsed3" class="bare">https://linked.data.gov.au/dataset/asgsed3</a>, uses only Collection membership (all Meshblock Features are members of the Meshblocks Feature Collection) and standard topological relations, e.g. each SA2 is <code>geo:sfWithin</code> an SA3</p>
+</li>
+<li>
+<p>This takes advantage of GeoSPARQL 1.1&#8217;s collections which match OGC API structures and removes non-standard spatial object relations</p>
+</li>
+<li>
+<p>specialised Feature aggregations <em>may</em> be re-added to objects within this Supermodel, if required</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Topological querying instead of Linksets</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Loc-I Linksets are datasets that declare topologicla relations between Features</p>
+</li>
+<li>
+<p>GeoSPARQL allows topological relationships to be calculated using topologicla functions</p>
+</li>
+<li>
+<p>Loc-I Project estableished only a limited set of Linksets, e.g. the <a href="https://github.com/CSIRO-enviro-informatics/addrmb16-linkset">Current Addresses to 2016 Mesh Blocks Linkset</a></p>
+</li>
+<li>
+<p>This Supermodel deployment includes a cache of all datasets, <a href="https://cache.linked.fsdf.org.au" class="bare">https://cache.linked.fsdf.org.au</a>, on which topological queries across all datasets can be performed</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To conclude this Loc-I/Supermodel relations, here is a table mapping elements and terminology.</p>
+</div>
+<table class="tableblock frame-all grid-all stripes-even stretch">
+<caption class="title">Table 2. Loc-I/FSDF Supermodel element comparison</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Loc-I</th>
+<th class="tableblock halign-left valign-top">FSDF Supermodel</th>
+<th class="tableblock halign-left valign-top">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Upper ontologies<br>
+<em><a href="https://opengeospatial.github.io/ogc-geosparql/geosparql10/11-052r4_OGC_GeoSPARQL.pdf">GeoSPARQL 1.0</a>, <a href="https://www.w3.org/TR/vocab-dcat/">DCAT</a> etc.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#background-model-defn">Background Models</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Supermodel precisely lists Background Models in <a href="#_background_models">Background Models</a> where Loc-I left their discovery to general documentation or dataset model imports</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://linked.data.gov.au/def/loci">Loc-I Ontology</a> &amp;<br>
+<a href="https://linked.data.gov.au/def/geox">GeoX Ontology</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#backbone-model-defn">Backbone Model</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Backbone Model profiles GeoSPARQL 1.1 and thus incorporates equivalent (updated) GeoX modelling. Loc-I Ontology Linksets are not used. Loc-I Ontology Datasets are replaced with Backbone Model profiling of DCAT</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dataset models<br>
+<em><a href="https://linked.data.gov.au/def/gnaf">GNAF</a>, <a href="https://linked.data.gov.au/def/asgs">ASGS</a>, <a href="https://linked.data.gov.au/def/geofabric">Geofabric</a></em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#component-model-defn">Component Models</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The FSDF Supermodel lists the <a href="#_component_models">Component Models</a> defined to be within it formally in this Supermodel document</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://linked.data.gov.au/def/gnaf">GNAF Ontology</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://nicholascar.com/anz-nat-addr-model-candidate/model.html">ANZ National Address Model</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The new model is a more standards-based form of the previous one and all aspects of the original model are coverd by the new</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://linked.data.gov.au/def/asgs">ASGS Ontology</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_backbone_model">Backbone Model</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The current delivery of the ASGS at <a href="https://asgs.linked.fsdf.org.au" class="bare">https://asgs.linked.fsdf.org.au</a> uses no properties other than those already in the <a href="#_backbone_model">Backbone Model</a> therefor no custom Component Model is needed</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://linked.data.gov.au/def/geofabric">Geofabric Ontology</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">unchanged</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Geofabric data online at <a href="https://geofabric.linked.fsdf.org.au" class="bare">https://geofabric.linked.fsdf.org.au</a> currently uses only one element of the Geofabric Ontology, the property <code>hasDownstreamCatchment</code> however more use of that ontology, or an extended version of it, may be used in the future</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://linked.data.gov.au/def/placenames">Placenames Ontology</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">unchanged</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">While not an official original Loc-I dataset, Placenames was implemented in Loc-I style at <a href="https://fsdf.org.au/dataset/placenames/" class="bare">https://fsdf.org.au/dataset/placenames/</a>. It has been brought in to the Supermodel as a standard Component Model using the same ontology, albeit with updates</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Geometry Data Service</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://cache.linked.fsdf.org.au">Graph Cache</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Loc-I build a non-Semantic geometry data service for some cross-dataset spatial queries. Supermodel implements a total cache of all Component Models' content in semanti form for GeoSPARQL spatial querying and other semantic querying</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The Loc-I project also implemented a series of custom clients of the Loc-I data:</p>
 </div>
 </div>
 <div class="sect2">
@@ -1006,7 +1155,7 @@ Supermodels tend to use vocabularies formulated according to the <a href="#SKOS"
 <div class="content">
 <img src="https://geoscienceaustralia.github.io/fsdf-supermodel/img/models.png" alt="models">
 </div>
-<div class="title">Figure 4. The various models of this Supermodel</div>
+<div class="title">Figure 3. The various models of this Supermodel</div>
 </div>
 <div class="sect2">
 <h3 id="_overview">4.1. Overview</h3>
@@ -1020,7 +1169,7 @@ Supermodels tend to use vocabularies formulated according to the <a href="#SKOS"
 <div class="ulist">
 <ul>
 <li>
-<p>standard and common Semantic Web models used as "upper" or higher order/abstract model for all other Supermodel models to conform to when modelling something within the Background Model’s purview.</p>
+<p>Standard and common Semantic Web models used as "upper" or higher order/abstract model for all other Supermodel models to conform to when modelling something within the Background Model&#8217;s purview.</p>
 </li>
 <li>
 <p>Models such as the Provenance Ontology <a href="#PROV">[PROV]</a> model provenance and all Supermodel models follow it when doing provenance work</p>
@@ -1031,13 +1180,55 @@ Supermodels tend to use vocabularies formulated according to the <a href="#SKOS"
 </ul>
 </div>
 </li>
+<li>
+<p><a href="#_backbone_model">Backbone Model</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p>This is a profile of the Background Models and includes validators</p>
+</li>
+<li>
+<p>Data must conform to this model in order to be considered within this Supermodel</p>
+</li>
+<li>
+<p>This model is a bare minimu: Component Models can, and already do, extend beyond this model to cater for their specific needs</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="#_component_models">Component Models</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p>These are individual models for datasets within this Supermodel</p>
+</li>
+<li>
+<p>Not all dataset require a Component Model, for example, the ASGS is currently modelled using Backbone Model elements only</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><a href="#_supporting_vocabularies">Supporting Vocabularies</a></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Vocabularies that support the Backbone and Component models</p>
+</li>
+<li>
+<p>They must conform to the <a href="https://w3id.org/profile/vocpub">VocPub Profile</a> of <a href="https://www.w3.org/TR/skos-reference/">SKOS</a></p>
+</li>
+<li>
+<p>They may contain specialised elements beyond VocPub/SKOS too</p>
+</li>
+</ul>
+</div>
+</li>
 </ul>
 </div>
 <div class="paragraph">
-<p>The model that this Supermodel is based on is a small <a href="#semantic-web">Semantic Web</a> <a href="#ontology">Ontology</a> that defines the major model elements and other terminology used.</p>
-</div>
-<div class="paragraph">
-<p>In this Specification, this implementation of the Supermodel model is presented via a series of "Levels" which are progressively more detailed, domain-specific, views of the model.</p>
+<p>Further detials of and definitions for these elements are provided in the <a href="#_terms_definitions">Terms &amp; Definitions</a> section, above, and in the <a href="https://linked.data.gov.au/def/supermodel">Supermodel Model</a>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1049,7 +1240,7 @@ Supermodels tend to use vocabularies formulated according to the <a href="#SKOS"
 <div class="content">
 <img src="https://geoscienceaustralia.github.io/fsdf-supermodel/img/key.png" alt="key">
 </div>
-<div class="title">Figure 5. Diagram elements key</div>
+<div class="title">Figure 4. Diagram elements key</div>
 </div>
 <div class="sect3">
 <h4 id="_object_modelling">4.2.1. Object Modelling</h4>
@@ -1060,7 +1251,7 @@ Supermodels tend to use vocabularies formulated according to the <a href="#SKOS"
 <div class="content">
 <img src="https://geoscienceaustralia.github.io/fsdf-supermodel/img/level0-owl.png" alt="level0 owl">
 </div>
-<div class="title">Figure 6. OWL objects and their relations</div>
+<div class="title">Figure 5. OWL objects and their relations</div>
 </div>
 <div class="paragraph">
 <p>The elements shown above are identified with prefixed IRIs that correspond to entries in the <a href="#tbl-prefixes">Namespace Table</a>. A short explanation of the diagram key elements is:</p>
@@ -1100,7 +1291,7 @@ Supermodels tend to use vocabularies formulated according to the <a href="#SKOS"
 <div class="content">
 <img src="https://geoscienceaustralia.github.io/fsdf-supermodel/img/level0-prov.png" alt="level0 prov">
 </div>
-<div class="title">Figure 7. PROV main classes and main relations</div>
+<div class="title">Figure 6. PROV main classes and main relations</div>
 </div>
 <div class="paragraph">
 <p>According to PROV, all things are either a:</p>
@@ -1154,7 +1345,7 @@ Supermodels tend to use vocabularies formulated according to the <a href="#SKOS"
 <div class="content">
 <img src="https://geoscienceaustralia.github.io/fsdf-supermodel/img/data-domains.png" alt="data domains">
 </div>
-<div class="title">Figure 8. Top-level view of the Supermodel showing Data Domains</div>
+<div class="title">Figure 7. Top-level view of the Supermodel showing Data Domains</div>
 </div>
 <div class="paragraph">
 <p>These Data Domains are defined formally in a simple SKOS vocabulary within this model&#8217;s set of machine-readable resources. The vocabulary may be access ddirectly at <a href="https://linked.data.gov.au/def/supermodel/data-domains" class="bare">https://linked.data.gov.au/def/supermodel/data-domains</a>.</p>
@@ -1181,7 +1372,7 @@ Supermodels tend to use vocabularies formulated according to the <a href="#SKOS"
 <div class="content">
 <img src="https://geoscienceaustralia.github.io/fsdf-supermodel/img/central-classes.png" alt="central classes">
 </div>
-<div class="title">Figure 9. Next level view of the Supermodel showing Central Classes</div>
+<div class="title">Figure 8. Next level view of the Supermodel showing Central Classes</div>
 </div>
 <div class="paragraph">
 <p>The Central Classes of each of the Data Domains are well-used classes from well-known models. For example, the Central Class of <em>Organisation &amp; People</em> is <a href="#PROV">[PROV]</a>'s <code>Agent</code> class which is one of the three main classes of thing in PROV and used every time PROV is used to represent causal agents. PROV is used extensively to indicate how things - data, resources, systems - come to be.</p>
@@ -1190,7 +1381,7 @@ Supermodels tend to use vocabularies formulated according to the <a href="#SKOS"
 <p>A list of the Data Domains' Central Classes, their definitions, as given by their defining systems, and their defining system are given in <a href="#tbl-central-classes">Table 2</a> below.</p>
 </div>
 <table id="tbl-central-classes" class="tableblock frame-none grid-none stripes-even" style="width: 75%;">
-<caption class="title">Table 2. Data Domains their Central Classes and those Classes' definitions and origins</caption>
+<caption class="title">Table 3. Data Domains their Central Classes and those Classes' definitions and origins</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 25%;">
@@ -1244,7 +1435,7 @@ Supermodels tend to use vocabularies formulated according to the <a href="#SKOS"
 <p>The definitions of the main relations between Central Classes are given in</p>
 </div>
 <table id="tbl-cc-relations" class="tableblock frame-none grid-none stripes-even" style="width: 75%;">
-<caption class="title">Table 3. Central Class main relations their definitions and origins</caption>
+<caption class="title">Table 4. Central Class main relations their definitions and origins</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -1302,7 +1493,7 @@ Supermodels tend to use vocabularies formulated according to the <a href="#SKOS"
 <div class="content">
 <img src="https://geoscienceaustralia.github.io/fsdf-supermodel/img/domain-classes-data-cataloguing.png" alt="domain classes data cataloguing">
 </div>
-<div class="title">Figure 10. Domain Main Classes for Data Cataloguing</div>
+<div class="title">Figure 9. Domain Main Classes for Data Cataloguing</div>
 </div>
 <div class="paragraph">
 <p>This Data Domain&#8217;s main classes are essentially the DCAT2 data model <a href="#DCAT">[DCAT]</a> with a slight profiling: <code>dcterms:hasPart</code> should be used to indicate elements within catalogues (e.g. <code>dcat:Dataset</code> and other things within a <code>dcat:Catalog</code>) rather than the specialised properties of <code>dcat:dataset</code> because generic catalogue can be expected to catalogue many types of things and the type of the thing should be given by the thing, not the catalogue property used to indicate it.</p>
@@ -1317,7 +1508,7 @@ Supermodels tend to use vocabularies formulated according to the <a href="#SKOS"
 <div class="content">
 <img src="https://geoscienceaustralia.github.io/fsdf-supermodel/img/domain-classes-organisations-people.png" alt="domain classes organisations people">
 </div>
-<div class="title">Figure 11. Domain Main Classes for Organisations &amp; People</div>
+<div class="title">Figure 10. Domain Main Classes for Organisations &amp; People</div>
 </div>
 <div class="paragraph">
 <p>This Data Domain&#8217;s main classes are centered on <a href="#PROV">[PROV]</a>'s <code>prof:Agent</code> class but specific types of agent - <em>person</em> &amp; <em>organisation</em> are defined using schema.org <a href="#SDO">[SDO]</a>, the general-purpose ontology provisioned by Google, Microsoft &amp; Yahoo for the description of web page data.</p>
@@ -1335,7 +1526,7 @@ Supermodels tend to use vocabularies formulated according to the <a href="#SKOS"
 <div class="content">
 <img src="https://geoscienceaustralia.github.io/fsdf-supermodel/img/domain-classes-theming.png" alt="domain classes theming">
 </div>
-<div class="title">Figure 12. Domain Main Classes for Theming</div>
+<div class="title">Figure 11. Domain Main Classes for Theming</div>
 </div>
 <div class="paragraph">
 <p>This Data Domain&#8217;s main classes are taken from <a href="#SKOS">[SKOS]</a> and their expected/required properties and relations are formally defined in <em>VocPub</em>, a "vocabulary publication profile of SKOS" <a href="#VOCPUB">[VOCPUB]</a>. VocPub just mandates certain vocabulary metadata and relations between elements in vocabularies. Conformance of vocabularies to VocPub is also easily testable using the profile&#8217;s validator and online tooling that support it <sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup>.</p>
@@ -1347,7 +1538,7 @@ Supermodels tend to use vocabularies formulated according to the <a href="#SKOS"
 <div class="content">
 <img src="https://geoscienceaustralia.github.io/fsdf-supermodel/img/domain-classes-observations-sampling.png" alt="domain classes observations sampling">
 </div>
-<div class="title">Figure 13. Domain Main Classes for Observations &amp; Sampling</div>
+<div class="title">Figure 12. Domain Main Classes for Observations &amp; Sampling</div>
 </div>
 </div>
 <div class="sect3">
@@ -1359,7 +1550,7 @@ Supermodels tend to use vocabularies formulated according to the <a href="#SKOS"
 <div class="content">
 <img src="https://geoscienceaustralia.github.io/fsdf-supermodel/img/domain-classes-spatial.png" alt="domain classes spatial">
 </div>
-<div class="title">Figure 14. Domain Main Classes for Spatial</div>
+<div class="title">Figure 13. Domain Main Classes for Spatial</div>
 </div>
 <div class="paragraph">
 <p>This Data Domain&#8217;s main classes are taken directly from GeoSPARQL 1.1 <a href="#GEO">[GEO]</a> which is used extensively for Semantic Web spatial data already. GeoSPARQL&#8217;s main purposes are to relate things (<code>geo:Feature</code>) to their spatial projections - their geometries - and to relate things to one another - topological relations between features, such as <em>within</em>, <em>touches</em>, <em>disjoint</em> etc.</p>
@@ -1383,7 +1574,7 @@ Supermodels tend to use vocabularies formulated according to the <a href="#SKOS"
 <div class="content">
 <img src="https://geoscienceaustralia.github.io/fsdf-supermodel/img/details-data-cataloguing.png" alt="details data cataloguing">
 </div>
-<div class="title">Figure 15. Data Cataloguing Model, based on DCAT &amp; PROV</div>
+<div class="title">Figure 14. Data Cataloguing Model, based on DCAT &amp; PROV</div>
 </div>
 </div>
 <div class="sect2">
@@ -1395,7 +1586,7 @@ Supermodels tend to use vocabularies formulated according to the <a href="#SKOS"
 <div class="content">
 <img src="https://geoscienceaustralia.github.io/fsdf-supermodel/img/details-organisations-people.png" alt="details organisations people">
 </div>
-<div class="title">Figure 16. Organisation Model, based on schema.org</div>
+<div class="title">Figure 15. Organisation Model, based on schema.org</div>
 </div>
 </div>
 <div class="sect2">
@@ -1413,7 +1604,7 @@ Supermodels tend to use vocabularies formulated according to the <a href="#SKOS"
 <div class="content">
 <img src="https://geoscienceaustralia.github.io/fsdf-supermodel/img/details-observations-sampling.png" alt="details observations sampling">
 </div>
-<div class="title">Figure 17. Observations Model, based on <a href="https://www.w3.org/TR/vocab-data-cube/#fig-pictorial-summary-of-key-terms-and-their-relationship">Data Cube Vocabulary overview</a></div>
+<div class="title">Figure 16. Observations Model, based on <a href="https://www.w3.org/TR/vocab-data-cube/#fig-pictorial-summary-of-key-terms-and-their-relationship">Data Cube Vocabulary overview</a></div>
 </div>
 </div>
 <div class="sect2">
@@ -1572,7 +1763,7 @@ Supermodels tend to use vocabularies formulated according to the <a href="#SKOS"
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-07-27 23:41:22 UTC
+Last updated 2022-07-29 03:54:43 UTC
 </div>
 </div>
 </body>
