@@ -24,6 +24,8 @@
 
 * [[RDFS]] [RDFS] World Wide Web Consortium, _RDF Schema 1.1_, W3C Recommendation (25 February 2014). https://www.w3.org/TR/rdf-schema/
 
+* [[QB]] [QB] World Wide Web Consortium, _The RDF Data Cube Vocabulary_, W3C Recommendation (16 January 2014). https://www.w3.org/TR/vocab-data-cube/
+
 * [[SDO]] [SDO] W3C Schema.org Community Group, _schema.org_. Community ontology (2015). https://schema.org
 
 * [[SSN]] [SSN] World Wide Web Consortium, _Semantic Sensor Network Ontology_, W3C Recommendation (19 October 2017). https://www.w3.org/TR/vocab-ssn/
