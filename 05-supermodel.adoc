@@ -6,6 +6,10 @@ image::img/models.png[]
 
 === Overview
 
+This Section describes the structure of this Supermodel, aspects of the modelling involved and how to use this Supermodel. Following Sections describe the elements of the Supermodel in detail.
+
+=== Structure
+
 The high-level structure of this Supermodel consists of:
 
 * <<Background Models>>
@@ -25,6 +29,8 @@ The high-level structure of this Supermodel consists of:
 ** They may contain specialised elements beyond VocPub/SKOS too
 
 Further detials of and definitions for these elements are provided in the <<Terms & Definitions>> section, above, and in the https://linked.data.gov.au/def/supermodel[Supermodel Model].
+
+The next section deals with some aspects of how the models are created.
 
 === Modelling Methods
 
@@ -69,131 +75,87 @@ According to PROV, all things are either a:
 
 While not often in front of mind for objects in any Data Domain, provenance relations always apply, for example: a `sosa:Sample` within the _Sampling_ domain is a `prov:Entity` and will necissarily have been created via a `sosa:Sampling` which is a `prov:Activity`. Another example: an `sdo:Person` related to a `dcat:Dataset` via the property `dcterms:creator` in the _DataCataloging_ domain is a specialised form of a `prov:Agent` related to a `prov:Entity` via `prov:wasAttributedTo`.
 
-=== Level 1: Data Domains
+=== Ensuring Data Conformance
 
-The top-level view of the GA supermodel that assumes Level 0 background mechanics shows a set of 5 <<#data-domain, Data Domains>> which are:
+First the requirements for data to conform to are described, then how to test conformance in the Validation section.
 
-1. <<Data Cataloguing Domain, Data Cataloguing>>
-2. <<Organisations & People Domain, Organisations & People>>
-3. <<Theming Domain, Theming>>
-4. <<Sampling & Observations Domain, Sampling & Observations>>
-5. <<Spatial Domain, Spatial>>
+==== Conformance Requirements
 
+Data wishing to be used within this Supermodel must conform to:
 
-These are shown in <<fig-top-level, Figure 1>> below.
+. Relevant Background Models
+. The Backbone Model
+. Perhaps a Component Model
 
-[id=fig-top-level]
-.Top-level view of the Supermodel showing Data Domains
-image::img/data-domains.png[]
+===== Relevant Background Models
+All data within the Supermodel will need to conform to at least _some_ Background Models. Working out which ones are relevant is done by looking at the conceptual scope of the various listed Background Models and comparing the conceptual scope of the data to them. 
 
-These Data Domains are defined formally in a simple SKOS vocabulary within this model's set of machine-readable resources. The vocabulary may be access ddirectly at https://linked.data.gov.au/def/supermodel/data-domains.
+For example, if the data is spatial - and most of it will be - it will need to conform to GeoSPARQL <<GEO>>. If it's observations information, Data Cube <<DQ>>.
 
-Elements at all other levels of detail in this model are classified according to these Data Domains by use of the `dcat:theme` property, for example, the class `sosa:Sample` is within the _Sampling_ Data Domain, so it is defined as follows:
+Many Background Models are generic and have a wide scope and thus most data will need to conform to most Background Models.
 
-```turtle
-sosa:Sample
-    a owl:Class ;
-    dcat:theme ex:sampling ;
-    ...
-.
-```
+For example, if the data contains provenance information, regardless of whether it's a spatial or observations dataset, it will need to conform to the Provenance Ontology <<PROV>>.
 
-=== Level 2: Central Classes
+===== Backbone Model
 
-The next level of detail after the Data Domains introduces the Central Classes. Here the most significant, general, class per Data Domain is indicated, along with the main relationships between each of them. <<fig-central-classes, Figure 2>> shows this.
+All data will need to conform to the Backbone Model as this model is used to ensure all data can work together.
 
-[id=fig-central-classes]
-.Next level view of the Supermodel showing Central Classes
-image::img/central-classes.png[]
+This model is only concerned with minimum requirements for data, so data conforming to this model may have any other things in it - details specific to that dataset's concern - that are un-handled/unknonw in the Backbone Model. That's fine, as long as the minimal requirements are met.
 
-The Central Classes of each of the Data Domains are well-used classes from well-known models. For example, the Central Class of _Organisation & People_ is <<PROV>>'s `Agent` class which is one of the three main classes of thing in PROV and used every time PROV is used to represent causal agents. PROV is used extensively to indicate how things - data, resources, systems - come to be.
+===== Component Model
 
-A list of the Data Domains' Central Classes, their definitions, as given by their defining systems, and their defining system are given in <<tbl-central-classes, Table 2>> below.
+Many datasets will have a Compoent Model implemented for them. If they due, obviously data within that dataset must conform to it. If no Component Model has been implemented, it means that dataset is a direct implemetation of the Backbone Model and need only conform to that.
 
-[#tbl-central-classes, width=75%, frame=none, grid=none]
-.Data Domains their Central Classes and those Classes' definitions and origins
-|===
-| Data Domain | Central Class | Definition | Defined By
+==== Validation
 
-| Data Cataloguing | `dcat:Dataset` | A collection of data that is listed in the catalog. | Data Catalog Vocabulary <<DCAT>>
-| Organisations & People | `prov:Agent` | An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity | PROV-O: The PROV Ontology <<PROV>>
-| Theming | `skos:Concept` | An idea or notion; a unit of thought | Simple Knowledge Organization System ontology <<SKOS>>
-| Observation & Sampling | `sosa:Sample` | A Sample is the result from an act of Sampling.
+To ensure that data within a dataset conforms to the models it needs to, automated validation of data must occur. This Supermodel implements validators for the Backbone Model that must be used to test data with.
 
-Feature which is intended to be representative of a FeatureOfInterest on which Observations may be made.
+This Supermodel is also either obtaining or implementing validators for all Background Models over time. Validators implemented for Background Models in this Supermodel are implemented within <<null-profile-defn, Null Profiles>> of them since most of the Background Models are previously defined controlled standards that cannot have all of the profiling elements relevant to Supermodels just added to them.
 
-Physical samples are sometimes known as 'specimens'. | Sensor, Observation, Sample, and Actuator Ontology, within <<SSN>>
-| Spatial | `geo:Feature` | A discrete spatial phenomenon in a universe of discourse | GeoSPARQL Ontology <<GEO>>
-|===
+=== How to use this Supermodel
 
-The definitions of the main relations between Central Classes are given in 
+This Supermodel provides a general structure for datasets that want to integrate within the FSDF Data Platform. The common tasks you might perform with the Supermodel are:
 
-[#tbl-cc-relations, width=75%, frame=none, grid=none]
-.Central Class main relations their definitions and origins
-|===
-| Central Class | Definition | Defined By
+1. Model a new dataset as an FSDF Supermodel generic dataset
+2. Validate new dataset data according to the FSDF Supermodel
+3. Create an extended/specialised Component Model for a dataset
+4. Validate extended/specialised new dataset data according to the extended/specialised FSDF Supermodel Component Model
+5. Create a dataset of observations - population/statistical or natural world - linked to Component Models
 
-| `dcat:Dataset` | A collection of data that is listed in the catalog. | Data Catalog Vocabulary <<DCAT>>
-| `sosa:Sample` | A Sample is the result from an act of Sampling.
+Detailed suggestions as to how to achieve these tasks are given below.
 
-Feature which is intended to be representative of a FeatureOfInterest on which Observations may be made.
+==== 1. Model a new dataset
 
-Physical samples are sometimes known as 'specimens'. | Sensor, Observation, Sample, and Actuator Ontology, within <<SSN>>
-| `geo:Feature` | A discrete spatial phenomenon in a universe of discourse | GeoSPARQL Ontology <<GEO>>
-| `skos:Concept` | An idea or notion; a unit of thought | Simple Knowledge Organization System ontology <<SKOS>>
-| `prov:Agent` | An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity | PROV-O: The PROV Ontology <<PROV>>
-|===
+Individual datasets are modelled as <<component-model-defn, Component Models>>. The most basic of Component Models contain `Dataset`, `FeatureCollection` & `Feature` classes modelled using the DCAT & GeoSPARQL Background Models with certain relations. The details of this modelling are given in the first part of the <<Component Models>> section.
 
-=== Level 3: Domain Main Classes
+To model a highly specialised dataset, you will need to be able to implement both the most basic Component Model elements but also model the specialised elements relevant to your dataset. No specific guidance about your dataset can be given here however the <<Component Models>> section does indicate existing datasets that contain a large amount of specialisation that you may draw inspiration from.
 
-At this level, the main classes within each Data Domain are identified and related to one another. In each Data Domain there is a well-known model used for the majority of the classes and relations. These well-known models are indicated to ensure that they can be followed if extensions to this level's modelling need to be made.
+In all cases, you can use the tools listed in the <<Validators>> section to test any data you've created to see if it really is valid according to this Supermodel.
 
-==== Data Cataloguing
+==== 2. Validate new dataset
 
-This subsection details the main elements of the Data Cataloguing Data Domain.
+Data validators are available, for all elements of this Supermodel, so you can use them to validate your data. See the <<Validators>> section.
 
-[id=fig-domain-classes-data-cataloguing]
-.Domain Main Classes for Data Cataloguing
-image::img/domain-classes-data-cataloguing.png[]
+==== 3. Create an extended/specialised 'Component Model'
 
-This Data Domain's main classes are essentially the DCAT2 data model <<DCAT>> with a slight profiling: `dcterms:hasPart` should be used to indicate elements within catalogues (e.g. `dcat:Dataset` and other things within a `dcat:Catalog`) rather than the specialised properties of `dcat:dataset` because generic catalogue can be expected to catalogue many types of things and the type of the thing should be given by the thing, not the catalogue property used to indicate it.
+As per subsection 1. above, we can't give specific details about specialised modelling here since we don't know about your particular dataset however we can both indicate existing specialised datasets (see the start of the <<Component Models>> section) and we can make a few general points:
 
-==== Organisations & People
+* this Supermodel is concerned with the modelling of spatial datasets as Component Models with `Dataset`, `FeatureCollection` & `Feature` with certain relations between them
+* most specialisation is likely to occur by adding special properties to `Feature` instances
+** for example, the `Feature` instances within the FSDF's https://linked.fsdf.org.au/dataset/electrical-infrastructure/collections/PS[Power Stations] `FeatureCollection` contain properties relevant to power generation, such as `primaryfuelType` indicating coal, biogas etc., and these are important for knowledge of Power Stations but don't affect the general spatial feature modelling of this Supermodel in any way
+* spatial relations - between `Feature` instances within one `FeatureCollection` or even across `Dataset` instances - are expected and can be modelled using GeoSPARQL's https://opengeospatial.github.io/ogc-geosparql/geosparql11/spec.html#_simple_features_relation_family[Simple Features Topological Relations Family].
+** No custom modelling is likely required for standard spatial relations
+* The geometries of `Feature` instances can be represented in several ways and `Feature` instances can have multiple geometries
+** Boundaries at different levels of resolution may be given or geometries with different roles, e.g. high and low tide boundaries
 
-This subsection details the main elements of the Organisations & People Data Domain.
+==== 4. Validate extended/specialised new dataset data
 
-[id=fig-domain-classes-organisations-people]
-.Domain Main Classes for Organisations & People
-image::img/domain-classes-organisations-people.png[]
+As per section 2. above, see the <<Validators>> section. Of course, your specialised modelling won't have a validator for it, however you can certainly ensure that your new data is valid according to this Supermodel.
 
-This Data Domain's main classes are centered on <<PROV>>'s `prof:Agent` class but specific types of agent - _person_ & _organisation_ are defined using schema.org <<SDO>>, the general-purpose ontology provisioned by Google, Microsoft & Yahoo for the description of web page data. 
+==== 5. Create a dataset of observations
 
-schema.org objects and properties are also used to define agents in the VocPub profile <<VOCPUB>> and are understood by ontology documentation tools such as pyLODE footnote:[https://pypi.org/project/pyLODE/].
+The spatial datasets within this Supermodel are intended to just present a spatial reference later that observations data can be referenced against. For example, Australian census data is keyed to the Mesh Blocks and other spatial areas of the <<ASGS, ASGS dataset>>, water data in the Bureau of Meteorology's AWRIS system are keyed to catchments within the <<Geofabric, Geofabric dataset>>.
 
-==== Theming
+You can create your own observations data and key them to any datasets that exist within this Supermodel or to datasets that you make that are compatible with this Supermodel's elements.
 
-This subsection details the main elements of the Theming Data Domain.
-
-[id=fig-domain-classes-theming]
-.Domain Main Classes for Theming
-image::img/domain-classes-theming.png[]
-
-This Data Domain's main classes are taken from <<SKOS>> and their expected/required properties and relations are formally defined in _VocPub_, a "vocabulary publication profile of SKOS" <<VOCPUB>>. VocPub just mandates certain vocabulary metadata and relations between elements in vocabularies. Conformance of vocabularies to VocPub is also easily testable using the profile's validator and online tooling that support it footnote:[The validator itself is online at https://w3id.org/profile/vocpub/validator and is pre-loaded into several online validation tools, for example Geoscience Australia's vocabulary servers e.g. https://vocabs.ga.gov.au. It can also be selected for online validation use at https://rdftools.surroundaustralia.com].
-
-==== Sampling & Observation
-
-[id=fig-domain-observations-sampling]
-.Domain Main Classes for Observations & Sampling
-image::img/domain-classes-observations-sampling.png[]
-
-==== Spatial
-
-This subsection details the main elements of the Spatial Data Domain.
-
-[id=fig-domain-classes-spatial]
-.Domain Main Classes for Spatial
-image::img/domain-classes-spatial.png[]
-
-This Data Domain's main classes are taken directly from GeoSPARQL 1.1 <<GEO>> which is used extensively for Semantic Web spatial data already. GeoSPARQL's main purposes are to relate things (`geo:Feature`) to their spatial projections - their geometries - and to relate things to one another - topological relations between features, such as _within_, _touches_, _disjoint_ etc.
-
-Particular datasets tend to implement specialised types of things (usually referred to as _Feature Types_) and sometimes specialised relations between things, e.g. special _hydrological catchment_ feature type might relate to another by being _upstream_ of it. This is as per modelling in the Geofabric footnote:[https://linked.data.gov.au/dataset/geofabric].
+To know how to do this, see <<Annex A: Observations Data>>.

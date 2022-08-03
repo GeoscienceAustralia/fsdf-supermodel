@@ -81,6 +81,15 @@ A project aiming to provide a consistent way to seamlessly integrate spatial dat
 +
 -- http://www.ga.gov.au/locationindex[Location Index Project Website]
 
+
+[id=null-profile-defn]
+Null Profile::
+
+https://linked.data.gov.au/def/fsdf-supermodel#fsdf-defn[:mull-profile-defn] - _defined here_
++
+A Null Profile is a Profile of a Standard that implements no additional constraints on the profile. A Null Profile's purpose is to act as a conformance target for the Standard by supplying itemised requrements and machine-executable validators when the Standard itself cannot have these elements added to it.
+
+
 [id=ontology-defn]
 Ontology::
 
@@ -89,6 +98,16 @@ Ontology::
 In computer science and information science, an ontology encompasses a representation, formal naming, and definition of the categories, properties, and relations between the concepts, data, and entities that substantiate one, many, or all domains of discourse.
 +
 The word ontology was originally defined as "the branch of philosophy that studies concepts such as existence, being, becoming, and reality". and the computer science term is derived from that definition.
+
+[id=profile-defn]
+Profile::
+`https://www.w3.org/TR/dx-prof/#dfn-profile`
++
+A data standard that constrains, extends, combines, or provides guidance or explanation about the usage of other standards.
++
+This definition includes what are sometimes called "data profiles", "application profiles", "metadata application profiles", or "metadata profiles". In this document, "profile" and these other variants are all referred to as just "profiles".
++
+NOTE: This definition has been taken from <<PROF>> and altered slightly for clarity here
 
 [id=semantic-web-defn]
 Semantic Web::

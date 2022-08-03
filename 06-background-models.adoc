@@ -1,5 +1,23 @@
 == Background Models
 
+
+Background Models are:
+
+"standard and common Semantic Web model used as "upper" or higher order/abstract model for all other Supermodel models to conform to when modelling something within the Background Model's purview."
+-- <<Background Models>> definition from the <<Terms & Definitions>> section
+
+The particular Background Models in this FSDF Supermodel are given in the table below with notes on the conceptual areas they cover to assist in assessment of their relevance to Supermodel data.
+
+* Web Ontology Language <<OWL>>
+* _Data Catalog Vocabulary_ <<DCAT>>
+* _The Provenance Ontology_ <<PROV>>
+* https://schema.org[schema.org]
+* Data Cube Vocabulary <<DQ>>
+* Simple Knowledge Organization System <<SKOS>>
+* Sensor, Observation, Sample, and Actuator (SOSA) <<SSN>>
+* Vocabulary Publications Profile of SKOS <<VOCPUB>>
+
+
 === Data Cataloguing Domain
 
 This model is based on the _Data Catalog Vocabulary_ <<DCAT>> and _The Provenance Ontology_ <<PROV>> with extensions to cater for mappings to FAIR <<FAIR>> and CARE <<CARE>> models. The essential model is shown in <<datacataloguing-model, Figure 8>>.
