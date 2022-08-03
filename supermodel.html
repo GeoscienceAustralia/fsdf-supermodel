@@ -469,11 +469,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#_background_models">5. Background Models</a>
 <ul class="sectlevel2">
-<li><a href="#_data_cataloguing_domain">5.1. Data Cataloguing Domain</a></li>
-<li><a href="#_organisations_people_domain">5.2. Organisations &amp; People Domain</a></li>
-<li><a href="#_theming_domain">5.3. Theming Domain</a></li>
-<li><a href="#_sampling_observations_domain">5.4. Sampling &amp; Observations Domain</a></li>
-<li><a href="#_spatiality_domain">5.5. Spatiality Domain</a></li>
+<li><a href="#_list">5.1. List</a></li>
+<li><a href="#_domain_details">5.2. Domain Details</a></li>
 </ul>
 </li>
 <li><a href="#_backbone_model_2">6. Backbone Model</a></li>
@@ -1442,83 +1439,171 @@ standard and common Semantic Web model used as "upper" or higher order/abstract 
 &#8212; <a href="#_background_models">Background Models</a> definition from the <a href="#_terms_definitions">Terms &amp; Definitions</a> section
 </div>
 </div>
+<div class="sect2">
+<h3 id="_list">5.1. List</h3>
 <div class="paragraph">
-<p>The particular Background Models in this FSDF Supermodel are given in the table below with notes on the conceptual areas they cover to assist in assessment of their relevance to Supermodel data.</p>
+<p>The particular Background Models in this FSDF Supermodel are given in the table below, with a description of the conceptual area they cover indicated as 'Domain', to assist in assessment of their relevance to Supermodel data.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>Web Ontology Language <a href="#OWL">[OWL]</a></p>
-</li>
-<li>
-<p><em>Data Catalog Vocabulary</em> <a href="#DCAT">[DCAT]</a></p>
-</li>
-<li>
-<p><em>The Provenance Ontology</em> <a href="#PROV">[PROV]</a></p>
-</li>
-<li>
-<p><a href="https://schema.org">schema.org</a></p>
-</li>
-<li>
-<p>Data Cube Vocabulary <a href="#DQ">[DQ]</a></p>
-</li>
-<li>
-<p>Simple Knowledge Organization System <a href="#SKOS">[SKOS]</a></p>
-</li>
-<li>
-<p>Sensor, Observation, Sample, and Actuator (SOSA) <a href="#SSN">[SSN]</a></p>
-</li>
-<li>
-<p>Vocabulary Publications Profile of SKOS <a href="#VOCPUB">[VOCPUB]</a></p>
-</li>
-</ul>
+<table id="background-models-table" class="tableblock frame-all grid-all stripes-even stretch">
+<caption class="title">Table 3. Background Models</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Background Model</th>
+<th class="tableblock halign-left valign-top">Reference</th>
+<th class="tableblock halign-left valign-top">Domain</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Web Ontology Language</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#OWL">[OWL]</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">General modelling: all the other Background Models are OWL models</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">schema.org</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://schema.org">schema.org</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">General modelling: Agents (People &amp; Organisations), licensing etc.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data Catalog Vocabulary</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#DCAT">[DCAT]</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dataset Metadata</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Provenance Ontology</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#PROV">[PROV]</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data Metadata: attribution of data to owners/publishers etc. Data lineage: what things datasets derive from</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GeoSPARQL 1.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#GEO">[GEO]</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Spatiality: Feature/Geometry links, topological relations, spatial scalar values (e.g. area)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data Cube Vocabulary</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#QB">[QB]</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data Dimensions: for observations data, e.g. population census</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sensor, Observation, Sample, and Actuator (SOSA)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#SSN">[SSN]</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data Dimensions: for spatial and natural-world data, e.g. from satellites</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Simple Knowledge Organization System</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#SKOS">[SKOS]</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vocabulary modelling</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vocabulary Publications Profile of SKOS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#VOCPUB">[VOCPUB]</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A profile of SKOS requiring certain properties for vocabularies and their elements</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
-<h3 id="_data_cataloguing_domain">5.1. Data Cataloguing Domain</h3>
+<h3 id="_domain_details">5.2. Domain Details</h3>
 <div class="paragraph">
-<p>This model is based on the <em>Data Catalog Vocabulary</em> <a href="#DCAT">[DCAT]</a> and <em>The Provenance Ontology</em> <a href="#PROV">[PROV]</a> with extensions to cater for mappings to FAIR <a href="#FAIR">[FAIR]</a> and CARE <a href="#CARE">[CARE]</a> models. The essential model is shown in <a href="#datacataloguing-model">Figure 8</a>.</p>
+<p>The domains for each of the Background Models are noted in the table above, however here now are indicative models for each of then indicating the main classes and properties of concern within the domain.</p>
 </div>
-<div id="datacataloguing-model" class="imageblock">
+<div class="sect3">
+<h4 id="_general_modelling">5.2.1. General Modelling</h4>
+<div class="paragraph">
+<p>All of the Background Models, the Backbone Model and all other Supermodel models use the Web Ontology Language, OWL, for their modelling structures. While a description of OWL is out-of-scope for this document, below is given a key for the main OWL elements seen in subsequent figures.</p>
+</div>
+<div id="fig-key" class="imageblock">
 <div class="content">
-<img src="https://geoscienceaustralia.github.io/fsdf-supermodel/img/details-data-cataloguing.png" alt="details data cataloguing">
+<img src="https://geoscienceaustralia.github.io/fsdf-supermodel/img/key.png" alt="key">
 </div>
-<div class="title">Figure 7. Data Cataloguing Model, based on DCAT &amp; PROV</div>
+<div class="title">Figure 7. Figure key for the OWL modelling used in subsequent Figures</div>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_organisations_people_domain">5.2. Organisations &amp; People Domain</h3>
 <div class="paragraph">
-<p>This domain is essentially the organization modelling element of <a href="https://schema.org">schema.org</a> with a few additional properties to track some aspects of organisations relevant to data governance. The essential model is shown in <a href="#org-model">Figure 10</a>.</p>
+<p>OWL it itself built on <a href="#RDF">[RDF]</a> &amp; <a href="#RDFS">[RDFS]</a>, but we only reference OWL in this Background Models section as OWL "covers" these lower-level models.</p>
 </div>
-<div id="org-model" class="imageblock">
+</div>
+<div class="sect3">
+<h4 id="_dataset_metadata">5.2.2. Dataset Metadata</h4>
+<div class="paragraph">
+<p>Metadata for datasets within this Supermodel is based on the <em>Data Catalog Vocabulary</em> <a href="#DCAT">[DCAT]</a> with elements of <em>The Provenance Ontology</em> <a href="#PROV">[PROV]</a> for a few purposes, such as Data/Agent relations. Note that DCAT recommends this use of PROV. The figure below gives an informal overview of the concerns in this domain.</p>
+</div>
+<div id="fig-dataset-metadata" class="imageblock">
 <div class="content">
-<img src="https://geoscienceaustralia.github.io/fsdf-supermodel/img/details-organisations-people.png" alt="details organisations people">
+<img src="https://geoscienceaustralia.github.io/fsdf-supermodel/img/domain-dataset-metadata.png" alt="domain dataset metadata" width="50%">
 </div>
-<div class="title">Figure 8. Organisation Model, based on schema.org</div>
+<div class="title">Figure 8. Data Cataloguing Model, based on DCAT &amp; PROV</div>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_theming_domain">5.3. Theming Domain</h3>
 <div class="paragraph">
-<p><em>still to come</em></p>
+<p>Specifics properties for dataset-level metadata, such as license, copyright notices, who the publisher is etc. are mostly taken from <a href="https://schema.org">schema.org</a> which is a general-purpose OWL (or at least OWL-compatable!) vocabulary of classes and properties.</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_sampling_observations_domain">5.4. Sampling &amp; Observations Domain</h3>
 <div class="paragraph">
-<p>This domain is essentially the Data Cube Vocabulary <a href="#DQ">[DQ]</a>'s core elements with dataset metadata replaced with elements from DCAT <a href="#DCAT">[DCAT]</a>. The essential model is shown in <a href="#obs-model">Figure 9</a>.</p>
+<p>schema.org is also used for Agent/Agent relations, as per the figure below.</p>
 </div>
-<div id="obs-model" class="imageblock">
+<div id="fig-agent-relations" class="imageblock">
 <div class="content">
-<img src="https://geoscienceaustralia.github.io/fsdf-supermodel/img/details-observations-sampling.png" alt="details observations sampling">
+<img src="https://geoscienceaustralia.github.io/fsdf-supermodel/img/domain-agents.png" alt="domain agents">
 </div>
-<div class="title">Figure 9. Observations Model, based on <a href="https://www.w3.org/TR/vocab-data-cube/#fig-pictorial-summary-of-key-terms-and-their-relationship">Data Cube Vocabulary overview</a></div>
+<div class="title">Figure 9. Organisation Model, based on schema.org</div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_spatiality_domain">5.5. Spatiality Domain</h3>
+<div class="sect3">
+<h4 id="_spatialiaty">5.2.3. Spatialiaty</h4>
 <div class="paragraph">
-<p>The Spatiality domain is the promary concern of the FSDF Project since the project aims to provide an integration mthdology, models and an integrated and estensible "spine" of major national spatial datasets.</p>
+<p>This Supermodel&#8217;s core concern of modelling spatiality is based on use of the GeoSPARQL 1.1 Standard <a href="#GEO">[GEO]</a> which concerns itself with the elements in the figure below. The figure is a part reproduction of GeoSAPRQL&#8217;s overview diagram.</p>
+</div>
+<div id="fig-spatiality" class="imageblock">
+<div class="content">
+<img src="https://geoscienceaustralia.github.io/fsdf-supermodel/img/domain-spatiality.png" alt="domain spatiality" width="70%">
+</div>
+<div class="title">Figure 10. Classes and properties of the GeoSPARQL model from <a href="#GEO">[GEO]</a>, Figure 3</div>
+</div>
+<div class="paragraph">
+<p>Essentially all spatial relations between objects and the associations of objects with spatiality (Features with Geometries) and the details of Geometry data are defined by GeoSPARQL.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_data_dimensions">5.2.4. Data Dimensions</h4>
+<div class="paragraph">
+<p>The dimensions of data are, in general, modelled in relation to observations according to the <em>Data Cube Vocabulary</em> <a href="#QB">[QB]</a>, however the dimensions (observable properties) of spatial and real-world objects is modelled using <em>Sensor, Observation Sampling &amp; Actuation</em> (SOSA) ontology within the <em>Semantic Sensor Networks</em> <a href="#SSN">[SSN]</a> standard. SOSA is, within this Supermodel at least, a domain-specailised version of QB.</p>
+</div>
+<div id="fig-observations" class="imageblock">
+<div class="content">
+<img src="https://geoscienceaustralia.github.io/fsdf-supermodel/img/domain-observations.png" alt="domain observations" width="60%">
+</div>
+<div class="title">Figure 11. Observations Model, based on <a href="https://www.w3.org/TR/vocab-data-cube/#fig-pictorial-summary-of-key-terms-and-their-relationship">Data Cube Vocabulary overview</a></div>
+</div>
+<div id="fig-spatial-observations" class="imageblock">
+<div class="content">
+<img src="https://geoscienceaustralia.github.io/fsdf-supermodel/img/domain-spatial-observations.png" alt="domain spatial observations" width="40%">
+</div>
+<div class="title">Figure 12. Observations Model for Spatial &amp; Real-World Features</div>
+</div>
+<div class="paragraph">
+<p>The separate modelling for spatial/real-world features' properties is due to widespread use of SOSA for observations in that domain, for example the Geoscience Australia Samples catalogue (<a href="http://sss.pid.geoscience.gov.au/sample/" class="bare">http://sss.pid.geoscience.gov.au/sample/</a>).</p>
+</div>
+<div class="paragraph">
+<p>The net effect of both QB and SOSA is to define data types for and observable properties/dimensions that observations are of.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_vocabularies">5.2.5. Vocabularies</h4>
+<div class="paragraph">
+<p>Many of the models in this Supermodel rely on vocabularies of individual items, for example Data/Agent relations rely on vocabularies of Agent roles. When vocabularies are modelled, this Supermodel uses a profile of the Simple Knowledge Organization System, <a href="#SKOS">[SKOS]</a>, called VocPub <a href="#VOCPUB">[VOCPUB]</a>. VocPub just requires certain metadata, allowed by bot not mandated by SKOS, to be present within vocabularies for data management purposes. At a whole-of-vocabulary level, VocPub requires versy similar metadata to DCAT, thus a Vocabulary appears as a form of Dataset.</p>
+</div>
+<div class="paragraph">
+<p>All of the current FSDF vocabularies at <a href="https://linked.fsdf.org.au/vocab" class="bare">https://linked.fsdf.org.au/vocab</a> conform to VocPub.</p>
+</div>
+<div id="fig-vocabularies" class="imageblock">
+<div class="content">
+<img src="https://geoscienceaustralia.github.io/fsdf-supermodel/img/domain-vocabularies.png" alt="domain vocabularies" width="50%">
+</div>
+<div class="title">Figure 13. Basic SKOS/VocPub data model</div>
+</div>
 </div>
 </div>
 </div>
@@ -1638,6 +1723,9 @@ standard and common Semantic Web model used as "upper" or higher order/abstract 
 <p><a id="RDFS"></a> [RDFS] World Wide Web Consortium, <em>RDF Schema 1.1</em>, W3C Recommendation (25 February 2014). <a href="https://www.w3.org/TR/rdf-schema/" class="bare">https://www.w3.org/TR/rdf-schema/</a></p>
 </li>
 <li>
+<p><a id="QB"></a> [QB] World Wide Web Consortium, <em>The RDF Data Cube Vocabulary</em>, W3C Recommendation (16 January 2014). <a href="https://www.w3.org/TR/vocab-data-cube/" class="bare">https://www.w3.org/TR/vocab-data-cube/</a></p>
+</li>
+<li>
 <p><a id="SDO"></a> [SDO] W3C Schema.org Community Group, <em>schema.org</em>. Community ontology (2015). <a href="https://schema.org" class="bare">https://schema.org</a></p>
 </li>
 <li>
@@ -1659,7 +1747,7 @@ standard and common Semantic Web model used as "upper" or higher order/abstract 
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-08-03 03:27:57 UTC
+Last updated 2022-08-03 06:47:53 UTC
 </div>
 </div>
 </body>
