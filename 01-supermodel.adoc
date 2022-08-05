@@ -17,8 +17,8 @@ image::img/overview.png[]
 |**Title** | FSDF Supermodel Specifciation
 |**Description** | This Model - the FSDF Supermodel - is the overarching data model that provides integration logic for all https://link.fsdf.org.au/[FSDF elements]. It is based on the general-purpose https://linked.data.gov.au/def/supermodel[Supermodel Model]. 
 |**Created** | 2022-02-24
-|**Modified** | 2022-06-29
-|**Issued** | 0000-00-00
+|**Modified** | 2022-08-05
+|**Issued** | 2022-08-05
 |**Creator** | https://linked.data.gov.au/org/ga[Geoscience Australia] & https://surroundaustralia.com[SURROUND Austraia Pty Ltd]
 |**Publisher** | https://linked.data.gov.au/org/icsm[Intergovernmental Committee on Surveying & Mapping]
 |**License** | https://creativecommons.org/licenses/by/4.0/[Creative Commons Attribution 4.0 International (CC BY 4.0)]
