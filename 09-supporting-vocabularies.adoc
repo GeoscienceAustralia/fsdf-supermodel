@@ -1,1 +1,14 @@
 == Supporting Vocabularies
+
+The vocabularies supporting the Component Models of the Datasets listed in the Section above are all of one of the following types:
+
+. Well-known, public vocabularies
+** For example, the vocabulary of Role types for Agents with respect to Datasets is the ISO's http://iso.kurrawong.net/vocab/CI_RoleCode[Role Code vocabulary]
+. Vocabularies within Component Models
+** For example, the various vocabularies within the _ANZ National Address Model_, such as https://nicholascar.com/anz-nat-addr-model-candidate/model.html#_address_component_types[Address Component Types]
+. Vocabularies created for Dataset within this Supermodel not within Component Models
+** For example https://linked.data.gov.au/def/fsdf/ground-relations [FSDF Ground Relations]
+
+All vocabularies are discoverable by inspecting the data that refers to them. Those within Component Models are also dscoverable via their models, but those in Category 3. are also discoverable via the FSDF Vocabulary Server:
+
+* https://linked.fsdf.org.au/vocprez

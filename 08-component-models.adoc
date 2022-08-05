@@ -2,26 +2,30 @@
 
 This section contains the details of the various Component Models used for the individual datasets within the FSDF Data Platform. 
 
-Several of these Component Models are plain implementations of the Backbone Model, as in they implement no additional classes properties or other model elements beyond what the Backbone Model already contains. It is expected that many spatial dataset may be able to be created as plain Backbone Model-only datasets in this way if the only contain collections of names Features without special relationships or properties.
+Several datasets in the Platform use only the Backbone Model for their model and thus require no specialised Component Model. It is expected that many straightforward spatial dataset may be able to be created as plain Backbone Model-only datasets in this way if the only contain collections of names Features without special relationships or properties.
 
+The table below lists the current major Datasets in the FSDF Data Platform and their Component Models or use of the Backbone Model.
 
-Several of the existing Component Models within this Supermodel are, or are very close to, minimal Backbone Model implementations. In particular:
+[id="datasets-models", cols="1,1,1,2"]
+|===
+| Dataset | Persistent Identifier | Model | Notes
 
-* <<ASGS, ASGS Component Model>>
-* <<Geofabric, Geofabric Component Model>>
+| Australian Statistical Geographies Standard, Edition 3 | https://linked.data.gov.au/dataset/asgsed3 | <<Backbone Model>> | Previous edisitons of the ASGS dataset used specialised Component Models, in particular the https://linked.data.gov.au/def/asgs[ASGS Ontology], but the current Edition 3 uses only the Backbone Model
 
-The ASGS Component Model is one `Dataset` with multiple `Feature Collections` containing multiple `Features` which have basic topological and spatial properties but nothing custom other than their identifiers and names. The Geofabric similarly has a `Dataset` with 3 `Feature Collections` containing `Features` that have only one custom property: `Catchment` `Features` sometimes indicate a _downstream catchment_.
+| Australian Hydrological Geospatial Fabric (Geofabric), v3 | https://linked.data.gov.au/dataset/geofabric | https://linked.data.gov.au/def/geofabric[Geofabric Ontology] | The Geofabric Ontology is a verm small specailisation of the Backbone Model that only declares specialised classes of `geo:Feature` (`Catchment`, `RiverRegion` etc.), but declares only one special property `hasDownstreamCatchment` for `Catchment` instances
 
-So, to model a new dataset in a minimalist fashion, you can copy one or other of these Component Model's structure and details.
+| (Australian) Geocoded National Address File (G-NAF) | https://linked.data.gov.au/dataset/gnaf | https://w3id.org/profile/anz-address[ANZ National Address Model] | The G-NAF uses a highly specialised Component Model that models many aspects of Addresses
 
-The <<Backbone Model>> section contains the detailed notes about requirements that need to be met to conform to it and tools described in the <<Validators>> section are provided to check your implementation really is conformant.
+| Placenames | https://linked.data.gov.au/dataset/placenames | https://linked.data.gov.au/def/placenames[Place Names Ontology] | The Place Names ontology originally made for the Loc-I Project is currently used, however a future version might use parts of the https://w3id.org/profile/anz-address[ANZ National Address Model] which covers Place Names also
+|===
 
+The table below lists the current smaller "FSDF" Datasets in the FSDF Data Platform.
 
-=== ASGS
+[id="fsdf-datasets-models", cols="1,1,1,2"]
+|===
+| Dataset | Persistent Identifier | Model | Notes
 
-=== Geofabric
-
-=== G-NAF
-
-=== FSDF Datasets
-
+| Electrical Infrastructure | https://linked.data.gov.au/dataset/power-infrastructure | <<Backbone Model>> |
+| Facilities | https://linked.data.gov.au/dataset/facilities | <<Backbone Model>> |
+| Sandgate example | http://example.com/dataset/sandgate | <<Backbone Model>> | This dataset does not have a Persistent Identifier as it's an example dataset only
+|===
