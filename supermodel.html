@@ -473,7 +473,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_domain_details">5.2. Domain Details</a></li>
 </ul>
 </li>
-<li><a href="#_backbone_model_2">6. Backbone Model</a></li>
+<li><a href="#_backbone_model_2">6. Backbone Model</a>
+<ul class="sectlevel2">
+<li><a href="#_definition">6.1. Definition</a></li>
+<li><a href="#_requirements">6.2. Requirements</a></li>
+<li><a href="#_validation_2">6.3. Validation</a></li>
+</ul>
+</li>
 <li><a href="#_component_models">7. Component Models</a>
 <ul class="sectlevel2">
 <li><a href="#_asgs">7.1. ASGS</a></li>
@@ -483,8 +489,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#_supporting_vocabularies">8. Supporting Vocabularies</a></li>
-<li><a href="#_annex_a_validators">Annex A: Validators</a></li>
-<li><a href="#_annex_b_observations_data">Annex B: Observations Data</a></li>
 <li><a href="#_references">References</a></li>
 </ul>
 </div>
@@ -1352,13 +1356,13 @@ Supermodels tend to use vocabularies formulated according to the <a href="#SKOS"
 <p>To model a highly specialised dataset, you will need to be able to implement both the most basic Component Model elements but also model the specialised elements relevant to your dataset. No specific guidance about your dataset can be given here however the <a href="#_component_models">Component Models</a> section does indicate existing datasets that contain a large amount of specialisation that you may draw inspiration from.</p>
 </div>
 <div class="paragraph">
-<p>In all cases, you can use the tools listed in the <a href="#Validators">[Validators]</a> section to test any data you&#8217;ve created to see if it really is valid according to this Supermodel.</p>
+<p>In all cases, you can use the tools listed in the <a href="#_validators">Validators</a> section to test any data you&#8217;ve created to see if it really is valid according to this Supermodel.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_2_validate_new_dataset">4.5.2. 2. Validate new dataset</h4>
 <div class="paragraph">
-<p>Data validators are available, for all elements of this Supermodel, so you can use them to validate your data. See the <a href="#Validators">[Validators]</a> section.</p>
+<p>Data validators are available, for all elements of this Supermodel, so you can use them to validate your data. See the <a href="#_validators">Validators</a> section.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1407,7 +1411,7 @@ Supermodels tend to use vocabularies formulated according to the <a href="#SKOS"
 <div class="sect3">
 <h4 id="_4_validate_extendedspecialised_new_dataset_data">4.5.4. 4. Validate extended/specialised new dataset data</h4>
 <div class="paragraph">
-<p>As per section 2. above, see the <a href="#Validators">[Validators]</a> section. Of course, your specialised modelling won&#8217;t have a validator for it, however you can certainly ensure that your new data is valid according to this Supermodel.</p>
+<p>As per section 2. above, see the <a href="#_validators">Validators</a> section. Of course, your specialised modelling won&#8217;t have a validator for it, however you can certainly ensure that your new data is valid according to this Supermodel.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1462,12 +1466,12 @@ standard and common Semantic Web model used as "upper" or higher order/abstract 
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Web Ontology Language</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#OWL">[OWL]</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">General modelling: all the other Background Models are OWL models</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">General Modelling: all the other Background Models are OWL models</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">schema.org</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://schema.org">schema.org</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">General modelling: Agents (People &amp; Organisations), licensing etc.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">General Modelling: Agents (People &amp; Organisations), licensing etc.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Data Catalog Vocabulary</p></td>
@@ -1497,7 +1501,7 @@ standard and common Semantic Web model used as "upper" or higher order/abstract 
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Simple Knowledge Organization System</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#SKOS">[SKOS]</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Vocabulary modelling</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vocabularies</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Vocabulary Publications Profile of SKOS</p></td>
@@ -1617,6 +1621,335 @@ standard and common Semantic Web model used as "upper" or higher order/abstract 
 <div class="paragraph">
 <p>This Backbone Model is quite "lite" in that it only has comparatively few requirements. This is due to its role: to ensure that all data in the Supermodel exihibts a minimum set of properties and patters for interoperability. the Backbone Model doesn&#8217;t try to model all thins within all sub-domains of this Supermodel: that is the job of the various <a href="#_component_models">Component Models</a>.</p>
 </div>
+<div class="paragraph">
+<p>This Backbone Model is defined at:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://linked.data.gov.au/def/fsdf-backbone" class="bare">https://linked.data.gov.au/def/fsdf-backbone</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The profile&#8217;s main elements are rearticulated here for the completeness of documentations.</p>
+</div>
+<div class="sect2">
+<h3 id="_definition">6.1. Definition</h3>
+<div class="paragraph">
+<p>This is part of the formal definition of this <em>profile</em>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-turtle" data-lang="turtle">&lt;https://linked.data.gov.au/def/fsdf-backbone&gt;
+    a prof:Profile ;
+    sdo:name "FSDF Bacbone Model Profile" ;
+    sdo:description "This is a profile of DCAT, GeoSPARQL &amp; VocPub to be used as a conformance target for data within the FSDF Supermodel"@en ;
+    prof:profileOf
+        &lt;https://www.w3.org/TR/vocab-dcat/&gt; ,
+        &lt;http://www.opengis.net/doc/IS/geosparql/1.1&gt; ,
+        &lt;https://www.w3.org/TR/vocab-data-cube/&gt; ,
+        &lt;https://www.w3.org/TR/vocab-ssn/&gt; ,
+        &lt;https://w3id.org/profile/vocpub&gt; ;
+    ...
+.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This code identifies the profile, <code>https://linked.data.gov.au/def/fsdf-backbone</code>, and, appart from basic human-readable annotations, states that it is a profile of (<code>profileOf</code>) the main Background Models.</p>
+</div>
+<div class="paragraph">
+<p>The full profile definition, online at <a href="https://linked.data.gov.au/def/fsdf-backbone" class="bare">https://linked.data.gov.au/def/fsdf-backbone</a>, gives further details such as the listing of <em>resources</em> within the profile, which includes its specification &amp; validators - also described below.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_requirements">6.2. Requirements</h3>
+<div class="paragraph">
+<p>Here the basic requirements for data to conform to this profile are listed. The Requirements are identifies (GM1 etc.) and they are referenced by validation rules in the Validation section described below. Note that some of these Requirements reference whole other Standards and Profile so that all of the Requirements from them are relevant.</p>
+</div>
+<div class="paragraph">
+<p>The capitalised, italicised words such as <em>MUST</em>, <em>MAY</em> etc., have meanings as per <a href="#RFC2119">[RFC2119]</a>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>rdf</code> namespace referred to is <code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code>.</p>
+</div>
+<table id="backbone-reqs" class="tableblock frame-all grid-all stripes-even stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 11.1111%;">
+<col style="width: 22.2222%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Domain</th>
+<th class="tableblock halign-left valign-top">ID</th>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>General Modelling</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GM1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OWL Conformance</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data must conform to OWL</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GM2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Class Modelling</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Classes of object MUST be modelled as <code>owl:Class</code> instances</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GM3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Property Modelling</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Properties and predicates MUST be modelled as either <code>rdf:Property</code> instances or instances of the various OWL properties</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Dataset Metadata</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DM1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DCAT Conformance</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data must conform to DCAT</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DM2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dataset Mandatory Properties</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>dcat:Dataset</code> instances MUST be presented as <code>dcat:Dataset</code> instances with at least the following properties: <code>dcterms:identifier</code> - as an <code>xsd:token</code> value, <code>dcaterms:title</code> &amp; <code>dcterms:description</code> - as strings or langString values, <code>sdo:dateCreated</code> &amp; <code>sdo:dateModified</code> - as <code>xsd:date</code>, <code>xsd:dateTime</code> or <code>xsd:dateTimeStamp</code> values</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DM3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dataset Agents</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>dcat:Dataset</code> instances MUST indicate at least creator &amp; prublisher Agents via use of the <code>sdo:creator</code> and <code>sdo:publisher</code> properties. The values for these properties must be IRIs, not strings</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DM4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dataset Provenance</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>dcat:Dataset</code> instances SHOULD indicate provenance in one of three ways: if derived from an RDF dataset then with <code>prov:wasDerivedFrom</code> - with an IRI value, if derived from an online but non-RDF data source then with <code>dcterms:source</code> - <code>xsd:anyURI`</code> value and if neither then with a written statement with <code>dcterms:provenance</code> - string or langString value</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DM5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dataset Spatiality</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>dcat:Dataset</code> instances MUST indicate the total spatial footprint the elements within them by indicating a <code>geo:Geometry</code> object via a <code>geo:hasGeometry</code> or <code>geo:hasBoundingBox</code> property</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DM6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dataset Feature Collections</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>dcat:Dataset</code> instances MUST indicate <em>at least</em> one <code>geo:FeatureCollection</code> instances within them with the <code>rdfs:member</code> property</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Spatiality</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GeoSPARQL Conformance</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Spatial data MUST conform to the GeoSPARQL 1.1 Standard</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Feature Collection Mandatory Properties</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>geo:FeatureCollection</code> instances MUST be presented with at least the following properties: <code>dcterms:identifier</code> - as an <code>xsd:token</code> value, <code>dcaterms:title</code> &amp; <code>dcterms:description</code> - as strings or langString values</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dataset Spatiality</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>geo:FeatureCollection</code> instances MUST have the total spatial footprint the elements within them by indicating a <code>geo:Geometry</code> object via a <code>geo:hasGeometry</code> or <code>geo:hasBoundingBox</code> property</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Feature Collection Features</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>geo:FeatureCollection</code> instances MUST indicate <em>at least</em> one <code>geo:Feature</code> instances within them with the <code>rdfs:member</code> property</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Feature Mandatory Properties</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>geo:Feature</code> instances MUST be presented with at least the following properties: <code>dcterms:identifier</code> - as an <code>xsd:token</code> value</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Data Dimensions</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DD1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data Cube Vocabulary Conformance</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Non-physical sciences observations data must conform to Data Cube Vocabulary</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DD2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SOSA Conformance</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Physical sciences observations data must conform to the SOSA ontology</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Vocabularies</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">V1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VocPub Conformance</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vocabularies MUST conform to the VocPub Profile of SKOS</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_validation_2">6.3. Validation</h3>
+<div class="paragraph">
+<p>To prove that data does conform to this Backbone Model, it must be validated. Since all of the expected data for this Supermodel is RDF data, SHACL <a href="#SHACL">[SHACL]</a> validation may be used.</p>
+</div>
+<div class="paragraph">
+<p>This Profile presents its own validator which only includes tests for the rules specific to <em>this</em> profile and not those of the things this Profile profiles. However, a compounded validator is also given below which includes this Profile&#8217;s validator and validators from all of the Standards and Profiles that this Profile profiles, that have validators. The Standards' and Profiles' are also listed individually.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+Since of the Standards that this Profile Profiles do not present SHACL validators, we use <a href="#Null Profile">Null Profiles</a> for them where a <em>Null Profile</em> is a Profile that implements no constrains on the Standard profiles and exists only to provide a validator for it.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>For total validation, the compounded validator should be used. For partial validation, use each of the individual ones.</p>
+</div>
+<div class="sect3">
+<h4 id="_process">6.3.1. Process</h4>
+<div class="paragraph">
+<p>To validate RDF data, a SHACL validation tool, such as <a href="https://pypi.org/project/pyshacl/">pySHACL</a> (online tools for validation exist too, see <a href="#tooling">[tooling]</a> below), is used with the data to be validated and the validator as inputs. The data to be validated must include <em>all</em> the elements necissary for validation, for example, if a valid Dataset/Agent relation includes the requirement for the Agent to be classed as an <code>sdo:Person</code> or an <code>sdo:Organization</code> then the data to be validate must declare this classification, rather than leaving it up to external resources.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+Validators that find nothing to validate will return <em>true</em>, so if the data to be validated contains no instnaces fo classes known to the validator, no sensible result will be obtained.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Regarding scale: validation is a resourse-intensive task, so large datasets should not be validated without dedicated systems. It is probably appropriate to validate only a sample of Dataset contents, especially if the content is produced by a script or someother method that makes similar Feature Collections &amp; Features.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_validators">6.3.2. Validators</h4>
+<table id="validators" class="tableblock frame-all grid-all stripes-even stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 40%;">
+<col style="width: 40%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Standard / Profile</th>
+<th class="tableblock halign-left valign-top">Validator</th>
+<th class="tableblock halign-left valign-top">IRI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Backbone Model</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Backbone Model Validator</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://linked.data.gov.au/def/fsdf-backbone/validator" class="bare">https://linked.data.gov.au/def/fsdf-backbone/validator</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Backbone Model</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Backbone Model Compounded Validator</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://linked.data.gov.au/def/fsdf-backbone/validator-compounded" class="bare">https://linked.data.gov.au/def/fsdf-backbone/validator-compounded</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DCAT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DCAT Null Profile Validator</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://w3id.org/profile/dcat-null" class="bare">https://w3id.org/profile/dcat-null</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GeoSPARQL 1.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GeoSPARQL Validator</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://www.opengis.net/def/geosparql/validator" class="bare">http://www.opengis.net/def/geosparql/validator</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data Cube Vocabulary</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data Cube Vocabulary Null Profile Validator</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://w3id.org/profile/qb-null" class="bare">https://w3id.org/profile/qb-null</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SOSA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SOSA Null Profile Validator</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://w3id.org/profile/sosa-null" class="bare">https://w3id.org/profile/sosa-null</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VocPub</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VocPub Validator</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://w3id.org/profile/vocpub/validator" class="bare">https://w3id.org/profile/vocpub/validator</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_tooling">6.3.3. Tooling</h4>
+<div class="paragraph">
+<p>Several online SHACL validation tools exist that may be used with the validators above:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>SHACL Playground</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://shacl.org/playground/" class="bare">https://shacl.org/playground/</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>EU SHACL Validator</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://data.europa.eu/mqa/shacl-validator-ui/" class="bare">https://data.europa.eu/mqa/shacl-validator-ui/</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>We recommend either the public RDFTools Online tool, since it is actively maintained, and includes some of the validators listed above, or the Geoscience Australia copy of RDFTools with all of the validators above preloaded:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Public RDFTools Online</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://rdftools.kurrawong.net/validate" class="bare">http://rdftools.kurrawong.net/validate</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>GA RDFTools Online</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><mark>link needed from GA</mark></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -1648,7 +1981,7 @@ standard and common Semantic Web model used as "upper" or higher order/abstract 
 <p>So, to model a new dataset in a minimalist fashion, you can copy one or other of these Component Model&#8217;s structure and details.</p>
 </div>
 <div class="paragraph">
-<p>The <a href="#_backbone_model">Backbone Model</a> section contains the detailed notes about requirements that need to be met to conform to it and tools described in the <a href="#Validators">[Validators]</a> section are provided to check your implementation really is conformant.</p>
+<p>The <a href="#_backbone_model">Backbone Model</a> section contains the detailed notes about requirements that need to be met to conform to it and tools described in the <a href="#_validators">Validators</a> section are provided to check your implementation really is conformant.</p>
 </div>
 <div class="sect2">
 <h3 id="_asgs">7.1. ASGS</h3>
@@ -1670,18 +2003,6 @@ standard and common Semantic Web model used as "upper" or higher order/abstract 
 </div>
 <div class="sect1">
 <h2 id="_supporting_vocabularies">8. Supporting Vocabularies</h2>
-<div class="sectionbody">
-
-</div>
-</div>
-<div class="sect1">
-<h2 id="_annex_a_validators">Annex A: Validators</h2>
-<div class="sectionbody">
-
-</div>
-</div>
-<div class="sect1">
-<h2 id="_annex_b_observations_data">Annex B: Observations Data</h2>
 <div class="sectionbody">
 
 </div>
@@ -1728,6 +2049,9 @@ standard and common Semantic Web model used as "upper" or higher order/abstract 
 <p><a id="RDFS"></a> [RDFS] World Wide Web Consortium, <em>RDF Schema 1.1</em>, W3C Recommendation (25 February 2014). <a href="https://www.w3.org/TR/rdf-schema/" class="bare">https://www.w3.org/TR/rdf-schema/</a></p>
 </li>
 <li>
+<p><a id="RFC2119"></a> [RFC2119] Internet Engineering Task Force. <em>Key words for use in RFCs to Indicate Requirement Levels</em>, Best Current Practice (March 1997) <a href="https://tools.ietf.org/html/rfc2119" class="bare">https://tools.ietf.org/html/rfc2119</a></p>
+</li>
+<li>
 <p><a id="QB"></a> [QB] World Wide Web Consortium, <em>The RDF Data Cube Vocabulary</em>, W3C Recommendation (16 January 2014). <a href="https://www.w3.org/TR/vocab-data-cube/" class="bare">https://www.w3.org/TR/vocab-data-cube/</a></p>
 </li>
 <li>
@@ -1752,7 +2076,7 @@ standard and common Semantic Web model used as "upper" or higher order/abstract 
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-08-03 06:58:46 UTC
+Last updated 2022-08-05 02:51:23 UTC
 </div>
 </div>
 </body>
