@@ -44,8 +44,4 @@ include::09-supporting-vocabularies.adoc[]
 
 :sectnums!:
 
-include::50-annex-a-validators.adoc[]
-
-include::51-annex-b-observations.adoc[]
-
 include::99-references.adoc[]

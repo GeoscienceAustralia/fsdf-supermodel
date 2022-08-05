@@ -15,14 +15,14 @@ The particular Background Models in this FSDF Supermodel are given in the table 
 |===
 | Background Model | Reference | Domain
 
-| Web Ontology Language | <<OWL>> | General modelling: all the other Background Models are OWL models
-| schema.org | https://schema.org[schema.org] | General modelling: Agents (People & Organisations), licensing etc.
+| Web Ontology Language | <<OWL>> | General Modelling: all the other Background Models are OWL models
+| schema.org | https://schema.org[schema.org] | General Modelling: Agents (People & Organisations), licensing etc.
 | Data Catalog Vocabulary | <<DCAT>> | Dataset Metadata
 | The Provenance Ontology | <<PROV>> | Data Metadata: attribution of data to owners/publishers etc. Data lineage: what things datasets derive from
 | GeoSPARQL 1.1 | <<GEO>> | Spatiality: Feature/Geometry links, topological relations, spatial scalar values (e.g. area)
 | Data Cube Vocabulary | <<QB>> | Data Dimensions: for observations data, e.g. population census
 | Sensor, Observation, Sample, and Actuator (SOSA) | <<SSN>> | Data Dimensions: for spatial and natural-world data, e.g. from satellites
-| Simple Knowledge Organization System | <<SKOS>> | Vocabulary modelling
+| Simple Knowledge Organization System | <<SKOS>> | Vocabularies
 | Vocabulary Publications Profile of SKOS | <<VOCPUB>> | A profile of SKOS requiring certain properties for vocabularies and their elements
 |===
 

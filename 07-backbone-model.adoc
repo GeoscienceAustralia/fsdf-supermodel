@@ -4,3 +4,118 @@ The Backbone Model of this Supermodel is the model to which all data _MUST_ conf
 
 This Backbone Model is quite "lite" in that it only has comparatively few requirements. This is due to its role: to ensure that all data in the Supermodel exihibts a minimum set of properties and patters for interoperability. the Backbone Model doesn't try to model all thins within all sub-domains of this Supermodel: that is the job of the various <<Component Models>>.
 
+This Backbone Model is defined at:
+
+* https://linked.data.gov.au/def/fsdf-backbone
+
+The profile's main elements are rearticulated here for the completeness of documentations.
+
+=== Definition
+
+This is part of the formal definition of this _profile_:
+
+```turtle
+<https://linked.data.gov.au/def/fsdf-backbone>
+    a prof:Profile ;
+    sdo:name "FSDF Bacbone Model Profile" ;
+    sdo:description "This is a profile of DCAT, GeoSPARQL & VocPub to be used as a conformance target for data within the FSDF Supermodel"@en ;
+    prof:profileOf
+        <https://www.w3.org/TR/vocab-dcat/> ,
+        <http://www.opengis.net/doc/IS/geosparql/1.1> ,
+        <https://www.w3.org/TR/vocab-data-cube/> ,
+        <https://www.w3.org/TR/vocab-ssn/> ,
+        <https://w3id.org/profile/vocpub> ;
+    ...
+.
+```
+
+This code identifies the profile, `+https://linked.data.gov.au/def/fsdf-backbone+`, and, appart from basic human-readable annotations, states that it is a profile of (`profileOf`) the main Background Models.
+
+The full profile definition, online at https://linked.data.gov.au/def/fsdf-backbone, gives further details such as the listing of _resources_ within the profile, which includes its specification & validators - also described below.
+
+=== Requirements
+
+Here the basic requirements for data to conform to this profile are listed. The Requirements are identifies (GM1 etc.) and they are referenced by validation rules in the Validation section described below. Note that some of these Requirements reference whole other Standards and Profile so that all of the Requirements from them are relevant.
+
+The capitalised, italicised words such as _MUST_, _MAY_ etc., have meanings as per <<RFC2119>>.
+
+The `rdf` namespace referred to is `+http://www.w3.org/1999/02/22-rdf-syntax-ns#+`.
+
+////
+| General Modelling
+| Dataset Metadata
+| Spatiality
+| Data Dimensions
+| Vocabularies
+////
+[id="backbone-reqs", cols="2,1,2,4"]
+|===
+| Domain | ID | Name | Definition
+
+| *General Modelling* | GM1 | OWL Conformance | Data must conform to OWL
+|                     | GM2 | Class Modelling | Classes of object MUST be modelled as `owl:Class` instances
+|                     | GM3 | Property Modelling | Properties and predicates MUST be modelled as either `rdf:Property` instances or instances of the various OWL properties
+| *Dataset Metadata*  | DM1 | DCAT Conformance | Data must conform to DCAT
+|                     | DM2 | Dataset Mandatory Properties | `dcat:Dataset` instances MUST be presented as `dcat:Dataset` instances with at least the following properties: `dcterms:identifier` - as an `xsd:token` value, `dcaterms:title` & `dcterms:description` - as strings or langString values, `sdo:dateCreated` & `sdo:dateModified` - as `xsd:date`, `xsd:dateTime` or `xsd:dateTimeStamp` values
+|                     | DM3 | Dataset Agents | `dcat:Dataset` instances MUST indicate at least creator & prublisher Agents via use of the `sdo:creator` and `sdo:publisher` properties. The values for these properties must be IRIs, not strings
+|                     | DM4 | Dataset Provenance | `dcat:Dataset` instances SHOULD indicate provenance in one of three ways: if derived from an RDF dataset then with `prov:wasDerivedFrom` - with an IRI value, if derived from an online but non-RDF data source then with `dcterms:source` - `xsd:anyURI`` value and if neither then with a written statement with `dcterms:provenance` - string or langString value
+|                     | DM5 | Dataset Spatiality | `dcat:Dataset` instances MUST indicate the total spatial footprint the elements within them by indicating a `geo:Geometry` object via a `geo:hasGeometry` or `geo:hasBoundingBox` property
+|                     | DM6 | Dataset Feature Collections | `dcat:Dataset` instances MUST indicate _at least_ one `geo:FeatureCollection` instances within them with the `rdfs:member` property
+| *Spatiality*        | S1 | GeoSPARQL Conformance | Spatial data MUST conform to the GeoSPARQL 1.1 Standard
+|                     | S2 | Feature Collection Mandatory Properties | `geo:FeatureCollection` instances MUST be presented with at least the following properties: `dcterms:identifier` - as an `xsd:token` value, `dcaterms:title` & `dcterms:description` - as strings or langString values
+|                     | S3 | Dataset Spatiality | `geo:FeatureCollection` instances MUST have the total spatial footprint the elements within them by indicating a `geo:Geometry` object via a `geo:hasGeometry` or `geo:hasBoundingBox` property
+|                     | S4 | Feature Collection Features | `geo:FeatureCollection` instances MUST indicate _at least_ one `geo:Feature` instances within them with the `rdfs:member` property
+|                     | S5 | Feature Mandatory Properties | `geo:Feature` instances MUST be presented with at least the following properties: `dcterms:identifier` - as an `xsd:token` value
+| *Data Dimensions*   | DD1 | Data Cube Vocabulary Conformance | Non-physical sciences observations data must conform to Data Cube Vocabulary
+|                     | DD2 | SOSA Conformance | Physical sciences observations data must conform to the SOSA ontology
+| *Vocabularies*      | V1 | VocPub Conformance | Vocabularies MUST conform to the VocPub Profile of SKOS
+|===
+
+=== Validation
+
+To prove that data does conform to this Backbone Model, it must be validated. Since all of the expected data for this Supermodel is RDF data, SHACL <<SHACL>> validation may be used.
+
+This Profile presents its own validator which only includes tests for the rules specific to _this_ profile and not those of the things this Profile profiles. However, a compounded validator is also given below which includes this Profile's validator and validators from all of the Standards and Profiles that this Profile profiles, that have validators. The Standards' and Profiles' are also listed individually.
+
+NOTE: Since of the Standards that this Profile Profiles do not present SHACL validators, we use <<Null Profile, Null Profiles>> for them where a _Null Profile_ is a Profile that implements no constrains on the Standard profiles and exists only to provide a validator for it.
+
+For total validation, the compounded validator should be used. For partial validation, use each of the individual ones. 
+
+==== Process
+
+To validate RDF data, a SHACL validation tool, such as https://pypi.org/project/pyshacl/[pySHACL] (online tools for validation exist too, see <<tooling>> below), is used with the data to be validated and the validator as inputs. The data to be validated must include _all_ the elements necissary for validation, for example, if a valid Dataset/Agent relation includes the requirement for the Agent to be classed as an `sdo:Person` or an `sdo:Organization` then the data to be validate must declare this classification, rather than leaving it up to external resources.
+
+NOTE: Validators that find nothing to validate will return _true_, so if the data to be validated contains no instnaces fo classes known to the validator, no sensible result will be obtained.
+
+Regarding scale: validation is a resourse-intensive task, so large datasets should not be validated without dedicated systems. It is probably appropriate to validate only a sample of Dataset contents, especially if the content is produced by a script or someother method that makes similar Feature Collections & Features.
+
+==== Validators
+
+[id="validators", cols="1,2,2"]
+|===
+| Standard / Profile | Validator | IRI
+
+| Backbone Model | Backbone Model Validator | https://linked.data.gov.au/def/fsdf-backbone/validator
+| Backbone Model | Backbone Model Compounded Validator | https://linked.data.gov.au/def/fsdf-backbone/validator-compounded
+| DCAT | DCAT Null Profile Validator | https://w3id.org/profile/dcat-null
+| GeoSPARQL 1.1 | GeoSPARQL Validator | http://www.opengis.net/def/geosparql/validator
+| Data Cube Vocabulary | Data Cube Vocabulary Null Profile Validator | https://w3id.org/profile/qb-null
+| SOSA | SOSA Null Profile Validator | https://w3id.org/profile/sosa-null
+| VocPub | VocPub Validator | https://w3id.org/profile/vocpub/validator
+|===
+
+==== Tooling
+
+Several online SHACL validation tools exist that may be used with the validators above:
+
+* **SHACL Playground**
+** https://shacl.org/playground/
+* **EU SHACL Validator**
+** https://data.europa.eu/mqa/shacl-validator-ui/
+
+We recommend either the public RDFTools Online tool, since it is actively maintained, and includes some of the validators listed above, or the Geoscience Australia copy of RDFTools with all of the validators above preloaded:
+
+* **Public RDFTools Online**
+** http://rdftools.kurrawong.net/validate
+* **GA RDFTools Online**
+** #link needed from GA#

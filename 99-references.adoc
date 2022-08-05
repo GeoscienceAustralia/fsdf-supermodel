@@ -24,6 +24,8 @@
 
 * [[RDFS]] [RDFS] World Wide Web Consortium, _RDF Schema 1.1_, W3C Recommendation (25 February 2014). https://www.w3.org/TR/rdf-schema/
 
+* [[RFC2119]] [RFC2119] Internet Engineering Task Force. _Key words for use in RFCs to Indicate Requirement Levels_, Best Current Practice (March 1997) https://tools.ietf.org/html/rfc2119
+
 * [[QB]] [QB] World Wide Web Consortium, _The RDF Data Cube Vocabulary_, W3C Recommendation (16 January 2014). https://www.w3.org/TR/vocab-data-cube/
 
 * [[SDO]] [SDO] W3C Schema.org Community Group, _schema.org_. Community ontology (2015). https://schema.org
