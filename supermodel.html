@@ -480,14 +480,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_validation_2">6.3. Validation</a></li>
 </ul>
 </li>
-<li><a href="#_component_models">7. Component Models</a>
-<ul class="sectlevel2">
-<li><a href="#_asgs">7.1. ASGS</a></li>
-<li><a href="#_geofabric">7.2. Geofabric</a></li>
-<li><a href="#_g_naf">7.3. G-NAF</a></li>
-<li><a href="#_fsdf_datasets">7.4. FSDF Datasets</a></li>
-</ul>
-</li>
+<li><a href="#_component_models">7. Component Models</a></li>
 <li><a href="#_supporting_vocabularies">8. Supporting Vocabularies</a></li>
 <li><a href="#_references">References</a></li>
 </ul>
@@ -1417,7 +1410,7 @@ Supermodels tend to use vocabularies formulated according to the <a href="#SKOS"
 <div class="sect3">
 <h4 id="_5_create_a_dataset_of_observations">4.5.5. 5. Create a dataset of observations</h4>
 <div class="paragraph">
-<p>The spatial datasets within this Supermodel are intended to just present a spatial reference later that observations data can be referenced against. For example, Australian census data is keyed to the Mesh Blocks and other spatial areas of the <a href="#_asgs">ASGS dataset</a>, water data in the Bureau of Meteorology&#8217;s AWRIS system are keyed to catchments within the <a href="#_geofabric">Geofabric dataset</a>.</p>
+<p>The spatial datasets within this Supermodel are intended to just present a spatial reference later that observations data can be referenced against. For example, Australian census data is keyed to the Mesh Blocks and other spatial areas of the <a href="#ASGS">ASGS dataset</a>, water data in the Bureau of Meteorology&#8217;s AWRIS system are keyed to catchments within the <a href="#Geofabric">Geofabric dataset</a>.</p>
 </div>
 <div class="paragraph">
 <p>You can create your own observations data and key them to any datasets that exist within this Supermodel or to datasets that you make that are compatible with this Supermodel&#8217;s elements.</p>
@@ -1959,52 +1952,144 @@ Validators that find nothing to validate will return <em>true</em>, so if the da
 <p>This section contains the details of the various Component Models used for the individual datasets within the FSDF Data Platform.</p>
 </div>
 <div class="paragraph">
-<p>Several of these Component Models are plain implementations of the Backbone Model, as in they implement no additional classes properties or other model elements beyond what the Backbone Model already contains. It is expected that many spatial dataset may be able to be created as plain Backbone Model-only datasets in this way if the only contain collections of names Features without special relationships or properties.</p>
+<p>Several datasets in the Platform use only the Backbone Model for their model and thus require no specialised Component Model. It is expected that many straightforward spatial dataset may be able to be created as plain Backbone Model-only datasets in this way if the only contain collections of names Features without special relationships or properties.</p>
 </div>
 <div class="paragraph">
-<p>Several of the existing Component Models within this Supermodel are, or are very close to, minimal Backbone Model implementations. In particular:</p>
+<p>The table below lists the current major Datasets in the FSDF Data Platform and their Component Models or use of the Backbone Model.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="#_asgs">ASGS Component Model</a></p>
-</li>
-<li>
-<p><a href="#_geofabric">Geofabric Component Model</a></p>
-</li>
-</ul>
-</div>
+<table id="datasets-models" class="tableblock frame-all grid-all stripes-even stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 40%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Dataset</th>
+<th class="tableblock halign-left valign-top">Persistent Identifier</th>
+<th class="tableblock halign-left valign-top">Model</th>
+<th class="tableblock halign-left valign-top">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Australian Statistical Geographies Standard, Edition 3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://linked.data.gov.au/dataset/asgsed3" class="bare">https://linked.data.gov.au/dataset/asgsed3</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_backbone_model">Backbone Model</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Previous edisitons of the ASGS dataset used specialised Component Models, in particular the <a href="https://linked.data.gov.au/def/asgs">ASGS Ontology</a>, but the current Edition 3 uses only the Backbone Model</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Australian Hydrological Geospatial Fabric (Geofabric), v3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://linked.data.gov.au/dataset/geofabric" class="bare">https://linked.data.gov.au/dataset/geofabric</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://linked.data.gov.au/def/geofabric">Geofabric Ontology</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Geofabric Ontology is a verm small specailisation of the Backbone Model that only declares specialised classes of <code>geo:Feature</code> (<code>Catchment</code>, <code>RiverRegion</code> etc.), but declares only one special property <code>hasDownstreamCatchment</code> for <code>Catchment</code> instances</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(Australian) Geocoded National Address File (G-NAF)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://linked.data.gov.au/dataset/gnaf" class="bare">https://linked.data.gov.au/dataset/gnaf</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://w3id.org/profile/anz-address">ANZ National Address Model</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The G-NAF uses a highly specialised Component Model that models many aspects of Addresses</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Placenames</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://linked.data.gov.au/dataset/placenames" class="bare">https://linked.data.gov.au/dataset/placenames</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://linked.data.gov.au/def/placenames">Place Names Ontology</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Place Names ontology originally made for the Loc-I Project is currently used, however a future version might use parts of the <a href="https://w3id.org/profile/anz-address">ANZ National Address Model</a> which covers Place Names also</p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
-<p>The ASGS Component Model is one <code>Dataset</code> with multiple <code>Feature Collections</code> containing multiple <code>Features</code> which have basic topological and spatial properties but nothing custom other than their identifiers and names. The Geofabric similarly has a <code>Dataset</code> with 3 <code>Feature Collections</code> containing <code>Features</code> that have only one custom property: <code>Catchment</code> <code>Features</code> sometimes indicate a <em>downstream catchment</em>.</p>
+<p>The table below lists the current smaller "FSDF" Datasets in the FSDF Data Platform.</p>
 </div>
-<div class="paragraph">
-<p>So, to model a new dataset in a minimalist fashion, you can copy one or other of these Component Model&#8217;s structure and details.</p>
-</div>
-<div class="paragraph">
-<p>The <a href="#_backbone_model">Backbone Model</a> section contains the detailed notes about requirements that need to be met to conform to it and tools described in the <a href="#_validators">Validators</a> section are provided to check your implementation really is conformant.</p>
-</div>
-<div class="sect2">
-<h3 id="_asgs">7.1. ASGS</h3>
-
-</div>
-<div class="sect2">
-<h3 id="_geofabric">7.2. Geofabric</h3>
-
-</div>
-<div class="sect2">
-<h3 id="_g_naf">7.3. G-NAF</h3>
-
-</div>
-<div class="sect2">
-<h3 id="_fsdf_datasets">7.4. FSDF Datasets</h3>
-
-</div>
+<table id="fsdf-datasets-models" class="tableblock frame-all grid-all stripes-even stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 40%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Dataset</th>
+<th class="tableblock halign-left valign-top">Persistent Identifier</th>
+<th class="tableblock halign-left valign-top">Model</th>
+<th class="tableblock halign-left valign-top">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Electrical Infrastructure</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://linked.data.gov.au/dataset/power-infrastructure" class="bare">https://linked.data.gov.au/dataset/power-infrastructure</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_backbone_model">Backbone Model</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Facilities</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://linked.data.gov.au/dataset/facilities" class="bare">https://linked.data.gov.au/dataset/facilities</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_backbone_model">Backbone Model</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sandgate example</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://example.com/dataset/sandgate" class="bare">http://example.com/dataset/sandgate</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_backbone_model">Backbone Model</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This dataset does not have a Persistent Identifier as it&#8217;s an example dataset only</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_supporting_vocabularies">8. Supporting Vocabularies</h2>
 <div class="sectionbody">
-
+<div class="paragraph">
+<p>The vocabularies supporting the Component Models of the Datasets listed in the Section above are all of one of the following types:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Well-known, public vocabularies</p>
+<div class="ulist">
+<ul>
+<li>
+<p>For example, the vocabulary of Role types for Agents with respect to Datasets is the ISO&#8217;s <a href="http://iso.kurrawong.net/vocab/CI_RoleCode">Role Code vocabulary</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Vocabularies within Component Models</p>
+<div class="ulist">
+<ul>
+<li>
+<p>For example, the various vocabularies within the <em>ANZ National Address Model</em>, such as <a href="https://nicholascar.com/anz-nat-addr-model-candidate/model.html#_address_component_types">Address Component Types</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Vocabularies created for Dataset within this Supermodel not within Component Models</p>
+<div class="ulist">
+<ul>
+<li>
+<p>For example <a href="https://linked.data.gov.au/def/fsdf/ground-relations" class="bare">https://linked.data.gov.au/def/fsdf/ground-relations</a> [FSDF Ground Relations]</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>All vocabularies are discoverable by inspecting the data that refers to them. Those within Component Models are also dscoverable via their models, but those in Category 3. are also discoverable via the FSDF Vocabulary Server:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://linked.fsdf.org.au/vocprez" class="bare">https://linked.fsdf.org.au/vocprez</a></p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -2076,7 +2161,7 @@ Validators that find nothing to validate will return <em>true</em>, so if the da
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-08-05 02:51:23 UTC
+Last updated 2022-08-05 04:35:24 UTC
 </div>
 </div>
 </body>
