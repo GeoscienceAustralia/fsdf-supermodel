@@ -17,6 +17,7 @@ This model is built on a "baseline" of Semantic Web models which use a variatey 
 
 |`dcterms:` | `http://purl.org/dc/terms/` | Dublin Core Terms vocabulary namespace
 |`ex:` | `http://example.com/` | Generic examples namespace
+|`geo` | `http://www.opengis.net/ont/geosparql#` | GeoSPARQL ontology namespace
 |`owl:` | `http://www.w3.org/2002/07/owl#` | Web Ontology Language ontology namespace
 |`rdfs:` | `http://www.w3.org/2000/01/rdf-schema#` | RDF Schema ontology namespace
 |`sosa:` | `http://www.w3.org/ns/sosa/` | Sensor, Observation, Sample, and Actuator ontology namespace

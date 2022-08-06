@@ -71,6 +71,12 @@ This Profile consists of a number of Resources which are listed below. Any Stand
 | https://git-scm.com/[Git]
 |
 
+| https://linked.data.gov.au/def/fsdf-backbone/example-sandgate[Sandgate Example Dataset]
+| An example valid Dataset with FeatureCollections containing Features with Geometries
+| https://data.surroundaustralia.com/def/prof-roles/example[Example]
+| https://linked.data.gov.au/def/fsdf-backbone[FSDF Backbone Model Profile]
+| https://www.w3.org/TR/turtle/[RDF Turtle]
+
 |===
 
 NOTE: Individual validators for the Standards that this Profile profiles are listed in the https://linked.data.gov.au/def/fsdf-supermodel#_validation_2[Backbone Model > Validation] section of the FSDF Supermodel. Also given there are details of how this Profile's validator and some of those profiled Standards' validators are pre-loaded into online validation tooling.
