@@ -17,7 +17,7 @@ This is part of the formal definition of this _profile_:
 ```turtle
 <https://linked.data.gov.au/def/fsdf-backbone>
     a prof:Profile ;
-    sdo:name "FSDF Bacbone Model Profile" ;
+    sdo:name "FSDF Backbone Model Profile" ;
     sdo:description "This is a profile of DCAT, GeoSPARQL & VocPub to be used as a conformance target for data within the FSDF Supermodel"@en ;
     prof:profileOf
         <https://www.w3.org/TR/vocab-dcat/> ,
@@ -35,7 +35,7 @@ The full profile definition, online at https://linked.data.gov.au/def/fsdf-backb
 
 === Requirements
 
-Here the basic requirements for data to conform to this profile are listed. The Requirements are identifies (GM1 etc.) and they are referenced by validation rules in the Validation section described below. Note that some of these Requirements reference whole other Standards and Profile so that all the Requirements from them are relevant.
+Here the requirements for data to conform to this profile are listed. The Requirements are identifies (GM1 etc.) and they are referenced by validation rules in the Validation section described below. Note that some of these Requirements reference whole other Standards and Profile so that all the Requirements from them are relevant.
 
 The capitalised, italicised words such as _MUST_, _MAY_ etc., have meanings as per <<RFC2119>>.
 
