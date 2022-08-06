@@ -1,6 +1,6 @@
 == Supporting Vocabularies
 
-The vocabularies supporting the Component Models of the Datasets listed in the Section above are all of one of the following types:
+The vocabularies supporting the Component Models of the Datasets listed in the Section above are all from one of the following types:
 
 . Well-known, public vocabularies
 ** For example, the vocabulary of Role types for Agents with respect to Datasets is the ISO's http://iso.kurrawong.net/vocab/CI_RoleCode[Role Code vocabulary]
@@ -9,6 +9,6 @@ The vocabularies supporting the Component Models of the Datasets listed in the S
 . Vocabularies created for Dataset within this Supermodel not within Component Models
 ** For example https://linked.data.gov.au/def/fsdf/ground-relations [FSDF Ground Relations]
 
-All vocabularies are discoverable by inspecting the data that refers to them. Those within Component Models are also dscoverable via their models, but those in Category 3. are also discoverable via the FSDF Vocabulary Server:
+All vocabularies are discoverable by inspecting the data that refers to them. Those within Component Models are also discoverable via their models, but those in Category 3. are also discoverable via the FSDF Vocabulary Server:
 
 * https://linked.fsdf.org.au/vocprez

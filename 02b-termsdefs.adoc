@@ -41,7 +41,7 @@ Data Domain::
 +
 High-level conceptual areas within which Geosicence Australia has data. 
 +
-These Data Domains are not themed scientificly - 'geology', 'hydrogeology', etc. - but instead based on parts of the _Observations & Measurement_ <<ISO19156>> standard, realised in Semantic Web form in the SOSA Ontology, part of the _Semantic Sensor Network Ontology_ <<SSN>>.
+These Data Domains are not themed scientifically - 'geology', 'hydrogeology', etc. - but instead based on parts of the _Observations & Measurement_ <<ISO19156>> standard, realised in Semantic Web form in the SOSA Ontology, part of the _Semantic Sensor Network Ontology_ <<SSN>>.
 +
 Current Data Domain are shown in <<fig-top-level, Figure 1>>.
 
@@ -57,7 +57,7 @@ Knowledge Graph::
 
 `https://linked.data.gov.au/def/supermodel/terms/knowledge-graph[suterms:knowledge-graph]`
 +
-A Knowledge Graph is a dataset that uses a graph data tructure - nodes and edges - with strongly-defined elements.
+A Knowledge Graph is a dataset that uses a graph data structure - nodes and edges - with strongly-defined elements.
 
 [id=linked-data-defn]
 Linked Data::
@@ -68,7 +68,7 @@ A set of technologies and conventions defined by the https://www.w3.org[World Wi
 +
 Linked Data is strongly-defined with each element having either a local definition or a link to an available definition on the Internet.
 +
-Linked Data is graph-based in nature, that is it consistes of nodes and edges that can forever be linked to further conceps with defined relationships.
+Linked Data is graph-based in nature, that is it consists of nodes and edges that can forever be linked to further concepts with defined relationships.
 +
 -- https://www.w3.org/standards/semanticweb/data
 
@@ -87,7 +87,7 @@ Null Profile::
 
 https://linked.data.gov.au/def/fsdf-supermodel#fsdf-defn[:mull-profile-defn] - _defined here_
 +
-A Null Profile is a Profile of a Standard that implements no additional constraints on the profile. A Null Profile's purpose is to act as a conformance target for the Standard by supplying itemised requrements and machine-executable validators when the Standard itself cannot have these elements added to it.
+A Null Profile is a Profile of a Standard that implements no additional constraints on the profile. A Null Profile's purpose is to act as a conformance target for the Standard by supplying itemised requirements and machine-executable validators when the Standard itself cannot have these elements added to it.
 
 
 [id=ontology-defn]
@@ -116,9 +116,9 @@ Semantic Web::
 +
 The https://www.w3.org[World Wide Web Consortium]'s vision of an Internet-based web of Linked Data. 
 +
-Semantic Web is used to refer to something more than just the technologies and conventions of Linked Data; the term also encompases a specific set of interoperable data models - often called ontologies - published by the W3C, other standards bodies and some well-known companies.
+Semantic Web is used to refer to something more than just the technologies and conventions of Linked Data; the term also encompasses a specific set of interoperable data models - often called ontologies - published by the W3C, other standards bodies and some well-known companies.
 +
-The 'semantic' refers to the strongly-defined nature of the elements in the Semantic Web: the meaning of Semantic Web data is as precicely defined as any data can be.
+The 'semantic' refers to the strongly-defined nature of the elements in the Semantic Web: the meaning of Semantic Web data is as precisely defined as any data can be.
 +
 -- https://www.w3.org/standards/semanticweb/
 

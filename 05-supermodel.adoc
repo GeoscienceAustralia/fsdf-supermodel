@@ -19,7 +19,7 @@ The high-level structure of this Supermodel consists of:
 * <<Backbone Model>>
 ** This is a profile of the Background Models and includes validators
 ** Data must conform to this model in order to be considered within this Supermodel
-** This model is a bare minimu: Component Models can, and already do, extend beyond this model to cater for their specific needs
+** This model is a bare minimum: Component Models can, and already do, extend beyond this model to cater for their specific needs
 * <<Component Models>>
 ** These are individual models for datasets within this Supermodel
 ** Not all dataset require a Component Model, for example, the ASGS is currently modelled using Backbone Model elements only
@@ -28,7 +28,7 @@ The high-level structure of this Supermodel consists of:
 ** They must conform to the https://w3id.org/profile/vocpub[VocPub Profile] of https://www.w3.org/TR/skos-reference/[SKOS]
 ** They may contain specialised elements beyond VocPub/SKOS too
 
-Further detials of and definitions for these elements are provided in the <<Terms & Definitions>> section, above, and in the https://linked.data.gov.au/def/supermodel[Supermodel Model].
+Further details of and definitions for these elements are provided in the <<Terms & Definitions>> section, above, and in the https://linked.data.gov.au/def/supermodel[Supermodel Model].
 
 The next section deals with some aspects of how the models are created.
 
@@ -50,14 +50,14 @@ image::img/level0-owl.png[]
 
 The elements shown above are identified with prefixed IRIs that correspond to entries in the <<#tbl-prefixes, Namespace Table>>. A short explanation of the diagram key elements is:
 
-* `owl:Class` - represents any conceptual class of objects. Classes are expected to contain individuals - instances of the class - and the class, as a whole, may have realtions to other classes
+* `owl:Class` - represents any conceptual class of objects. Classes are expected to contain individuals - instances of the class - and the class, as a whole, may have relations to other classes
 * `owl:NamedIndividual` - an individual of an `owl:class`. For example, for the class _ships_, an individual might be _Titanic_
 * `rdf:property` - a relationship between classes, individuals, or any objects and Literals
 * `rdfs:subClassOf` -  an `rdf:property` indicating that the domain (from object) is a subclass of the range (to objects). An example is the class _student_ which is a subclass of _person_: all _students_ are clearly _persons_ but not _vice versa_
 * `rdf:type` - the property that related an `owl:NamedIndividual` to the `owl:Class` that it's a member of
 * `Literal` - a simple literal data property, e.g. the string "Nicholas", or the number 42. Specific literal types are usually indicated when used
 
-The remaining diagrams in this document use extensions to this basic model, for example <<#fig-level0-prov, Figure 3>> uses colour-coded specialised forms of `owl:Class` (subclasses of it) and the relations in <<#fig-central-classes, Figure 5>> are specialised forms of `rdf:property`.
+The remaining diagrams in this document use extensions to this basic model, for example <<#fig-level0-prov, Figure 3>> uses colour-coded specialised forms of `owl:Class` (subclasses of it).
 
 ==== Provenance
 
@@ -73,7 +73,7 @@ According to PROV, all things are either a:
 * `prov:Agent` - something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity
 * `prov:Activity` - something that occurs over a period of time and acts upon or with entities
 
-While not often in front of mind for objects in any Data Domain, provenance relations always apply, for example: a `sosa:Sample` within the _Sampling_ domain is a `prov:Entity` and will necissarily have been created via a `sosa:Sampling` which is a `prov:Activity`. Another example: an `sdo:Person` related to a `dcat:Dataset` via the property `dcterms:creator` in the _DataCataloging_ domain is a specialised form of a `prov:Agent` related to a `prov:Entity` via `prov:wasAttributedTo`.
+While not often in front of mind for objects in any Data Domain, provenance relations always apply, for example: a `sosa:Sample` within the _Sampling_ domain is a `prov:Entity` and will necessarily have been created via a `sosa:Sampling` which is a `prov:Activity`. Another example: an `sdo:Person` related to a `dcat:Dataset` via the property `dcterms:creator` in the _DataCataloging_ domain is a specialised form of a `prov:Agent` related to a `prov:Entity` via `prov:wasAttributedTo`.
 
 === Ensuring Data Conformance
 
@@ -100,17 +100,17 @@ For example, if the data contains provenance information, regardless of whether 
 
 All data will need to conform to the Backbone Model as this model is used to ensure all data can work together.
 
-This model is only concerned with minimum requirements for data, so data conforming to this model may have any other things in it - details specific to that dataset's concern - that are un-handled/unknonw in the Backbone Model. That's fine, as long as the minimal requirements are met.
+This model is only concerned with minimum requirements for data, so data conforming to this model may have any other things in it - details specific to that dataset's concern - that are un-handled/unknown in the Backbone Model. That's fine, as long as the minimal requirements are met.
 
 ===== Component Model
 
-Many datasets will have a Compoent Model implemented for them. If they due, obviously data within that dataset must conform to it. If no Component Model has been implemented, it means that dataset is a direct implemetation of the Backbone Model and need only conform to that.
+Many datasets will have a Component Model implemented for them. If they due, obviously data within that dataset must conform to it. If no Component Model has been implemented, it means that dataset is a direct implementation of the Backbone Model and need only conform to that.
 
 ==== Validation
 
 To ensure that data within a dataset conforms to the models it needs to, automated validation of data must occur. This Supermodel implements validators for the Backbone Model that must be used to test data with.
 
-This Supermodel is also either obtaining or implementing validators for all Background Models over time. Validators implemented for Background Models in this Supermodel are implemented within <<null-profile-defn, Null Profiles>> of them since most of the Background Models are previously defined controlled standards that cannot have all of the profiling elements relevant to Supermodels just added to them.
+This Supermodel is also either obtaining or implementing validators for all Background Models over time. Validators implemented for Background Models in this Supermodel are implemented within <<null-profile-defn, Null Profiles>> of them since most of the Background Models are previously defined controlled standards that cannot have all the profiling elements relevant to Supermodels just added to them.
 
 === How to use this Supermodel
 
@@ -138,7 +138,7 @@ Data validators are available, for all elements of this Supermodel, so you can u
 
 ==== 3. Create an extended/specialised 'Component Model'
 
-As per subsection 1. above, we can't give specific details about specialised modelling here since we don't know about your particular dataset however we can both indicate existing specialised datasets (see the start of the <<Component Models>> section) and we can make a few general points:
+As per subsection 1. above, we can't give specific details about specialised modelling here since we don't know about your particular dataset however we can both indicate existing specialised datasets (see the start of the <<Component Models>> section), and we can make a few general points:
 
 * this Supermodel is concerned with the modelling of spatial datasets as Component Models with `Dataset`, `FeatureCollection` & `Feature` with certain relations between them
 * most specialisation is likely to occur by adding special properties to `Feature` instances
@@ -154,8 +154,6 @@ As per section 2. above, see the <<Validators>> section. Of course, your special
 
 ==== 5. Create a dataset of observations
 
-The spatial datasets within this Supermodel are intended to just present a spatial reference later that observations data can be referenced against. For example, Australian census data is keyed to the Mesh Blocks and other spatial areas of the <<ASGS, ASGS dataset>>, water data in the Bureau of Meteorology's AWRIS system are keyed to catchments within the <<Geofabric, Geofabric dataset>>.
+The spatial datasets within this Supermodel are intended to present spatial objects that observations' data can be referenced against. For example, Australian census data is keyed to the Mesh Blocks and other spatial areas of the ASGS dataset, water data in the Bureau of Meteorology's AWRIS system are keyed to catchments within the Geofabric dataset.
 
 You can create your own observations data and key them to any datasets that exist within this Supermodel or to datasets that you make that are compatible with this Supermodel's elements.
-
-To know how to do this, see <<Annex A: Observations Data>>.

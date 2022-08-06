@@ -2,13 +2,13 @@
 
 The Backbone Model of this Supermodel is the model to which all data _MUST_ conform. The model is a <<profile-defn, profile>> of the Background Models, which means it implements no new modelling elements of its own but just constrains existing elements in the <<Background Models>>. Thus, anything that conforms to the Backbone Model will conform to the Background Models also. This form of profiling is formally defined in _The Profiles Vocabulary_ <<PROF>>.
 
-This Backbone Model is quite "lite" in that it only has comparatively few requirements. This is due to its role: to ensure that all data in the Supermodel exihibts a minimum set of properties and patters for interoperability. the Backbone Model doesn't try to model all thins within all sub-domains of this Supermodel: that is the job of the various <<Component Models>>.
+This Backbone Model is quite "lite" in that it only has comparatively few requirements. This is due to its role: to ensure that all data in the Supermodel exhibits a minimum set of properties and patters for interoperability. the Backbone Model doesn't try to model all thins within all sub-domains of this Supermodel: that is the job of the various <<Component Models>>.
 
 This Backbone Model is defined at:
 
 * https://linked.data.gov.au/def/fsdf-backbone
 
-The profile's main elements are rearticulated here for the completeness of documentations.
+The profile's main elements are articulated here for the completeness of documentations.
 
 === Definition
 
@@ -35,7 +35,7 @@ The full profile definition, online at https://linked.data.gov.au/def/fsdf-backb
 
 === Requirements
 
-Here the basic requirements for data to conform to this profile are listed. The Requirements are identifies (GM1 etc.) and they are referenced by validation rules in the Validation section described below. Note that some of these Requirements reference whole other Standards and Profile so that all of the Requirements from them are relevant.
+Here the basic requirements for data to conform to this profile are listed. The Requirements are identifies (GM1 etc.) and they are referenced by validation rules in the Validation section described below. Note that some of these Requirements reference whole other Standards and Profile so that all the Requirements from them are relevant.
 
 The capitalised, italicised words such as _MUST_, _MAY_ etc., have meanings as per <<RFC2119>>.
 
@@ -57,7 +57,7 @@ The `rdf` namespace referred to is `+http://www.w3.org/1999/02/22-rdf-syntax-ns#
 |                     | GM3 | Property Modelling | Properties and predicates MUST be modelled as either `rdf:Property` instances or instances of the various OWL properties
 | *Dataset Metadata*  | DM1 | DCAT Conformance | Data must conform to DCAT
 |                     | DM2 | Dataset Mandatory Properties | `dcat:Dataset` instances MUST be presented as `dcat:Dataset` instances with at least the following properties: `dcterms:identifier` - as an `xsd:token` value, `dcaterms:title` & `dcterms:description` - as strings or langString values, `sdo:dateCreated` & `sdo:dateModified` - as `xsd:date`, `xsd:dateTime` or `xsd:dateTimeStamp` values
-|                     | DM3 | Dataset Agents | `dcat:Dataset` instances MUST indicate at least creator & prublisher Agents via use of the `sdo:creator` and `sdo:publisher` properties. The values for these properties must be IRIs, not strings
+|                     | DM3 | Dataset Agents | `dcat:Dataset` instances MUST indicate at least creator & publisher Agents via use of the `sdo:creator` and `sdo:publisher` properties. The values for these properties must be IRIs, not strings
 |                     | DM4 | Dataset Provenance | `dcat:Dataset` instances SHOULD indicate provenance in one of three ways: if derived from an RDF dataset then with `prov:wasDerivedFrom` - with an IRI value, if derived from an online but non-RDF data source then with `dcterms:source` - `xsd:anyURI`` value and if neither then with a written statement with `dcterms:provenance` - string or langString value
 |                     | DM5 | Dataset Spatiality | `dcat:Dataset` instances MUST indicate the total spatial footprint the elements within them by indicating a `geo:Geometry` object via a `geo:hasGeometry` or `geo:hasBoundingBox` property
 |                     | DM6 | Dataset Feature Collections | `dcat:Dataset` instances MUST indicate _at least_ one `geo:FeatureCollection` instances within them with the `rdfs:member` property
@@ -73,9 +73,9 @@ The `rdf` namespace referred to is `+http://www.w3.org/1999/02/22-rdf-syntax-ns#
 
 === Validation
 
-To prove that data does conform to this Backbone Model, it must be validated. Since all of the expected data for this Supermodel is RDF data, SHACL <<SHACL>> validation may be used.
+To prove that data does conform to this Backbone Model, it must be validated. Since all the expected data for this Supermodel is RDF data, SHACL <<SHACL>> validation may be used.
 
-This Profile presents its own validator which only includes tests for the rules specific to _this_ profile and not those of the things this Profile profiles. However, a compounded validator is also given below which includes this Profile's validator and validators from all of the Standards and Profiles that this Profile profiles, that have validators. The Standards' and Profiles' are also listed individually.
+This Profile presents its own validator which only includes tests for the rules specific to _this_ profile and not those of the things this Profile profiles. However, a compounded validator is also given below which includes this Profile's validator and validators from all the Standards and Profiles that this Profile profiles, that have validators. The Standards' and Profiles' are also listed individually.
 
 NOTE: Since of the Standards that this Profile Profiles do not present SHACL validators, we use <<Null Profile, Null Profiles>> for them where a _Null Profile_ is a Profile that implements no constrains on the Standard profiles and exists only to provide a validator for it.
 
@@ -83,11 +83,11 @@ For total validation, the compounded validator should be used. For partial valid
 
 ==== Process
 
-To validate RDF data, a SHACL validation tool, such as https://pypi.org/project/pyshacl/[pySHACL] (online tools for validation exist too, see <<tooling>> below), is used with the data to be validated and the validator as inputs. The data to be validated must include _all_ the elements necissary for validation, for example, if a valid Dataset/Agent relation includes the requirement for the Agent to be classed as an `sdo:Person` or an `sdo:Organization` then the data to be validate must declare this classification, rather than leaving it up to external resources.
+To validate RDF data, a SHACL validation tool, such as https://pypi.org/project/pyshacl/[pySHACL] (online tools for validation exist too, see <<tooling>> below), is used with the data to be validated and the validator as inputs. The data to be validated must include _all_ the elements necessary for validation, for example, if a valid Dataset/Agent relation includes the requirement for the Agent to be classed as an `sdo:Person` or an `sdo:Organization` then the data to be validated must declare this classification, rather than leaving it up to external resources.
 
-NOTE: Validators that find nothing to validate will return _true_, so if the data to be validated contains no instnaces fo classes known to the validator, no sensible result will be obtained.
+NOTE: Validators that find nothing to validate will return _true_, so if the data to be validated contains no instances fo classes known to the validator, no sensible result will be obtained.
 
-Regarding scale: validation is a resourse-intensive task, so large datasets should not be validated without dedicated systems. It is probably appropriate to validate only a sample of Dataset contents, especially if the content is produced by a script or someother method that makes similar Feature Collections & Features.
+Regarding scale: validation is a resource-intensive task, so large datasets should not be validated without dedicated systems. It is probably appropriate to validate only a sample of Dataset contents, especially if the content is produced by a script or someother method that makes similar Feature Collections & Features.
 
 ==== Validators
 
@@ -113,7 +113,7 @@ Several online SHACL validation tools exist that may be used with the validators
 * **EU SHACL Validator**
 ** https://data.europa.eu/mqa/shacl-validator-ui/
 
-We recommend either the public RDFTools Online tool, since it is actively maintained, and includes some of the validators listed above, or the Geoscience Australia copy of RDFTools with all of the validators above preloaded:
+We recommend either the public RDFTools Online tool, since it is actively maintained, and includes some of the validators listed above, or the Geoscience Australia copy of RDFTools with all the validators above preloaded:
 
 * **Public RDFTools Online**
 ** http://rdftools.kurrawong.net/validate

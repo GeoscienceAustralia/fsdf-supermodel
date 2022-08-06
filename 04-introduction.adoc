@@ -22,7 +22,7 @@ image::img/original-loci-detailed-architecture.png[Original Loc-I Detailed Archi
 
 === Loc-I to Supermodel
 
-The FSDF Project has adopted a more rigourously defined _Supermodel_ concept to formalise things of importance to Loc-I-like work but which the Loc-I Project didn't define. For example, the categorisation of relevant models as <<background-model-defn, Background Models>>, <<component-model-defn, Component Models>> and so on. The major differences/additions are:
+The FSDF Project has adopted a more rigorously defined _Supermodel_ concept to formalise things of importance to Loc-I-like work but which the Loc-I Project didn't define. For example, the categorisation of relevant models as <<background-model-defn, Background Models>>, <<component-model-defn, Component Models>> and so on. The major differences/additions are:
 
 * *Formalised terminology*
 ** Of general relevance within the implementation scenario
@@ -30,8 +30,8 @@ The FSDF Project has adopted a more rigourously defined _Supermodel_ concept to 
 * *Model categorisation*
 ** For the different types of models within the scenario, for example, <<background-model-defn, Background Models>>, <<component-model-defn, Component Models>>
 * *Explicit integration*
-** By explicitly defining a <<backbone-model-defn, Backbone Model>> for each scenario deployment, the Supermodel conventions indicate precicely what minimum requirements for <<component-model-defn, Component Models>> are to be able to be integrated
-* *Validatable profiling instead of model specailisation*
+** By explicitly defining a <<backbone-model-defn, Backbone Model>> for each scenario deployment, the Supermodel conventions indicate precisely what minimum requirements for <<component-model-defn, Component Models>> are to be able to be integrated
+* *Validatable profiling instead of model specialisation*
 ** Loc-I relied on defining an ontology to which datasets were expected to conform
 ** Supermodel implements a Profile of Background Models to which Component Datasets mush conform
 ** The Profile provides executable data validators
@@ -49,7 +49,7 @@ In addition to these model/methodological changes, this particular Spuermodel de
 * *Topological querying instead of Linksets*
 ** Loc-I Linksets are datasets that declare topologicla relations between Features
 ** GeoSPARQL allows topological relationships to be calculated using topologicla functions
-** Loc-I Project estableished only a limited set of Linksets, e.g. the https://github.com/CSIRO-enviro-informatics/addrmb16-linkset[Current Addresses to 2016 Mesh Blocks Linkset]
+** Loc-I Project established only a limited set of Linksets, e.g. the https://github.com/CSIRO-enviro-informatics/addrmb16-linkset[Current Addresses to 2016 Mesh Blocks Linkset]
 ** This Supermodel deployment includes a cache of all datasets, https://cache.linked.fsdf.org.au, on which topological queries across all datasets can be performed
 
 To conclude this Loc-I/Supermodel relations, here is a table mapping elements and terminology.
@@ -71,17 +71,23 @@ _https://linked.data.gov.au/def/gnaf[GNAF], https://linked.data.gov.au/def/asgs[
 | <<component-model-defn, Component Models>>
 | The FSDF Supermodel lists the <<Component Models>> defined to be within it formally in this Supermodel document
 
-| https://linked.data.gov.au/def/gnaf[GNAF Ontology] | https://nicholascar.com/anz-nat-addr-model-candidate/model.html[ANZ National Address Model] | The new model is a more standards-based form of the previous one and all aspects of the original model are coverd by the new
+| https://linked.data.gov.au/def/gnaf[GNAF Ontology] | https://nicholascar.com/anz-nat-addr-model-candidate/model.html[ANZ National Address Model] | The new model is a more standards-based form of the previous one and all aspects of the original model are covered by the new
 
-| https://linked.data.gov.au/def/asgs[ASGS Ontology] | <<Backbone Model>> | The current delivery of the ASGS at https://asgs.linked.fsdf.org.au uses no properties other than those already in the <<Backbone Model>> therefor no custom Component Model is needed
+| https://linked.data.gov.au/def/asgs[ASGS Ontology] | <<Backbone Model>> | The current delivery of the ASGS at https://asgs.linked.fsdf.org.au uses no properties other than those already in the <<Backbone Model>> therefore no custom Component Model is needed
 
 | https://linked.data.gov.au/def/geofabric[Geofabric Ontology] | unchanged | The Geofabric data online at https://geofabric.linked.fsdf.org.au currently uses only one element of the Geofabric Ontology, the property `hasDownstreamCatchment` however more use of that ontology, or an extended version of it, may be used in the future
 
 | https://linked.data.gov.au/def/placenames[Placenames Ontology] | unchanged | While not an official original Loc-I dataset, Placenames was implemented in Loc-I style at https://fsdf.org.au/dataset/placenames/. It has been brought in to the Supermodel as a standard Component Model using the same ontology, albeit with updates
 
-| Geometry Data Service | https://cache.linked.fsdf.org.au[Graph Cache] | Loc-I build a non-Semantic geometry data service for some cross-dataset spatial queries. Supermodel implements a total cache of all Component Models' content in semanti form for GeoSPARQL spatial querying and other semantic querying
+| Geometry Data Service | https://cache.linked.fsdf.org.au[Graph Cache] | Loc-I build a non-Semantic geometry data service for some cross-dataset spatial queries. Supermodel implements a total cache of all Component Models' content in semantic form for GeoSPARQL spatial querying and other semantic querying
 |===
 
-The Loc-I project also implemented a series of custom clients of the Loc-I data:
+The Loc-I project also implemented a series of custom clients for Loc-I systems. These clients demonstrated
 
-#TODO: This must still be done#
+* downloading lists of Loc-I identifiers (IRIs) for classes of object for offline use
+* reapportioning numerical observations data formed according to one set of geometries to another
+* finding Features that intersect with a given point or Feature
+
+Some of this functionality is now available through the http://www.w3.org/TR/sparql11-overview/[SPARQL Endpoints] available for all FSDF APIs and also the API accessing a cached copy of all data.
+
+Functionality not covered by SPARQL Endpoints is being implemented in new FSDF clients which Geoscience Australia will release when ready.

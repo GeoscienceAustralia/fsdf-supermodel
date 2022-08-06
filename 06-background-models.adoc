@@ -48,13 +48,13 @@ Metadata for datasets within this Supermodel is based on the _Data Catalog Vocab
 .Data Cataloguing Model, based on DCAT & PROV
 image::img/domain-dataset-metadata.png[]
 
-Specifics properties for dataset-level metadata, such as license, copyright notices, who the publisher is etc. are mostly taken from https://schema.org[schema.org] which is a general-purpose OWL (or at least OWL-compatable!) vocabulary of classes and properties.
+Specifics properties for dataset-level metadata, such as license, copyright notices, who the publisher is etc. are mostly taken from https://schema.org[schema.org] which is a general-purpose OWL (or at least OWL-compatible!) vocabulary of classes and properties.
 
 schema.org is also used for Agent/Agent relations, as per the figure below.
 
 [id=fig-agent-relations]
 .Organisation Model, based on schema.org
-image::img/domain-agents.png[]
+image::img/details-agents.png[]
 
 ==== Spatialiaty
 
@@ -68,7 +68,7 @@ Essentially all spatial relations between objects and the associations of object
 
 ==== Data Dimensions
 
-The dimensions of data are, in general, modelled in relation to observations according to the _Data Cube Vocabulary_ <<QB>>, however the dimensions (observable properties) of spatial and real-world objects is modelled using _Sensor, Observation Sampling & Actuation_ (SOSA) ontology within the _Semantic Sensor Networks_ <<SSN>> standard. SOSA is, within this Supermodel at least, a domain-specailised version of QB.
+The dimensions of data are, in general, modelled in relation to observations according to the _Data Cube Vocabulary_ <<QB>>, however the dimensions (observable properties) of spatial and real-world objects is modelled using _Sensor, Observation Sampling & Actuation_ (SOSA) ontology within the _Semantic Sensor Networks_ <<SSN>> standard. SOSA is, within this Supermodel at least, a domain-specialised version of QB.
 
 [id=fig-observations, width="60%"]
 .Observations Model, based on https://www.w3.org/TR/vocab-data-cube/#fig-pictorial-summary-of-key-terms-and-their-relationship[Data Cube Vocabulary overview]
@@ -84,9 +84,9 @@ The net effect of both QB and SOSA is to define data types for and observable pr
 
 ==== Vocabularies
 
-Many of the models in this Supermodel rely on vocabularies of individual items, for example Data/Agent relations rely on vocabularies of Agent roles. When vocabularies are modelled, this Supermodel uses a profile of the Simple Knowledge Organization System, <<SKOS>>, called VocPub <<VOCPUB>>. VocPub just requires certain metadata, allowed by bot not mandated by SKOS, to be present within vocabularies for data management purposes. At a whole-of-vocabulary level, VocPub requires versy similar metadata to DCAT, thus a Vocabulary appears as a form of Dataset.
+Many of the models in this Supermodel rely on vocabularies of individual items, for example Data/Agent relations rely on vocabularies of Agent roles. When vocabularies are modelled, this Supermodel uses a profile of the Simple Knowledge Organization System, <<SKOS>>, called VocPub <<VOCPUB>>. VocPub just requires certain metadata, allowed by bot not mandated by SKOS, to be present within vocabularies for data management purposes. At a whole-of-vocabulary level, VocPub requires very similar metadata to DCAT, thus a Vocabulary appears as a form of Dataset.
 
-All of the current FSDF vocabularies at https://linked.fsdf.org.au/vocab conform to VocPub.
+All the current FSDF vocabularies at https://linked.fsdf.org.au/vocab conform to VocPub.
 
 [id=fig-vocabularies, width="50%"]
 .Basic SKOS/VocPub data model
