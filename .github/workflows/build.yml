@@ -30,6 +30,7 @@ jobs:
         cp backbone-model-profile/profile.ttl docs/backbone-model-profile.ttl
         cp backbone-model-profile/validator.ttl docs/backbone-model-validator.ttl
         cp backbone-model-profile/validator-compounded.ttl docs/backbone-model-validator-compounded.ttl
+        cp backbone-model-profile/example-sandgate.ttl docs/backbone-model-example.ttl
         asciidoctor backbone-model-profile/profile.adoc -o docs/backbone-model-profile.html
         asciidoctor backbone-model-profile/spec.adoc -o docs/backbone-model-spec.html
     - name: Deploy 🚀
