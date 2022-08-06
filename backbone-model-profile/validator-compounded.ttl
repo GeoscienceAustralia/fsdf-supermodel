@@ -12,9 +12,9 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 
-<https://linked.data.gov.au/def/fsdf-backbone/validator>
+<https://linked.data.gov.au/def/fsdf-backbone/validator-compounded>
     a owl:Ontology ;
-    dcterms:provenance "This validator for the IDN Catalogue Profile was made within the IDN's ID Catalogue project 2021 - 2022."@en ;
+    dcterms:provenance "This validator for the FSDF Backbone Model was made in 2022."@en ;
     owl:versionIRI <http://linked.data.gov.au/def/fsdf-backbone/0.0.1> ;
     owl:versionInfo "0.0.1" ;
     sdo:codeRespository "https://github.com/geoscienceaustralia/fsdf-supermodel"^^xsd:anyURI ;
@@ -25,9 +25,9 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     sdo:dateCreated "2022-09-05"^^xsd:date ;
     sdo:dateIssued "2022-09-05"^^xsd:date ;
     sdo:dateModified "2022-09-06"^^xsd:date ;
-    sdo:description "The Shapes Constraint Language file storing validation rules to assess RDF data against the FSDF Backbone Model Profile’s Specification’s Requirements"@en ;
+    sdo:description "The compounded Shapes Constraint Language file storing FSDF Backbone Model Profile Compounded Validator shapes and those from the validators of Standards that the FSDF Backbone Model Profile profiles"@en ;
     sdo:license "https://creativecommons.org/licenses/by/4.0/"^^xsd:anyURI ;
-    sdo:name "FSDF Backbone Model Profile Validator"@en ;
+    sdo:name "FSDF Backbone Model Profile Compounded Validator"@en ;
     sdo:publisher <https://linked.data.gov.au/org/ga> ;
 .
 
