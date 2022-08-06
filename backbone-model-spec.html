@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
-<title>FSDF Supermodel</title>
+<title>FSDF Backbone Model Profile Specification</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -436,84 +436,283 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
 </head>
-<body class="article">
+<body class="article toc2 toc-left">
 <div id="header">
-<h1>FSDF Supermodel</h1>
+<h1>FSDF Backbone Model Profile Specification</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_introduction">1. Introduction</a>
+<ul class="sectlevel2">
+<li><a href="#_namespaces">1.1. Namespaces</a></li>
+<li><a href="#_conformance">1.2. Conformance</a></li>
+</ul>
+</li>
+<li><a href="#_requirements">2. Requirements</a></li>
+</ul>
+</div>
 </div>
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
+<table class="tableblock frame-none grid-none stripes-even" style="width: 75%;">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 83.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>IRI</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://linked.data.gov.au/def/fsdf-backbone/specification" class="bare">https://linked.data.gov.au/def/fsdf-backbone/specification</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Title</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FSDF Backbone Model Profile Specification</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This is the normative listing of Requirements for data wishing to conform to the FSDF Backbone Model Profile Specification</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Created</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2022-08-04</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Modified</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2022-08-06</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Issued</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2022-08-05</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Creator</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://linked.data.gov.au/org/ga">Geoscience Australia</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Publisher</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://linked.data.gov.au/org/icsm">Intergovernmental Committee on Surveying &amp; Mapping</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>License</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International (CC BY 4.0)</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_introduction">1. Introduction</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>This Model - the FSDF Supermodel - is the <a href="http://www.ga.gov.au/locationindex">Location Index (Loc-I) Projects</a>'s overarching data model that provides integration logic for all FSDF elements.</p>
+<p>This is the normative listing of Requirements for data wishing to conform to the <a href="https://linked.data.gov.au/def/fsdf-backbone">FSDF Backbone Model Profile</a>.</p>
 </div>
 <div class="paragraph">
-<p>This work is part of a project to operationalise Loc-I for <a href="https://www.ga.gov.au">Geoscience Australia</a> initially undertaken by <a href="https://surroundaustralia.com">SURROUND Australia Pty Ltd</a>.</p>
+<p>This document provides those Requirements in human-readable form below. Validators containing machine-readable tests for validating that data conforms to these Requirements are provides as other parts of the <a href="https://linked.data.gov.au/def/fsdf-backbone">FSDF Backbone Model Profile</a>. See its listing of resources for them.</p>
+</div>
+<div class="paragraph">
+<p>This Specification <em>does not</em> list all the Requirements that data wishing to conform to the FSDF Backbone Model Profile must conform to: it only lists those that go beyond the Requirements already present in the Standards that the FSDF Backbone Model Profile profiles. So, you need to be familiar with those Standards to build data valid according to the FSDF Backbone Model Profile.</p>
+</div>
+<div class="paragraph">
+<p>This Profile provides some assistance with that by including a Compounded Validator (see the <a href="https://linked.data.gov.au/def/fsdf-backbone">Profile</a> for its location), which includes validators for all the Standards. Also, the <a href="https://linked.data.gov.au/def/fsdf-supermodel">FSDF Supermodel</a> describes the domains of those Standards in its <a href="https://linked.data.gov.au/def/fsdf-supermodel#_background_models">Background Models Section</a>.</p>
+</div>
+<div class="sect2">
+<h3 id="_namespaces">1.1. Namespaces</h3>
+<div class="paragraph">
+<p>The prefixes for namespaces used in this document are listed below.</p>
+</div>
+<table id="tbl-prefixes" class="tableblock frame-none grid-none stripes-even stretch">
+<caption class="title">Table 1. Namespaces</caption>
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 44.4444%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Prefix</th>
+<th class="tableblock halign-left valign-top">Namespace</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>dcterms:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="http://purl.org/dc/terms/" class="bare">http://purl.org/dc/terms/</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dublin Core Terms vocabulary namespace</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ex:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="http://example.com/" class="bare">http://example.com/</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Generic examples namespace</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>owl:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="http://www.w3.org/2002/07/owl#" class="bare">http://www.w3.org/2002/07/owl#</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Web Ontology Language ontology namespace</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rdf:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#" class="bare">http://www.w3.org/1999/02/22-rdf-syntax-ns#</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RDF ontology namespace</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rdfs:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="http://www.w3.org/2000/01/rdf-schema#" class="bare">http://www.w3.org/2000/01/rdf-schema#</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RDF Schema ontology namespace</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sosa:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="http://www.w3.org/ns/sosa/" class="bare">http://www.w3.org/ns/sosa/</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sensor, Observation, Sample, and Actuator ontology namespace</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>skos:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="http://www.w3.org/2004/02/skos/core#" class="bare">http://www.w3.org/2004/02/skos/core#</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Simple Knowledge Organization System (SKOS) ontology namespace</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>suterms:</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="https://linked.data.gov.au/def/supermodel/terms/" class="bare">https://linked.data.gov.au/def/supermodel/terms/</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Supermodel Terms &amp; Definitions Vocabulary</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_conformance">1.2. Conformance</h3>
+<div class="paragraph">
+<p>The capitalised, italicised words such as <em>MUST</em>, <em>MAY</em> etc., have meanings as per <a href="https://tools.ietf.org/html/rfc2119">RFC2119: <em>Key words for use in RFCs to Indicate Requirement Levels</em></a>.</p>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_specification_document">Specification document</h2>
+<h2 id="_requirements">2. Requirements</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This model&#8217;s document is auto-built from source files within the FSDF Supermodel repository. Both the document and source files are viewable online.</p>
+<p>Here the requirements for data to conform to this profile are listed. The Requirements are identifies (GM1 etc.) and they are referenced by validation rules in the Validation section described below. Note that some of these Requirements reference whole other Standards and Profile so that all the Requirements from them are relevant.</p>
 </div>
-<div class="paragraph">
-<p>The <strong>Specification</strong> document:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://geoscienceaustralia.github.io/fsdf-supermodel/supermodel.html" class="bare">https://geoscienceaustralia.github.io/fsdf-supermodel/supermodel.html</a></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The <strong>Repository</strong>:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://github.com/geoscienceaustralia/fsdf-supermodel" class="bare">https://github.com/geoscienceaustralia/fsdf-supermodel</a></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The online and repository location will certainly change once this model is taken over by Geoscience Australia itself for continued use.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_license_rights">License &amp; Rights</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>The contents of this repository is licensed under Creative Commons 4.0 International. See the LICENSE file in the repository for details.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_contacts">Contacts</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Official enquiries should be directed to:</p>
-</div>
-<div class="paragraph">
-<p><strong>Geoscience Australia</strong><br>
-GPO Box 378, Canberra ACT 2601 Australia<br>
-&lt;<a href="mailto:fsdf@ga.gov.au">fsdf@ga.gov.au</a>&gt;<br>
-General Enquiries: 1800 800 173,<br>
-Switchboard: +61 2 6249 9111</p>
-</div>
-<div class="paragraph">
-<p>Technical development of this work was undertaken by the following, for Geoscience Australia, so technical enquiries may be directed here:</p>
-</div>
-<div class="paragraph">
-<p><strong>Nicholas J. Car</strong><br>
-<strong>Data Architect</strong><br>
-initially of <a href="https://surroundaustralia.com">SURROUND Australia Pty Ltd.</a>,<br>
-currently of <a href="https://kurrawong.net">Kurrawong AI</a><br>
-&lt;<a href="mailto:nick@kurrawong.net">nick@kurrawong.net</a>&gt;<br>
-+61477 560 177</p>
-</div>
+<table id="backbone-reqs" class="tableblock frame-all grid-all stripes-even stretch">
+<colgroup>
+<col style="width: 22.2222%;">
+<col style="width: 11.1111%;">
+<col style="width: 22.2222%;">
+<col style="width: 44.4445%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Domain</th>
+<th class="tableblock halign-left valign-top">ID</th>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>General Modelling</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GM1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OWL Conformance</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data must conform to OWL</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GM2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Class Modelling</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Classes of object MUST be modelled as <code>owl:Class</code> instances</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GM3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Property Modelling</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Properties and predicates MUST be modelled as either <code>rdf:Property</code> instances or instances of the various OWL properties</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Dataset Metadata</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DM1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DCAT Conformance</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data must conform to DCAT</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DM2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dataset Mandatory Properties</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>dcat:Dataset</code> instances MUST be presented as <code>dcat:Dataset</code> instances with at least the following properties: <code>dcterms:identifier</code> - as an <code>xsd:token</code> value, <code>dcaterms:title</code> &amp; <code>dcterms:description</code> - as strings or langString values, <code>sdo:dateCreated</code> &amp; <code>sdo:dateModified</code> - as <code>xsd:date</code>, <code>xsd:dateTime</code> or <code>xsd:dateTimeStamp</code> values</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DM3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dataset Agents</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>dcat:Dataset</code> instances MUST indicate at least creator &amp; publisher Agents via use of the <code>sdo:creator</code> and <code>sdo:publisher</code> properties. The values for these properties must be IRIs, not strings</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DM4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dataset Provenance</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>dcat:Dataset</code> instances SHOULD indicate provenance in one of three ways: if derived from an RDF dataset then with <code>prov:wasDerivedFrom</code> - with an IRI value, if derived from an online but non-RDF data source then with <code>dcterms:source</code> - <code>xsd:anyURI`</code> value and if neither then with a written statement with <code>dcterms:provenance</code> - string or langString value</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DM5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dataset Spatiality</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>dcat:Dataset</code> instances MUST indicate the total spatial footprint the elements within them by indicating a <code>geo:Geometry</code> object via a <code>geo:hasGeometry</code> or <code>geo:hasBoundingBox</code> property</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DM6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dataset Feature Collections</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>dcat:Dataset</code> instances MUST indicate <em>at least</em> one <code>geo:FeatureCollection</code> instances within them with the <code>rdfs:member</code> property</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Spatiality</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GeoSPARQL Conformance</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Spatial data MUST conform to the GeoSPARQL 1.1 Standard</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Feature Collection Mandatory Properties</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>geo:FeatureCollection</code> instances MUST be presented with at least the following properties: <code>dcterms:identifier</code> - as an <code>xsd:token</code> value, <code>dcaterms:title</code> &amp; <code>dcterms:description</code> - as strings or langString values</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dataset Spatiality</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>geo:FeatureCollection</code> instances MUST have the total spatial footprint the elements within them by indicating a <code>geo:Geometry</code> object via a <code>geo:hasGeometry</code> or <code>geo:hasBoundingBox</code> property</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Feature Collection Features</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>geo:FeatureCollection</code> instances MUST indicate <em>at least</em> one <code>geo:Feature</code> instances within them with the <code>rdfs:member</code> property</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Feature Mandatory Properties</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>geo:Feature</code> instances MUST be presented with at least the following properties: <code>dcterms:identifier</code> - as an <code>xsd:token</code> value</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Data Dimensions</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DD1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data Cube Vocabulary Conformance</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Non-physical sciences observations data must conform to Data Cube Vocabulary</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DD2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SOSA Conformance</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Physical sciences observations data must conform to the SOSA ontology</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Vocabularies</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">V1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VocPub Conformance</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vocabularies MUST conform to the VocPub Profile of SKOS</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
