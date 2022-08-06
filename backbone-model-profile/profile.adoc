@@ -1,0 +1,77 @@
+= FSDF Backbone Model Profile
+:toc: left
+:table-stripes: even
+:sectnums:
+
+[width=75%, frame=none, grid=none, cols="1,5"]
+|===
+|**IRI** | https://linked.data.gov.au/def/fsdf-backbone
+|**Title** | FSDF Backbone Model Profile
+|**Description** |
+This is a Profile of multiple Standards which acts as the conformance target for data wishing to conform to the FSDF Supermodel (https://linked.data.gov.au/def/supermodel). The Standards profiled are the Data Catalog Vocabulary (DCAT), GeoSPARQL 1.1, the Data Cube Vocabulary, the Sensor, Observation, Sample, and Actuator (SOSA) Ontology and the Vocabularies Publication Profile of SKOS (VocPub).
+
+This Profile provides both an articulation of a series of Requirements above and beyond those Standards profiled in its Specification document and several Shapes Constraint Language (SHACL) validators for the automated validation of RDF data against those Requirements and those inherited from the Standards profiles.
+|**Created** | 2022-08-04
+|**Modified** | 2022-08-06
+|**Issued** | 2022-08-05
+|**Creator** | https://linked.data.gov.au/org/ga[Geoscience Australia]
+|**Publisher** | https://linked.data.gov.au/org/icsm[Intergovernmental Committee on Surveying & Mapping]
+|**License** | https://creativecommons.org/licenses/by/4.0/[Creative Commons Attribution 4.0 International (CC BY 4.0)]
+|===
+
+== Introduction
+
+This is a Profile, that is a Standard that constrains other Standards. It profiles multiple Standards and acts as the conformance target for data wishing to conform to the https://linked.data.gov.au/def/supermodel[FSDF Supermodel]. The Standards profiled are listed below.
+
+This Profile is available in human- and machine-readable forms with the machine-readable form being in the https://www.w3.org/TR/turtle/[RDF Turtle] format and online at:
+
+* *https://linked.data.gov.au/def/fsdf-backbone.ttl*
+
+== Profile Of
+
+This https://www.w3.org/TR/dx-prof/#dfn-profile[Profile] is a Profile of the following Standards:
+
+* https://www.w3.org/TR/vocab-dcat/[Data Catalog Vocabulary (DCAT)]
+* http://www.opengis.net/doc/IS/geosparql/1.1[GeoSPARQL 1.1]
+* https://www.w3.org/TR/vocab-data-cube/[Data Cube Vocabulary]
+* https://www.w3.org/TR/vocab-ssn/[Sensor, Observation, Sample, and Actuator (SOSA) Ontology]
+* https://w3id.org/profile/vocpub[Vocabularies Publication Profile of SKOS (VocPub)]
+
+The domains of these Standards is explained in the https://linked.data.gov.au/def/fsdf-supermodel#_background_models[FSDF Supermodel's Background Models Section].
+
+== Profile Resources
+
+This Profile consists of a number of Resources which are listed below. Any Standards that the Resources conform to, the Roles they play in this Profile, and their formats are also given. Roles are taken from the Profiles Vocabulary's https://www.w3.org/TR/dx-prof/#resource-roles-vocab[Resource Role Instances Vocabulary].
+
+.Profile Resources
+|===
+| Resource | https://schema.org/description[Description] | https://www.w3.org/TR/dx-prof/#Property:hasRole[Role] | https://www.w3.org/TR/dx-prof/#Property:conformsTo[Conforms To] | https://www.w3.org/TR/dx-prof/#Property:format[Format]
+
+| https://linked.data.gov.au/def/fsdf-backbone/specification[Specification]
+| The normative listing of Requirements for data wishing to conform to this Profile
+| https://www.w3.org/TR/dx-prof/#Role:specification[Specification]
+|
+| HTML
+
+| https://linked.data.gov.au/def/fsdf-backbone/validator[Validator]
+| The Shapes Constraint Language file storing validation rules to assess RDF data against this Profile's Specification's Requirements
+| https://www.w3.org/TR/dx-prof/#Role:validation[Validation]
+| https://www.w3.org/TR/shacl/[SHACL]
+| https://www.w3.org/TR/turtle/[RDF Turtle]
+
+| https://linked.data.gov.au/def/fsdf-backbone/validator-compounded[Compounded Validator]
+| A SHACL file storing the content of this Profile's Validator as well as validators for all the Standards that this Profile profiles
+| https://www.w3.org/TR/dx-prof/#Role:validation[Validation]
+| https://www.w3.org/TR/shacl/[SHACL]
+| https://www.w3.org/TR/turtle/[RDF Turtle]
+
+| https://linked.data.gov.au/def/fsdf-backbone/repository[Code Repository]
+| The online version control repository storing this Profile's content
+| https://data.surroundaustralia.com/def/prof-roles/repository[Repository]
+| https://git-scm.com/[Git]
+|
+
+|===
+
+NOTE: Individual validators for the Standards that this Profile profiles are listed in the https://linked.data.gov.au/def/fsdf-supermodel#_validation_2[Backbone Model > Validation] section of the FSDF Supermodel. Also given there are details of how this Profile's validator and some of those profiled Standards' validators are pre-loaded into online validation tooling.
+

@@ -27,6 +27,10 @@ jobs:
         cp rdf/*.ttl docs/
         echo "Add images to docs/"
         cp -r img docs/
+        echo "Add profile to docs/"
+        cp backbone-model-profile/profile.ttl docs/
+        asciidoctor backbone-model-profile/profile.adoc -o docs/backbone-model-profile.html
+        asciidoctor backbone-model-profile/spec.adoc -o docs/backbone-model-spec.html
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:

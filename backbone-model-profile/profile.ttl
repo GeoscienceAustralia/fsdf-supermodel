@@ -1,0 +1,55 @@
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX prof: <http://www.w3.org/ns/dx/prof/>
+PREFIX role: <http://www.w3.org/ns/dx/prof/role/>
+PREFIX sdo: <https://schema.org/>
+
+<https://linked.data.gov.au/def/fsdf-backbone>
+    a prof:Profile ;
+    prof:hasResource
+        <https://linked.data.gov.au/def/fsdf-backbone/repository> ,
+        <https://linked.data.gov.au/def/fsdf-backbone/specification> ,
+        <https://linked.data.gov.au/def/fsdf-backbone/validator> ,
+        <https://linked.data.gov.au/def/fsdf-backbone/validator-compounded> ;
+    prof:profileOf
+        <http://www.opengis.net/doc/IS/geosparql/1.1> ,
+        <https://w3id.org/profile/vocpub> ,
+        <https://www.w3.org/TR/vocab-data-cube/> ,
+        <https://www.w3.org/TR/vocab-dcat/> ,
+        <https://www.w3.org/TR/vocab-ssn/> ;
+    sdo:description "This is a profile of DCAT, GeoSPARQL & VocPub to be used as a conformance target for data within the FSDF Supermodel"@en ;
+    sdo:name "FSDF Backbone Model Profile" ;
+.
+
+<https://linked.data.gov.au/def/fsdf-backbone/repository>
+    a prof:Resource ;
+    dcterms:conformsTo <https://git-scm.com> ;
+    prof:hasRole <https://data.surroundaustralia.com/def/prof-roles/repository> ;
+    sdo:description "The online version control repository storing this Profile’s content"@en ;
+    sdo:name "FSDF Backbone Model Code Repository" ;
+.
+
+<https://linked.data.gov.au/def/fsdf-backbone/specification>
+    a prof:Resource ;
+    dcterms:format "text/html" ;
+    prof:hasRole role:specification ;
+    sdo:description "The normative listing of Requirements for data wishing to conform to this Profile"@en ;
+    sdo:name "FSDF Backbone Model Specification" ;
+.
+
+<https://linked.data.gov.au/def/fsdf-backbone/validator>
+    a prof:Resource ;
+    dcterms:conformsTo <https://www.w3.org/TR/shacl/> ;
+    dcterms:format "text/turtle" ;
+    prof:hasRole role:validation ;
+    sdo:description "The Shapes Constraint Language file storing validation rules to assess RDF data against this Profile’s Specification’s Requirements"@en ;
+    sdo:name "FSDF Backbone Model Validator" ;
+.
+
+<https://linked.data.gov.au/def/fsdf-backbone/validator-compounded>
+    a prof:Resource ;
+    dcterms:conformsTo <https://www.w3.org/TR/shacl/> ;
+    dcterms:format "text/turtle" ;
+    prof:hasRole role:validation ;
+    sdo:description "A SHACL file storing the content of this Profile’s Validator as well as validators for all the Standards that this Profile profiles"@en ;
+    sdo:name "FSDF Backbone Model Compounded Validator" ;
+.

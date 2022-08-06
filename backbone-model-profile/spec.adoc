@@ -1,0 +1,88 @@
+= FSDF Backbone Model Profile Specification
+:toc: left
+:table-stripes: even
+:sectnums:
+
+[width=75%, frame=none, grid=none, cols="1,5"]
+|===
+|**IRI** | https://linked.data.gov.au/def/fsdf-backbone/specification
+|**Title** | FSDF Backbone Model Profile Specification
+|**Description** |
+This is the normative listing of Requirements for data wishing to conform to the FSDF Backbone Model Profile Specification
+|**Created** | 2022-08-04
+|**Modified** | 2022-08-06
+|**Issued** | 2022-08-05
+|**Creator** | https://linked.data.gov.au/org/ga[Geoscience Australia]
+|**Publisher** | https://linked.data.gov.au/org/icsm[Intergovernmental Committee on Surveying & Mapping]
+|**License** | https://creativecommons.org/licenses/by/4.0/[Creative Commons Attribution 4.0 International (CC BY 4.0)]
+|===
+
+== Introduction
+
+This is the normative listing of Requirements for data wishing to conform to the https://linked.data.gov.au/def/fsdf-backbone[FSDF Backbone Model Profile].
+
+This document provides those Requirements in human-readable form below. Validators containing machine-readable tests for validating that data conforms to these Requirements are provides as other parts of the https://linked.data.gov.au/def/fsdf-backbone[FSDF Backbone Model Profile]. See its listing of resources for them.
+
+This Specification _does not_ list all the Requirements that data wishing to conform to the FSDF Backbone Model Profile must conform to: it only lists those that go beyond the Requirements already present in the Standards that the FSDF Backbone Model Profile profiles. So, you need to be familiar with those Standards to build data valid according to the FSDF Backbone Model Profile.
+
+This Profile provides some assistance with that by including a Compounded Validator (see the https://linked.data.gov.au/def/fsdf-backbone[Profile] for its location), which includes validators for all the Standards. Also, the https://linked.data.gov.au/def/fsdf-supermodel[FSDF Supermodel] describes the domains of those Standards in its https://linked.data.gov.au/def/fsdf-supermodel#_background_models[Background Models Section].
+
+=== Namespaces
+
+The prefixes for namespaces used in this document are listed below.
+
+[id=tbl-prefixes, width=100%, frame=none, grid=none, cols="1,4,4"]
+.Namespaces
+|===
+|Prefix | Namespace | Description
+
+|`dcterms:` | `http://purl.org/dc/terms/` | Dublin Core Terms vocabulary namespace
+|`ex:` | `http://example.com/` | Generic examples namespace
+|`owl:` | `http://www.w3.org/2002/07/owl#` | Web Ontology Language ontology namespace
+|`rdf:` | `http://www.w3.org/1999/02/22-rdf-syntax-ns#` | RDF ontology namespace
+|`rdfs:` | `http://www.w3.org/2000/01/rdf-schema#` | RDF Schema ontology namespace
+|`sosa:` | `http://www.w3.org/ns/sosa/` | Sensor, Observation, Sample, and Actuator ontology namespace
+|`skos:` | `http://www.w3.org/2004/02/skos/core#` | Simple Knowledge Organization System (SKOS) ontology namespace
+|`suterms:` | `https://linked.data.gov.au/def/supermodel/terms/` | Supermodel Terms & Definitions Vocabulary
+|===
+
+=== Conformance
+
+The capitalised, italicised words such as _MUST_, _MAY_ etc., have meanings as per https://tools.ietf.org/html/rfc2119[RFC2119: _Key words for use in RFCs to Indicate Requirement Levels_].
+
+== Requirements
+
+Here the requirements for data to conform to this profile are listed. The Requirements are identifies (GM1 etc.) and they are referenced by validation rules in the Validation section described below. Note that some of these Requirements reference whole other Standards and Profile so that all the Requirements from them are relevant.
+
+
+
+
+////
+| General Modelling
+| Dataset Metadata
+| Spatiality
+| Data Dimensions
+| Vocabularies
+////
+[id="backbone-reqs", cols="2,1,2,4"]
+|===
+| Domain | ID | Name | Definition
+
+| *General Modelling* | GM1 | OWL Conformance | Data must conform to OWL
+|                     | GM2 | Class Modelling | Classes of object MUST be modelled as `owl:Class` instances
+|                     | GM3 | Property Modelling | Properties and predicates MUST be modelled as either `rdf:Property` instances or instances of the various OWL properties
+| *Dataset Metadata*  | DM1 | DCAT Conformance | Data must conform to DCAT
+|                     | DM2 | Dataset Mandatory Properties | `dcat:Dataset` instances MUST be presented as `dcat:Dataset` instances with at least the following properties: `dcterms:identifier` - as an `xsd:token` value, `dcaterms:title` & `dcterms:description` - as strings or langString values, `sdo:dateCreated` & `sdo:dateModified` - as `xsd:date`, `xsd:dateTime` or `xsd:dateTimeStamp` values
+|                     | DM3 | Dataset Agents | `dcat:Dataset` instances MUST indicate at least creator & publisher Agents via use of the `sdo:creator` and `sdo:publisher` properties. The values for these properties must be IRIs, not strings
+|                     | DM4 | Dataset Provenance | `dcat:Dataset` instances SHOULD indicate provenance in one of three ways: if derived from an RDF dataset then with `prov:wasDerivedFrom` - with an IRI value, if derived from an online but non-RDF data source then with `dcterms:source` - `xsd:anyURI`` value and if neither then with a written statement with `dcterms:provenance` - string or langString value
+|                     | DM5 | Dataset Spatiality | `dcat:Dataset` instances MUST indicate the total spatial footprint the elements within them by indicating a `geo:Geometry` object via a `geo:hasGeometry` or `geo:hasBoundingBox` property
+|                     | DM6 | Dataset Feature Collections | `dcat:Dataset` instances MUST indicate _at least_ one `geo:FeatureCollection` instances within them with the `rdfs:member` property
+| *Spatiality*        | S1 | GeoSPARQL Conformance | Spatial data MUST conform to the GeoSPARQL 1.1 Standard
+|                     | S2 | Feature Collection Mandatory Properties | `geo:FeatureCollection` instances MUST be presented with at least the following properties: `dcterms:identifier` - as an `xsd:token` value, `dcaterms:title` & `dcterms:description` - as strings or langString values
+|                     | S3 | Dataset Spatiality | `geo:FeatureCollection` instances MUST have the total spatial footprint the elements within them by indicating a `geo:Geometry` object via a `geo:hasGeometry` or `geo:hasBoundingBox` property
+|                     | S4 | Feature Collection Features | `geo:FeatureCollection` instances MUST indicate _at least_ one `geo:Feature` instances within them with the `rdfs:member` property
+|                     | S5 | Feature Mandatory Properties | `geo:Feature` instances MUST be presented with at least the following properties: `dcterms:identifier` - as an `xsd:token` value
+| *Data Dimensions*   | DD1 | Data Cube Vocabulary Conformance | Non-physical sciences observations data must conform to Data Cube Vocabulary
+|                     | DD2 | SOSA Conformance | Physical sciences observations data must conform to the SOSA ontology
+| *Vocabularies*      | V1 | VocPub Conformance | Vocabularies MUST conform to the VocPub Profile of SKOS
+|===
