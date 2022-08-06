@@ -2,6 +2,7 @@ PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX prof: <http://www.w3.org/ns/dx/prof/>
 PREFIX role: <http://www.w3.org/ns/dx/prof/role/>
 PREFIX sdo: <https://schema.org/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 <https://linked.data.gov.au/def/fsdf-backbone>
     a prof:Profile ;
@@ -9,7 +10,8 @@ PREFIX sdo: <https://schema.org/>
         <https://linked.data.gov.au/def/fsdf-backbone/repository> ,
         <https://linked.data.gov.au/def/fsdf-backbone/specification> ,
         <https://linked.data.gov.au/def/fsdf-backbone/validator> ,
-        <https://linked.data.gov.au/def/fsdf-backbone/validator-compounded> ;
+        <https://linked.data.gov.au/def/fsdf-backbone/validator-compounded> ,
+        <https://linked.data.gov.au/def/fsdf-backbone/example-sandgate> ;
     prof:profileOf
         <http://www.opengis.net/doc/IS/geosparql/1.1> ,
         <https://w3id.org/profile/vocpub> ,
@@ -18,6 +20,7 @@ PREFIX sdo: <https://schema.org/>
         <https://www.w3.org/TR/vocab-ssn/> ;
     sdo:description "This is a profile of DCAT, GeoSPARQL & VocPub to be used as a conformance target for data within the FSDF Supermodel"@en ;
     sdo:name "FSDF Backbone Model Profile" ;
+    sdo:codeRepository "https://github.com/geoscienceaustralia/fsdf-supermodel"^^xsd:anyURI ;
 .
 
 <https://linked.data.gov.au/def/fsdf-backbone/repository>
@@ -52,4 +55,13 @@ PREFIX sdo: <https://schema.org/>
     prof:hasRole role:validation ;
     sdo:description "A SHACL file storing the content of this Profile’s Validator as well as validators for all the Standards that this Profile profiles"@en ;
     sdo:name "FSDF Backbone Model Compounded Validator" ;
+.
+
+<https://linked.data.gov.au/def/fsdf-backbone/example-sandgate>
+    a prof:Resource ;
+    dcterms:conformsTo <https://linked.data.gov.au/def/fsdf-backbone> ;
+    dcterms:format "text/turtle" ;
+    prof:hasRole role:example ;
+    sdo:description "An example valid Dataset with FeatureCollections containing Features with Geometries"@en ;
+    sdo:name "Sandgate Example Dataset" ;
 .

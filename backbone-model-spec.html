@@ -547,6 +547,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">Generic examples namespace</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>geo</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="http://www.opengis.net/ont/geosparql#" class="bare">http://www.opengis.net/ont/geosparql#</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GeoSPARQL ontology namespace</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>owl:</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="http://www.w3.org/2002/07/owl#" class="bare">http://www.w3.org/2002/07/owl#</a></code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Web Ontology Language ontology namespace</p></td>
@@ -637,7 +642,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DM2</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Dataset Mandatory Properties</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>dcat:Dataset</code> instances MUST be presented as <code>dcat:Dataset</code> instances with at least the following properties: <code>dcterms:identifier</code> - as an <code>xsd:token</code> value, <code>dcaterms:title</code> &amp; <code>dcterms:description</code> - as strings or langString values, <code>sdo:dateCreated</code> &amp; <code>sdo:dateModified</code> - as <code>xsd:date</code>, <code>xsd:dateTime</code> or <code>xsd:dateTimeStamp</code> values</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>dcat:Dataset</code> instances MUST be presented as <code>dcat:Dataset</code> instances with at least the following properties: <code>sdo:identifier</code> - as an <code>xsd:token</code> value, <code>sdo:title</code> &amp; <code>sdo:description</code> - as strings or langString values, <code>sdo:dateCreated</code> &amp; <code>sdo:dateModified</code> - as <code>xsd:date</code>, <code>xsd:dateTime</code> or <code>xsd:dateTimeStamp</code> values</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -649,7 +654,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DM4</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Dataset Provenance</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>dcat:Dataset</code> instances SHOULD indicate provenance in one of three ways: if derived from an RDF dataset then with <code>prov:wasDerivedFrom</code> - with an IRI value, if derived from an online but non-RDF data source then with <code>dcterms:source</code> - <code>xsd:anyURI`</code> value and if neither then with a written statement with <code>dcterms:provenance</code> - string or langString value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>dcat:Dataset</code> instances SHOULD indicate provenance in one of three ways: if derived from an RDF dataset then with <code>prov:wasDerivedFrom</code> - with an IRI value, if derived from an online but non-RDF data source then with <code>dcterms:source</code> - <code>xsd:anyURI</code> value and if neither then with a written statement with <code>dcterms:provenance</code> - string or langString value</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
@@ -673,12 +678,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">S2</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Feature Collection Mandatory Properties</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>geo:FeatureCollection</code> instances MUST be presented with at least the following properties: <code>dcterms:identifier</code> - as an <code>xsd:token</code> value, <code>dcaterms:title</code> &amp; <code>dcterms:description</code> - as strings or langString values</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>geo:FeatureCollection</code> instances MUST be presented with at least the following properties: <code>sdo:identifier</code> - as an <code>xsd:token</code> value, <code>dcaterms:title</code> &amp; <code>sdo:description</code> - as strings or langString values</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">S3</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Dataset Spatiality</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Feature Collection Spatiality</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>geo:FeatureCollection</code> instances MUST have the total spatial footprint the elements within them by indicating a <code>geo:Geometry</code> object via a <code>geo:hasGeometry</code> or <code>geo:hasBoundingBox</code> property</p></td>
 </tr>
 <tr>
@@ -691,7 +696,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">S5</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Feature Mandatory Properties</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>geo:Feature</code> instances MUST be presented with at least the following properties: <code>dcterms:identifier</code> - as an <code>xsd:token</code> value</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>geo:Feature</code> instances MUST be presented with at least the following properties: <code>sdo:identifier</code> - as an <code>xsd:token</code> value</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Data Dimensions</strong></p></td>
@@ -718,7 +723,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-08-06 08:02:04 UTC
+Last updated 2022-08-06 11:02:19 UTC
 </div>
 </div>
 </body>
