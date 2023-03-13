@@ -15,8 +15,8 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 <https://linked.data.gov.au/def/fsdf-backbone/validator>
     a owl:Ontology ;
     dcterms:provenance "This validator for the FSDF Backbone Model was made in 2022."@en ;
-    owl:versionIRI <http://linked.data.gov.au/def/fsdf-backbone/0.0.1> ;
-    owl:versionInfo "0.0.1" ;
+    owl:versionIRI <http://linked.data.gov.au/def/fsdf-backbone/1.0.0> ;
+    owl:versionInfo "1.0.0" ;
     sdo:codeRespository "https://github.com/geoscienceaustralia/fsdf-supermodel"^^xsd:anyURI ;
     sdo:copyrightHolder <https://orcid.org/0000-0002-8742-7730> ;
     sdo:copyrightNotice "(c) Commonwealth of Australia (Geoscience Australia), 2022" ;
@@ -24,7 +24,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     sdo:creator <https://orcid.org/0000-0002-8742-7730> ;
     sdo:dateCreated "2022-09-05"^^xsd:date ;
     sdo:dateIssued "2022-09-05"^^xsd:date ;
-    sdo:dateModified "2022-09-06"^^xsd:date ;
+    sdo:dateModified "2023-03-09"^^xsd:date ;
     sdo:description "The Shapes Constraint Language file storing validation rules to assess RDF data against the FSDF Backbone Model Profile’s Specification’s Requirements"@en ;
     sdo:license "https://creativecommons.org/licenses/by/4.0/"^^xsd:anyURI ;
     sdo:name "FSDF Backbone Model Profile Validator"@en ;
@@ -75,12 +75,11 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     sh:targetClass dcat:Dataset ;
     rdfs:label "Dataset Mandatory Properties" ;
     sh:property
-        :mandatory-identifier ,
         :mandatory-title ,
         :mandatory-description ,
         :mandatory-dateCreated ,
         :mandatory-dateModified ;
-    sh:message "dcat:Dataset instances MUST be presented as dcat:Dataset instances with at least the following properties: sdo:identifier - as an xsd:token value, dcaterms:title & sdo:description - as strings or langString values, sdo:dateCreated & sdo:dateModified - as xsd:date, xsd:dateTime or xsd:dateTimeStamp values" ;
+    sh:message "dcat:Dataset instances MUST be presented as dcat:Dataset instances with at least the following properties: dcaterms:title & sdo:description - as strings or langString values, sdo:dateCreated & sdo:dateModified - as xsd:date, xsd:dateTime or xsd:dateTimeStamp values" ;
 .
 
 :DM3
@@ -140,15 +139,22 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     ] ;
 .
 
+:DM7
+    a sh:NodeShape ;
+    sh:targetClass geo:Feature ;
+    rdfs:label "Dataset Optional Properties" ;
+    # sh:property :mandatory-identifier ;
+    sh:message "dcat:Dataset instances MAY be presented with the following properties: TODO" ;
+.
+
 :S2
     a sh:NodeShape ;
     sh:targetClass geo:FeatureCollection ;
     rdfs:label "Feature Collection Mandatory Properties" ;
     sh:property
-        :mandatory-identifier ,
         :mandatory-title ,
         :mandatory-description ;
-    sh:message "geo:FeatureCollection instances MUST be presented with at least the following properties: sdo:identifier - as an xsd:token value, dcaterms:title & sdo:description - as strings or langString values" ;
+    sh:message "geo:FeatureCollection instances MUST be presented with at least the following properties: dcaterms:title & sdo:description - as strings or langString values" ;
 .
 
 :S3
@@ -176,19 +182,24 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     a sh:NodeShape ;
     sh:targetClass geo:Feature ;
     rdfs:label "Feature Mandatory Properties" ;
-    sh:property
-        :mandatory-identifier ;
-    sh:message "geo:Feature instances MUST be presented with at least the following properties: dcterms:identifier - as an xsd:token value" ;
+    # sh:property :mandatory-identifier ;
+    # sh:message "geo:Feature instances MUST be presented with at least the following properties: dcterms:identifier - as an xsd:token value" ;
 .
 
-:mandatory-identifier
-    a sh:PropertyShape ;
-    rdfs:label "Mandatory Identifier" ;
-    sh:path sdo:identifier ;
-    sh:minCount 1 ;
-    sh:maxCount 1 ;
-    sh:datatype xsd:token ;
-    sh:message "Each dcat:Dataset, geo:FeatureCollection and geo:Feature instance MUST indicate an sdo:identifier property of datatype xsd:token." ;
+:S6
+    a sh:NodeShape ;
+    sh:targetClass geo:FeatureCollection ;
+    rdfs:label "Feature Collection Optional Properties" ;
+    # sh:property :mandatory-identifier ;
+    sh:message "geo:FeatureCollection instances MAY be presented with the following properties: TODO" ;
+.
+
+:S7
+    a sh:NodeShape ;
+    sh:targetClass geo:Feature ;
+    rdfs:label "Feature Optional Properties" ;
+    # sh:property :mandatory-identifier ;
+    sh:message "geo:Feature instances MAY be presented with the following properties: TODO" ;
 .
 
 :mandatory-title
