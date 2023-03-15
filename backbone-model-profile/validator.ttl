@@ -259,7 +259,11 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 :mandatory-creator
     a sh:PropertyShape ;
     rdfs:label "Creator" ;
-    sh:path sdo:creator ;
+    sh:path [ sh:alternativePath (
+                sdo:creator
+                ( prov:qualifiedAttribution dcat:hadRole )
+             )
+            ] ;
     sh:minCount 1 ;
     sh:nodeKind sh:BlankNodeOrIRI ;
     sh:message "Each dcat:Dataset instance MUST indicate at least one sdo:creator property with a value of type Blank Node or IRI" ;
@@ -268,7 +272,11 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 :mandatory-publisher
     a sh:PropertyShape ;
     rdfs:label "Publisher" ;
-    sh:path sdo:publisher ;
+        sh:path [ sh:alternativePath (
+                sdo:publisher
+                ( prov:qualifiedAttribution dcat:hadRole )
+             )
+            ] ;
     sh:minCount 1 ;
     sh:nodeKind sh:BlankNodeOrIRI ;
     sh:message "Each dcat:Dataset instance MUST indicate at least one sdo:publisher property with a value of type Blank Node or IRI" ;
