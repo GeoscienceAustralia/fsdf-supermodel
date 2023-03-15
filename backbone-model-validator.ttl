@@ -86,11 +86,13 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     a sh:NodeShape ;
     sh:targetClass dcat:Dataset ;
     rdfs:label "Dataset Agents" ;
-    sh:property
-        :mandatory-creator ,
-        :mandatory-publisher ;
-    sh:message "dcat:Dataset instances MUST indicate at least creator & publisher Agents via use of the sdo:creator and sdo:publisher properties. The values for these properties must be IRIs, not strings" ;
-.
+    sh:xone ( [ sh:property :mandatory-creator-direct, :mandatory-publisher-direct ]
+              [ sh:property :mandatory-creator-indirect, :mandatory-publisher-direct ]
+              [ sh:property :mandatory-creator-direct, :mandatory-publisher-indirect ]
+              [ sh:property :mandatory-creator-indirect, :mandatory-publisher-indirect ]
+            ) ;
+    sh:message "dcat:Dataset instances MUST indicate at least creator & publisher Agents, either directly, or via the prov:qualifiedAttribution dcat:hadRole sequence path" ;
+                .
 
 :DM4
     a sh:NodeShape ;
@@ -256,30 +258,41 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     sh:message "Each dcat:Dataset instance MUST indicate one and only one sdo:dateModified property with a value of data type xsd:date, xsd:dateTime, or xsd:dateTimeStamp" ;
 .
 
-:mandatory-creator
+:mandatory-creator-direct
     a sh:PropertyShape ;
     rdfs:label "Creator" ;
-    sh:or ( [ sh:path     sdo:creator ;
-              sh:minCount 1 ; ]
-            [ sh:path     ( prov:qualifiedAttribution dcat:hadRole ) ;
-              sh:hasValue sdo:creator ;
-              sh:minCount 1 ; ] ) ;
+    sh:path sdo:creator ;
     sh:minCount 1 ;
     sh:nodeKind sh:BlankNodeOrIRI ;
-    sh:message "Each dcat:Dataset instance MUST indicate at least one sdo:creator property with a value of type Blank Node or IRI" ;
+    sh:message "Each dcat:Dataset instance MUST indicate either a sdo:creator property with a value of type Blank Node or IRI, or a prov:qualifiedAttribution/dcat:hadRole sequence path, with a value of sdo:creator" ;
 .
 
-:mandatory-publisher
+:mandatory-creator-indirect
+    a sh:PropertyShape ;
+    rdfs:label "Creator" ;
+    sh:path ( prov:qualifiedAttribution dcat:hadRole ) ;
+    sh:hasValue sdo:creator ;
+    sh:minCount 1 ;
+    sh:message "Each dcat:Dataset instance MUST indicate either a sdo:creator property with a value of type Blank Node or IRI, or a prov:qualifiedAttribution/dcat:hadRole sequence path, with a value of sdo:creator" ;
+.
+
+
+:mandatory-publisher-direct
     a sh:PropertyShape ;
     rdfs:label "Publisher" ;
-        sh:path [ sh:alternativePath (
-                sdo:publisher
-                ( prov:qualifiedAttribution dcat:hadRole )
-             )
-            ] ;
+    sh:path sdo:publisher ;
     sh:minCount 1 ;
     sh:nodeKind sh:BlankNodeOrIRI ;
-    sh:message "Each dcat:Dataset instance MUST indicate at least one sdo:publisher property with a value of type Blank Node or IRI" ;
+    sh:message "Each dcat:Dataset instance MUST indicate either a sdo:publisher property with a value of type Blank Node or IRI, or a prov:qualifiedAttribution/dcat:hadRole sequence path, with a value of sdo:publisher" ;
+.
+
+:mandatory-publisher-indirect
+    a sh:PropertyShape ;
+    rdfs:label "publisher" ;
+    sh:path ( prov:qualifiedAttribution dcat:hadRole ) ;
+    sh:hasValue sdo:publisher ;
+    sh:minCount 1 ;
+    sh:message "Each dcat:Dataset instance MUST indicate either a sdo:publisher property with a value of type Blank Node or IRI, or a prov:qualifiedAttribution/dcat:hadRole sequence path, with a value of sdo:publisher" ;
 .
 
 :mandatory-geometry
