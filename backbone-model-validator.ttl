@@ -79,7 +79,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
         :mandatory-description ,
         :mandatory-dateCreated ,
         :mandatory-dateModified ;
-    sh:message "dcat:Dataset instances MUST be presented as dcat:Dataset instances with at least the following properties: dcaterms:title & sdo:description - as strings or langString values, sdo:dateCreated & sdo:dateModified - as xsd:date, xsd:dateTime or xsd:dateTimeStamp values" ;
+    sh:message "dcat:Dataset instances MUST be presented as dcat:Dataset instances with at least the following properties: sdo:name & sdo:description - as strings or langString values, sdo:dateCreated & sdo:dateModified - as xsd:date, xsd:dateTime or xsd:dateTimeStamp values" ;
 .
 
 :DM3
@@ -154,7 +154,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     sh:property
         :mandatory-title ,
         :mandatory-description ;
-    sh:message "geo:FeatureCollection instances MUST be presented with at least the following properties: dcaterms:title & sdo:description - as strings or langString values" ;
+    sh:message "geo:FeatureCollection instances MUST be presented with at least the following properties: dcterms:title & sdo:description - as strings or langString values" ;
 .
 
 :S3
@@ -212,7 +212,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
         [ sh:datatype xsd:string ]
         [ sh:datatype rdf:langString ]
     ) ;
-    sh:message "Each dcate:Dataset and geo:FeatureCollection instance MUST indicate one and only one sdo:description property that with a value of data type xsd:string or rdf:langString" ;
+    sh:message "Each dcat:Dataset and geo:FeatureCollection instance MUST indicate one and only one sdo:description property that with a value of data type xsd:string or rdf:langString" ;
 .
 
 :mandatory-description
@@ -225,7 +225,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
         [ sh:datatype xsd:string ]
         [ sh:datatype rdf:langString ]
     ) ;
-    sh:message "Each dcate:Dataset and geo:FeatureCollection instance MUST indicate one and only one sdo:description property that with a value of data type xsd:string or rdf:langString" ;
+    sh:message "Each dcat:Dataset and geo:FeatureCollection instance MUST indicate one and only one sdo:description property that with a value of data type xsd:string or rdf:langString" ;
 .
 
 :mandatory-dateCreated
