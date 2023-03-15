@@ -276,10 +276,10 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 :mandatory-geometry
     a sh:PropertyShape ;
-    sh:alternativePath (
+    sh:path [sh:alternativePath (
         geo:hasGeometry
         geo:hasBoundingBox
-    ) ;
+    )] ;
     sh:class geo:Geometry ;
     sh:minCount 1 ;
     sh:message "dcat:Dataset and geo:FeatureCollection instances MUST indicate the total spatial footprint the elements within them by indicating a geo:Geometry object via a geo:hasGeometry or geo:hasBoundingBox property" ;
