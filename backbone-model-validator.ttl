@@ -259,11 +259,11 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 :mandatory-creator
     a sh:PropertyShape ;
     rdfs:label "Creator" ;
-    sh:path [ sh:alternativePath (
-                sdo:creator
-                ( prov:qualifiedAttribution dcat:hadRole )
-             )
-            ] ;
+    sh:or ( [ sh:path     sdo:creator ;
+              sh:minCount 1 ; ]
+            [ sh:path     ( prov:qualifiedAttribution dcat:hadRole ) ;
+              sh:hasValue sdo:creator ;
+              sh:minCount 1 ; ] ) ;
     sh:minCount 1 ;
     sh:nodeKind sh:BlankNodeOrIRI ;
     sh:message "Each dcat:Dataset instance MUST indicate at least one sdo:creator property with a value of type Blank Node or IRI" ;
