@@ -131,11 +131,11 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 :DM5-1
     a sh:NodeShape ;
     sh:targetClass geo:Geometry ;
-    rdfs:label "Geometry not none" ;
+    rdfs:label "Valid WKT" ;
     sh:property
-        :geometry-is-not-none ;
-    #TODO add additional checks for geometry validity
-    sh:message "Geometries must not be valid" ;
+        :valid-wkt ,
+        :valid-geojson ;
+    sh:message "Geometries must be valid" ;
 .
 
 
@@ -317,16 +317,21 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     sh:message "dcat:Dataset and geo:FeatureCollection instances MUST indicate the total spatial footprint the elements within them by indicating a geo:Geometry object via a geo:hasGeometry or geo:hasBoundingBox property" ;
 .
 
-:geometry-is-not-none
+:valid-wkt
     a sh:PropertyShape ;
-    sh:path [sh:alternativePath (
-        geo:asWKT
-        geo:asGeoJSON
-    )] ;
-    sh:or (
-        [ sh:datatype geo:wktLiteral ]
-        [ sh:datatype geo:geoJSONLiteral ]
-    ) ;
-    sh:pattern "^((?!None).)*$" ;
-    sh:message "Geometry literal must not have a value of 'None'" ;
+    sh:path geo:asWKT ;
+    sh:datatype geo:wktLiteral ;
+    skos:note "This regex was generated using chat GPT - it hasn't been validated against a reference set of geometry literals" ;
+    sh:pattern "^\\s*(POINT|LINESTRING|POLYGON|MULTIPOINT|MULTILINESTRING|MULTIPOLYGON|GEOMETRYCOLLECTION)\\s*\\(.*\\)\\s*$" ;
+    sh:message "Geometry literal must be valid WKT" ;
 .
+
+:valid-geojson
+    a sh:PropertyShape ;
+    sh:path geo:asGeoJSON ;
+    sh:datatype geo:geoJSONLiteral ;
+    skos:note "This regex was generated using chat GPT - it hasn't been validated against a reference set of geometry literals" ;
+    sh:pattern """^\\s*\\{\\s*"type"\\s*:\\s*"\\w+"\\s*,\\s*"coordinates"\\s*:\\s*\\[.*\\]\\s*\\}\\s*$""" ;
+    sh:message "Geometry literal must be valid GeoJSON" ;
+.
+
