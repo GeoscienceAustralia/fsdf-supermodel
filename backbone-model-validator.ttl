@@ -128,6 +128,17 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     sh:message "dcat:Dataset instances MUST indicate the total spatial footprint the elements within them by indicating a geo:Geometry object via a geo:hasGeometry or geo:hasBoundingBox property" ;
 .
 
+:DM5-1
+    a sh:NodeShape ;
+    sh:targetClass geo:Geometry ;
+    rdfs:label "Geometry not none" ;
+    sh:property
+        :geometry-is-not-none ;
+    #TODO add additional checks for geometry validity
+    sh:message "Geometries must not be valid" ;
+.
+
+
 :DM6
     a sh:NodeShape ;
     sh:targetClass dcat:Dataset ;
@@ -304,4 +315,18 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     sh:class geo:Geometry ;
     sh:minCount 1 ;
     sh:message "dcat:Dataset and geo:FeatureCollection instances MUST indicate the total spatial footprint the elements within them by indicating a geo:Geometry object via a geo:hasGeometry or geo:hasBoundingBox property" ;
+.
+
+:geometry-is-not-none
+    a sh:PropertyShape ;
+    sh:path [sh:alternativePath (
+        geo:asWKT
+        geo:asGeoJSON
+    )] ;
+    sh:or (
+        [ sh:datatype geo:wktLiteral ]
+        [ sh:datatype geo:geoJSONLiteral ]
+    ) ;
+    sh:pattern "^((?!None).)*$" ;
+    sh:message "Geometry literal must not have a value of 'None'" ;
 .
