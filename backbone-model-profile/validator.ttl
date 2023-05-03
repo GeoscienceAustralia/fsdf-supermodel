@@ -9,6 +9,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX sdo: <https://schema.org/>
 PREFIX sh: <http://www.w3.org/ns/shacl#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX vann: <http://purl.org/vocab/vann/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 
@@ -335,3 +336,41 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     sh:message "Geometry literal must be valid GeoJSON" ;
 .
 
+:SingleNamespaceWarningShape
+    a sh:NodeShape ;
+    sh:targetSubjectsOf rdf:type ;
+    sh:property [
+        a sh:PropertyShape ;
+        sh:path rdf:type ;
+        sh:sparql [
+            a sh:SPARQLConstraint ;
+            sh:message """Warning: At least one namespace does not have a corresponding
+            vann:preferredPrefix. To identify namespaces without prefixes, start with the following query:
+            ```
+            SELECT DISTINCT ?namespace
+            {?uri a ?type
+              BIND (REPLACE(STR(?uri), "(.*[/#])[^#/]*$", "$1") AS ?namespace)
+              VALUES ?type { skos:Collection skos:ConceptScheme skos:Concept dcat:Dataset geo:FeatureCollection geo:Feature dcat:Resource dcat:Catalog }
+              MINUS {?namespace vann:preferredPrefix ?prefix .}
+            } LIMIT 100
+            ```
+            """ ;
+            sh:severity sh:Warning ;
+            sh:ask """
+                PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+                PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+                PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+                PREFIX dcat: <http://www.w3.org/ns/dcat#>
+                PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+                PREFIX vann: <http://purl.org/vocab/vann/>
+
+                ASK {
+                    ?uri a ?type .
+                    BIND (REPLACE(STR(?uri), "(.*[/#])[^#/]*$", "$1") AS ?namespace)
+                    VALUES ?type { skos:Collection skos:ConceptScheme skos:Concept dcat:Dataset geo:FeatureCollection geo:Feature dcat:Resource dcat:Catalog }
+                    MINUS {?namespace vann:preferredPrefix ?prefix .}
+                }
+            """ ;
+        ] ;
+    ] .
